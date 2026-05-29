@@ -1634,7 +1634,7 @@ async function shareCardImage() {
 }
 
 function initCountdown() {
-    const targetDate = new Date("May 31, 2026 00:00:00").getTime();
+    const targetDate = new Date("May 30, 2026 00:00:00").getTime();
 
     function updateTimer() {
         const diff = targetDate - Date.now();
