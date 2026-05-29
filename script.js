@@ -86,8 +86,123 @@ let audioCtx = null;
 let synthInterval = null;
 let isSynthPlaying = false;
 let isAudioPlaying = false;
+let currentTrackIndex = 0;
 let audioPlayer = new Audio();
 audioPlayer.volume = 0.5;
+
+// Global track end event -> auto-advances playlist
+audioPlayer.onended = () => {
+    currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length;
+    
+    const playlistSelect = document.getElementById('audioPlaylist');
+    const songDisplay = document.getElementById('songDisplay');
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+
+    if (playlistSelect && songDisplay) {
+        if (playlistSelect.value !== 'synth') {
+            playlistSelect.value = currentTrackIndex;
+            changeTrack(currentTrackIndex);
+        }
+    } else {
+        // Just play next song
+        audioPlayer.src = audioTracks[currentTrackIndex].src;
+        playGlobalMusic();
+    }
+};
+
+function initGlobalMusic() {
+    const globalPlayBtn = document.getElementById('btnGlobalMusic');
+    if (!globalPlayBtn) return;
+
+    if (!audioPlayer.src || audioPlayer.src === "") {
+        audioPlayer.src = audioTracks[currentTrackIndex].src;
+    }
+
+    globalPlayBtn.addEventListener('click', () => {
+        if (isAudioPlaying) {
+            pauseGlobalMusic();
+        } else {
+            playGlobalMusic();
+        }
+    });
+
+    // Attempt autoplay immediately
+    attemptAutoplay();
+}
+
+function playGlobalMusic() {
+    if (!audioPlayer.src || audioPlayer.src === "") {
+        audioPlayer.src = audioTracks[currentTrackIndex].src;
+    }
+
+    if (isSynthPlaying) {
+        stopAmbientSynth();
+        isSynthPlaying = false;
+        const playPauseBtn = document.getElementById('btnAudioPlayPause');
+        if (playPauseBtn) playPauseBtn.innerText = "▶ Play Synth";
+    }
+
+    audioPlayer.play()
+        .then(() => {
+            isAudioPlaying = true;
+            updateGlobalMusicUI();
+        })
+        .catch(err => {
+            console.log("Autoplay blocked. Click page or header button to start music.");
+            isAudioPlaying = false;
+            updateGlobalMusicUI();
+        });
+}
+
+function pauseGlobalMusic() {
+    audioPlayer.pause();
+    isAudioPlaying = false;
+    updateGlobalMusicUI();
+}
+
+function updateGlobalMusicUI() {
+    const globalPlayBtn = document.getElementById('btnGlobalMusic');
+    if (globalPlayBtn) {
+        if (isAudioPlaying) {
+            globalPlayBtn.innerText = "⏸️ Music Off";
+            globalPlayBtn.classList.remove('paused');
+        } else {
+            globalPlayBtn.innerText = "🔊 Music On";
+            globalPlayBtn.classList.add('paused');
+        }
+    }
+
+    // Sync with sidebar dashboard controls if on thorana.html
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    const songDisplay = document.getElementById('songDisplay');
+    const playlistSelect = document.getElementById('audioPlaylist');
+
+    if (playPauseBtn && songDisplay && playlistSelect) {
+        if (playlistSelect.value !== 'synth') {
+            playlistSelect.value = currentTrackIndex;
+            const track = audioTracks[currentTrackIndex];
+            songDisplay.innerText = `🎵 ${track.sinhala} - ${track.artist}`;
+            playPauseBtn.innerText = isAudioPlaying ? "⏸️ Pause" : "▶ Play Music";
+        }
+    }
+}
+
+function attemptAutoplay() {
+    playGlobalMusic();
+
+    const startOnInteraction = () => {
+        if (!isAudioPlaying) {
+            playGlobalMusic();
+        }
+        document.body.removeEventListener('click', startOnInteraction);
+        document.body.removeEventListener('touchstart', startOnInteraction);
+        document.body.removeEventListener('keydown', startOnInteraction);
+    };
+
+    document.body.addEventListener('click', startOnInteraction);
+    document.body.addEventListener('touchstart', startOnInteraction);
+    document.body.addEventListener('keydown', startOnInteraction);
+}
 
 function initAudioPlayer() {
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
@@ -97,21 +212,16 @@ function initAudioPlayer() {
 
     if (!playPauseBtn || !playlistSelect || !volumeSlider || !songDisplay) return;
 
-    // Set initial volume
     audioPlayer.volume = parseFloat(volumeSlider.value);
 
-    // Track end event -> auto advance to next song
-    audioPlayer.onended = () => {
-        if (playlistSelect.value === 'synth') {
-            // Synth continues
-        } else {
-            let nextIndex = (parseInt(playlistSelect.value) + 1) % audioTracks.length;
-            playlistSelect.value = nextIndex;
-            changeTrack(nextIndex);
-        }
-    };
+    // If music is already playing globally, sync UI
+    if (isAudioPlaying) {
+        playlistSelect.value = currentTrackIndex;
+        const track = audioTracks[currentTrackIndex];
+        songDisplay.innerText = `🎵 ${track.sinhala} - ${track.artist}`;
+        playPauseBtn.innerText = "⏸️ Pause";
+    }
 
-    // Play/Pause button
     playPauseBtn.addEventListener('click', () => {
         const val = playlistSelect.value;
         if (val === 'synth') {
@@ -121,13 +231,12 @@ function initAudioPlayer() {
         }
     });
 
-    // Playlist selector change
     playlistSelect.addEventListener('change', () => {
         const val = playlistSelect.value;
         if (val === 'synth') {
             stopAudioTrack();
             songDisplay.innerText = "🔔 Temple Bell Chimes";
-            toggleSynthBellPlaying(true); // force start synth
+            toggleSynthBellPlaying(true);
         } else {
             stopAmbientSynth();
             isSynthPlaying = false;
@@ -135,13 +244,13 @@ function initAudioPlayer() {
         }
     });
 
-    // Volume slider
     volumeSlider.addEventListener('input', (e) => {
         audioPlayer.volume = parseFloat(e.target.value);
     });
 }
 
 function changeTrack(index) {
+    currentTrackIndex = index;
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
     const songDisplay = document.getElementById('songDisplay');
     const track = audioTracks[index];
@@ -153,12 +262,14 @@ function changeTrack(index) {
         .then(() => {
             isAudioPlaying = true;
             if (playPauseBtn) playPauseBtn.innerText = "⏸️ Pause";
+            updateGlobalMusicUI();
         })
         .catch(err => {
             console.error("Audio playback error:", err);
             songDisplay.innerText = "⚠️ Click Play to start";
             isAudioPlaying = false;
             if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
+            updateGlobalMusicUI();
         });
 }
 
@@ -175,20 +286,10 @@ function toggleTrackPlaying() {
     }
 
     if (isAudioPlaying) {
-        audioPlayer.pause();
-        isAudioPlaying = false;
-        if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
+        pauseGlobalMusic();
     } else {
-        audioPlayer.play()
-            .then(() => {
-                isAudioPlaying = true;
-                if (playPauseBtn) playPauseBtn.innerText = "⏸️ Pause";
-            })
-            .catch(err => {
-                console.error("Error playing audio:", err);
-                isAudioPlaying = false;
-                if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
-            });
+        currentTrackIndex = idx;
+        playGlobalMusic();
     }
 }
 
@@ -216,8 +317,7 @@ function toggleSynthBellPlaying(forceStart = false) {
 function stopAudioTrack() {
     audioPlayer.pause();
     isAudioPlaying = false;
-    const playPauseBtn = document.getElementById('btnAudioPlayPause');
-    if (playPauseBtn) playPauseBtn.innerText = "▶ Play Music";
+    updateGlobalMusicUI();
 }
 
 function startAmbientSynth() {
