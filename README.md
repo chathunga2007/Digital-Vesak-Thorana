@@ -77,7 +77,6 @@ Vesak-2026/
 │   ├── vesak1.png, vesak2.png, vesak3.png, vesak4.png, vesak5.png
 │   └── audio/ (6 Vesak songs)
 ├── README.md
-└── (future: manifest.json, service-worker.js for PWA)
 
 ---
 
