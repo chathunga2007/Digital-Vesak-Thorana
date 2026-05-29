@@ -2044,6 +2044,67 @@ nav a.active {
     flex-shrink: 0;
 }
 
+/* ==================== CARD GENERATOR MOBILE FIX ==================== */
+
+.card-generator-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0.8rem;
+}
+
+.card-preview-area {
+    position: sticky;
+    top: 80px;           /* Header එකට පහතින් තියන්න */
+    z-index: 10;
+    background: var(--bg-dark);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+}
+
+.canvas-wrapper {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .card-preview-area {
+        top: 70px;           /* ටිකක් උඩට ගත්තා */
+        position: sticky;
+        z-index: 20;
+    }
+
+    #cardCanvas {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 380px;   /* ලොකු වුණත් යටට නොයන්න */
+        object-fit: contain;
+    }
+
+    .card-controls {
+        padding-top: 1rem;
+    }
+
+    /* Scroll කරනකොට preview එක හොඳින් පේන්න */
+    .card-generator-container {
+        scroll-margin-top: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-preview-area {
+        top: 65px;
+    }
+    
+    #cardCanvas {
+        max-height: 340px;
+    }
+}
+
 /* Desktop - Normal */
 @media (min-width: 993px) {
     .btn-music-toggle {
