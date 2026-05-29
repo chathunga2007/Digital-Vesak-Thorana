@@ -188,20 +188,33 @@ function updateGlobalMusicUI() {
 }
 
 function attemptAutoplay() {
+    // Try to autoplay immediately
     playGlobalMusic();
 
-    const startOnInteraction = () => {
+    // Fallback: Bind interaction listeners to window with capture phase
+    const startOnInteraction = (event) => {
+        // If user clicked the play/pause header button directly, let its own listener handle it
+        if (event.target && (event.target.id === 'btnGlobalMusic' || event.target.closest('#btnGlobalMusic'))) {
+            return;
+        }
+
         if (!isAudioPlaying) {
             playGlobalMusic();
         }
-        document.body.removeEventListener('click', startOnInteraction);
-        document.body.removeEventListener('touchstart', startOnInteraction);
-        document.body.removeEventListener('keydown', startOnInteraction);
+
+        // Clean up listeners
+        window.removeEventListener('click', startOnInteraction, true);
+        window.removeEventListener('touchstart', startOnInteraction, true);
+        window.removeEventListener('keydown', startOnInteraction, true);
+        window.removeEventListener('mousedown', startOnInteraction, true);
+        window.removeEventListener('pointerdown', startOnInteraction, true);
     };
 
-    document.body.addEventListener('click', startOnInteraction);
-    document.body.addEventListener('touchstart', startOnInteraction);
-    document.body.addEventListener('keydown', startOnInteraction);
+    window.addEventListener('click', startOnInteraction, true);
+    window.addEventListener('touchstart', startOnInteraction, true);
+    window.addEventListener('keydown', startOnInteraction, true);
+    window.addEventListener('mousedown', startOnInteraction, true);
+    window.addEventListener('pointerdown', startOnInteraction, true);
 }
 
 function initAudioPlayer() {
