@@ -582,7 +582,7 @@ const jatakaStories = {
             titleEn: "01. The Devotional Vow",
             textSi: "පින්බර පොහෝ දිනක සාවා, උණහපුළුවා, සිවලා සහ වඳුරා එක්ව සිල් සමාදන් වීමට අදිටන් කර ගත්හ. සාවා තම යහළුවන්ට කරුණාවෙන් ධර්මය දේශනා කරමින්, පැමිණෙන ඕනෑම යාචකයෙකුට ආහාර දීමට පොරොන්දු විය.",
             textEn: "On a sacred Full Moon Poya day, the wise hare, the otter, the jackal, and the monkey gathered in the forest and vowed to keep the holy precepts. The virtuous hare preached the Dhamma to his friends, urging them to offer food to any hungry traveler who passed by.",
-            img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+            img: "assets/sasa-jathakaya/sasa-jathakaya-maha-adishtanaya.png",
             fallbackIcon: "🐇"
         },
         {
@@ -590,7 +590,7 @@ const jatakaStories = {
             titleEn: "02. Gathering the Offerings",
             textSi: "අනෙක් සතුන් දානය සඳහා ආහාර සෙවූහ. උණහපුළුවා මසුන් ද, සිවලා මුදවාපු කිරි කළයක් ද, වඳුරා අඹ ගෙඩි ද සොයා ගත්හ. එහෙත් සාවාට සොයා ගත හැකි වූයේ තණකොළ පමණි.",
             textEn: "The friends went in search of food to offer as alms. The otter caught fresh fish, the jackal found a jar of curd, and the monkey gathered sweet mangoes. However, the gentle hare could only find grass, which was unfit for humans.",
-            img: "https://images.unsplash.com/photo-1464457312035-3d7d0e0c058e?auto=format&fit=crop&w=600&q=80",
+            img: "assets/sasa-jathakaya/sasa-jathakaya-dan-seweema.jpg",
             fallbackIcon: "🐟"
         },
         {
@@ -598,7 +598,7 @@ const jatakaStories = {
             titleEn: "03. The Ultimate Sacrifice",
             textSi: "සාවා තමා සතුව දීමට කිසිවක් නැති බව වටහාගෙන, මහත් ශ්‍රද්ධාවෙන් යුතුව තම ශරීරයම දන් දීමට අදිටන් කර ගත්තේය. 'කවුරුන් හෝ පැමිණියහොත් මම මගේම මාංශයෙන් ඔහුව පෝෂණය කරමි' යි සාවා සිතීය.",
             textEn: "Realizing he had nothing suitable to offer, the hare resolved with pure faith to sacrifice his own life. 'If a guest arrives, I shall offer my own flesh to feed them,' the noble hare selflessly decided under the glowing moon.",
-            img: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=600&q=80",
+            img: "assets/sasa-jathakaya/sasa-jathakaya-jeewitha-danaya.png",
             fallbackIcon: "🐇"
         },
         {
@@ -606,7 +606,7 @@ const jatakaStories = {
             titleEn: "04. The Divine Test",
             textSi: "සතුන්ගේ අදිටන පරීක්ෂා කරනු පිණිස ශක්‍ර දේවේන්ද්‍රයා මහලු බ්‍රාහ්මණයෙකුගේ වේශයෙන් පැමිණියේය. සෙසු මිතුරන් තම තමන් සොයාගත් ආහාර පූජා කළ අතර, සාවා දානය සඳහා ගිනි ගොඩක් සූදානම් කරන ලෙස පැවසීය.",
             textEn: "To test their virtue, Lord Sakra, king of the gods, descended disguised as a hungry, old Brahmin. While the other animals offered their collected food, the hare joyfully requested the Brahmin to prepare a fire so he could offer his body.",
-            img: "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?auto=format&fit=crop&w=600&q=80",
+            img: "assets/sasa-jathakaya/sasa-jathakaya-pareekshanaya.png",
             fallbackIcon: "🔥"
         },
         {
@@ -614,7 +614,7 @@ const jatakaStories = {
             titleEn: "05. The Eternal Tribute",
             textSi: "සාවා කිසිදු පැකිලීමකින් තොරව රක්ත වර්ණ ගින්නට පැන්නේය. එහෙත් ඔහුගේ උදාර ගුණය නිසා ගින්න සිසිල් විය. පැහැදුණු ශක්‍ර දේවේන්ද්‍රයා සාවාගේ රූපය සදාකාලික සිහිවටනයක් ලෙස සඳ මත ඇන්දේය.",
             textEn: "With complete selflessness, the hare leapt into the blazing fire. Yet, due to his supreme virtue, the flames turned cold. Overwhelmed with admiration, Lord Sakra revealed his divine form and painted the hare's image on the moon forever.",
-            img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
+            img: "assets/sasa-jathakaya/sasa-jathakaya-shasha-laxchanya.png",
             fallbackIcon: "🌕"
         }
     ],
@@ -624,7 +624,7 @@ const jatakaStories = {
             titleEn: "01. The Righteous Reign",
             textSi: "කුරු රට ධනංජය රජතුමා දස රාජ ධර්මයෙන් සහ උතුම් කුරු ධර්මයෙන් (පංච ශීලයෙන්) රට පාලනය කළේය. රට වැසියන් ද දැහැමි දිවියක් ගත කළහ.",
             textEn: "King Dhananjaya of Kuru ruled his country with the Ten Royal Virtues and the noble Kuru Dharma (Five Precepts). The citizens also led a righteous life.",
-            img: "https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80",
+            img: "assets/kuru-dharma-jathakaya/1.png",
             fallbackIcon: "👑"
         },
         {
@@ -632,7 +632,7 @@ const jatakaStories = {
             titleEn: "02. The Drought of Kalinga",
             textSi: "අසල්වැසි කාලිංග දේශයට දරුණු නියඟයක් ඇති වූ අතර, මිනිස්සු සාගින්නෙන් පෙළුණහ. කුරු රටේ සිටින මංගල හස්තිරාජයා නිසා වැසි ලැබෙන බව සිතූ කාලිංග වැසියෝ හස්තියා ඉල්ලා සිටියහ.",
             textEn: "The neighboring Kalinga kingdom suffered a severe drought, leading to widespread famine. Believing the auspicious state elephant of Kuru brought rain, Kalinga requested it.",
-            img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+            img: "assets/kuru-dharma-jathakaya/2.jpg",
             fallbackIcon: "🐘"
         },
         {
@@ -640,7 +640,7 @@ const jatakaStories = {
             titleEn: "03. Almsgiving of the Elephant",
             textSi: "ධනංජය රජතුමා කිසිදු මසුරුකමකින් තොරව තම මංගල හස්තිරාජයා කාලිංග දේශයෙන් පැමිණි බ්‍රාහ්මණයන්ට දන් දුන්නේය. එහෙත් කාලිංගයට වැසි නොලැබුණි.",
             textEn: "King Dhananjaya selflessly donated his prized royal elephant to the Brahmins of Kalinga. However, the drought in Kalinga persisted even after the offering.",
-            img: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80",
+            img: "assets/kuru-dharma-jathakaya/3.png",
             fallbackIcon: "🌧️"
         },
         {
@@ -648,7 +648,7 @@ const jatakaStories = {
             titleEn: "04. Seeking the Kuru Dharma",
             textSi: "වැසි නොලැබුණේ රජුගේ ධර්මයේ බලයෙන් බව වටහාගත් කාලිංග දූතයෝ, රජුගෙන් සහ රාජකීයයන්ගෙන් කුරු ධර්මය (පංච ශීලය) ලියා ගැනීමට පැමිණියහ.",
             textEn: "Realizing the rain was due to the moral power of the Kuru ruler, messengers from Kalinga came to write down the Kuru Dharma (Five Precepts) from the King.",
-            img: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=600&q=80",
+            img: "assets/kuru-dharma-jathakaya/4.png",
             fallbackIcon: "📜"
         },
         {
@@ -656,7 +656,7 @@ const jatakaStories = {
             titleEn: "05. Showers of Prosperity",
             textSi: "කුරු ධර්මය ගෙන ගොස් කාලිංගයේදී එය සමාදන් වූ වහාම මහා වැසි වැටී නියඟය දුරු විය. මුළු දේශයම සශ්‍රීකත්වයෙන් හා සන්තෝෂයෙන් පිරී ගියේය.",
             textEn: "As soon as the Kuru Dharma was brought and practiced in Kalinga, heavy rains fell, ending the drought. The entire land became fertile and prosperous.",
-            img: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&w=600&q=80",
+            img: "assets/kuru-dharma-jathakaya/5.png",
             fallbackIcon: "🌾"
         }
     ],
@@ -666,7 +666,7 @@ const jatakaStories = {
             titleEn: "01. Thirst for Dhamma",
             textSi: "දහම්සොඬ රජතුමා බණ ඇසීමට මහත් කැමැත්තක් දැක්වීය. බුදුන් වහන්සේ ලොව පහල නොවූ යුගයක, බණ පදයක් කියා දෙන කෙනෙකුට මුළු රාජ්‍යයම දීමට රජු පොරොන්දු විය.",
             textEn: "King Dahamsonda had an intense desire to hear the Buddha's teachings. In an era when no Buddha was present, he promised to give his entire kingdom to anyone who could teach him a single stanza.",
-            img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+            img: "assets/daham-soda-jathakaya/1.png",
             fallbackIcon: "👑"
         },
         {
@@ -674,7 +674,7 @@ const jatakaStories = {
             titleEn: "02. Leaving the Kingdom",
             textSi: "නුවර කොතැනකවත් බණ දන්නා අයෙකු නොසිටි බැවින්, රජතුමා සිහසුන අතහැර ධර්මය සොයා ඝන වනාන්තරයට පිවිසුණේය.",
             textEn: "Finding no one in the kingdom who knew the Dhamma, the King abandoned his throne and ventured into the deep forest in search of holy stanzas.",
-            img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
+            img: "assets/daham-soda-jathakaya/2.png",
             fallbackIcon: "🚶"
         },
         {
@@ -682,7 +682,7 @@ const jatakaStories = {
             titleEn: "03. Encountering the Demon",
             textSi: "රජුගේ උදාර අදිටන පරීක්ෂා කරනු පිණිස ශක්‍ර දේවේන්ද්‍රයා බියකරු රක්ෂසයෙකුගේ වේශයෙන් පෙනී සිට බණ පදයක් දන්නා බව පැවසීය.",
             textEn: "To test the King's resolve, Lord Sakra appeared as a terrifying demon (Rakshasa) and claimed he knew a sacred stanza of the Dhamma.",
-            img: "https://images.unsplash.com/photo-1601987177651-8edfe6c20009?auto=format&fit=crop&w=600&q=80",
+            img: "assets/daham-soda-jathakaya/3.png",
             fallbackIcon: "👹"
         },
         {
@@ -690,7 +690,7 @@ const jatakaStories = {
             titleEn: "04. Leap of Faith",
             textSi: "බණ කීමට පෙර රක්ෂසයාට තමාගේ ශරීරය දිය යුතු බව පැවසූ විට, රජු සතුටින් උස් කන්දකින් රක්ෂසයාගේ මුඛයට පැනීමට එකඟ විය.",
             textEn: "The demon demanded the King's body as food before preaching. The King happily agreed to jump from a high cliff into the demon's mouth to hear the Dhamma.",
-            img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+            img: "assets/daham-soda-jathakaya/4.png",
             fallbackIcon: "⛰️"
         },
         {
@@ -698,7 +698,7 @@ const jatakaStories = {
             titleEn: "05. The Divine Reward",
             textSi: "රජු පහළට පනින විට රක්ෂසයා ශක්‍ර දේවේන්ද්‍රයා බවට පත්ව රජුව සුරක්ෂිතව පිළිගෙන, බණ පද දේශනා කර රාජ්‍යය නැවත ලබා දුන්නේය.",
             textEn: "As the King leaped, the demon transformed back into Lord Sakra, caught him safely, preached the stanzas, and restored him to his rightful throne.",
-            img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80",
+            img: "assets/daham-soda-jathakaya/5.png",
             fallbackIcon: "✨"
         }
     ],
@@ -708,7 +708,7 @@ const jatakaStories = {
             titleEn: "01. Caring for Blind Parents",
             textSi: "සාම කුමාරයා වනාන්තරයේ වෙසෙමින් සිය අන්ධ දෙමාපියන්ට මහත් ආදරයෙන් උපස්ථාන කළේය. වනයේ සිටි සියලු සත්වයෝ සාම කුමාරයාට මිත්‍රශීලී වූහ.",
             textEn: "Sama lived in the forest, caring for his blind parents with immense love. Even the wild animals of the forest were friendly and walked with him.",
-            img: "https://images.unsplash.com/photo-1516624683217-fb354d2416a5?auto=format&fit=crop&w=600&q=80",
+            img: "assets/saama-jathakaya/1.png",
             fallbackIcon: "👨‍👩‍👦"
         },
         {
@@ -716,7 +716,7 @@ const jatakaStories = {
             titleEn: "02. Fetching Water",
             textSi: "සාම කුමාරයා දෙමාපියන් උදෙසා පැන් රැගෙන ඒමට මුවන් පිරිවරාගෙන ගඟට යන පුරුද්දක් තිබුණි. සතුන් ඔහු කෙරෙහි කිසිදු බියක් දැක්වූයේ නැත.",
             textEn: "Sama used to go to the river surrounded by deer to fetch water for his parents. The animals felt completely safe in his peaceful presence.",
-            img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&w=600&q=80",
+            img: "assets/saama-jathakaya/2.png",
             fallbackIcon: "💧"
         },
         {
@@ -724,7 +724,7 @@ const jatakaStories = {
             titleEn: "03. The Poisoned Arrow",
             textSi: "දඩයමේ ආ පිලියක්ඛ රජතුමා සාම කුමාරයාව දැක මුවෙකු යැයි සිතා විෂ ඊතලයකින් විද්දේය. ඊතලය වැදුණු සාම කුමාරයා මියයමින් දෙමාපියන් ගැන වැලපුණේය.",
             textEn: "King Piliyakkha, who was hunting, mistook Sama for a deer and shot him with a poisoned arrow. As he lay dying, Sama only wept for his helpless parents.",
-            img: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=600&q=80",
+            img: "assets/saama-jathakaya/3.png",
             fallbackIcon: "🏹"
         },
         {
@@ -732,7 +732,7 @@ const jatakaStories = {
             titleEn: "04. The King's Repentance",
             textSi: "තමා විද්දේ අහිංසක තරුණයෙකුට බව වටහාගත් රජතුමා මහත් සේ පසුතැවී, සාමගේ දෙමාපියන්ට උපකාර කිරීමට පොරොන්දු වී ඔවුන්ව සාම සිටි තැනට කැඳවාගෙන ආවේය.",
             textEn: "Realizing he had shot a noble youth, the King repented deeply. He promised to serve the blind parents and led them to Sama's body.",
-            img: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=80",
+            img: "assets/saama-jathakaya/4.png",
             fallbackIcon: "😢"
         },
         {
@@ -740,7 +740,7 @@ const jatakaStories = {
             titleEn: "05. Power of Truth",
             textSi: "දෙමාපියන්ගේ සහ බහූසොඬී දේවියගේ සත්‍ය ක්‍රියාවෙන් සාම කුමාරයාගේ විෂ නැසී නැවත පණ ලැබූ අතර, දෙමාපියන්ගේ ඇස් ද පෙනීමට පටන් ගත්තේය.",
             textEn: "Through the act of truth performed by his parents and the goddess Bahusodari, the poison vanished. Sama arose healthy, and his parents' sight was miraculously restored.",
-            img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80",
+            img: "assets/saama-jathakaya/5.png",
             fallbackIcon: "✨"
         }
     ],
@@ -750,7 +750,7 @@ const jatakaStories = {
             titleEn: "01. King Mahasilava",
             textSi: "සීලව රජතුමා මහා ඉවසීමකින් සහ මෛත්‍රියකින් රට පාලනය කළ දැහැමි රජෙකි. ඔහු කිසිම සතුරෙකුට එරෙහිව අවි ඔසවන්නට කැමති වූයේ නැත.",
             textEn: "King Mahasilava was a righteous king who ruled Benares with supreme patience and loving-kindness. He refused to raise weapons against anyone.",
-            img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+            img: "assets/seelawa-jathakaya/1.png",
             fallbackIcon: "👑"
         },
         {
@@ -758,7 +758,7 @@ const jatakaStories = {
             titleEn: "02. Invasion of the Kingdom",
             textSi: "දුෂ්ට ඇමතියෙකුගේ කේලාම් අසා අසල්වැසි රජෙකු බරණැස ආක්‍රමණය කළේය. සීලව රජු සිය සේනාවට සටන් කිරීම තහනම් කර සතුරාට නුවරට ඒමට ඉඩ දුන්නේය.",
             textEn: "A rival king invaded Benares, misled by a treacherous minister. To avoid bloodshed, King Silava ordered his army not to fight, allowing the invaders into the city.",
-            img: "https://images.unsplash.com/photo-1533158307587-828f0a95456e?auto=format&fit=crop&w=600&q=80",
+            img: "assets/seelawa-jathakaya/2.png",
             fallbackIcon: "⚔️"
         },
         {
@@ -766,7 +766,7 @@ const jatakaStories = {
             titleEn: "03. Buried in the Cemetery",
             textSi: "ආක්‍රමණික රජු සීලව රජතුමා ඇතුළු ඇමතිවරුන් අල්ලාගෙන, ඔවුන්ගේ හිස පමණක් පිටතට පෙනෙන සේ සොහොන් බිමක වළලා දමා මිය යාමට හැරියේය.",
             textEn: "The hostile king captured King Silava and his loyal ministers, burying them up to their necks in a cemetery, leaving them to be eaten by wild beasts at night.",
-            img: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=600&q=80",
+            img: "assets/seelawa-jathakaya/3.png",
             fallbackIcon: "🪦"
         },
         {
@@ -774,7 +774,7 @@ const jatakaStories = {
             titleEn: "04. Escaping the Jackals",
             textSi: "රාත්‍රියේදී තමා කෑමට ආ හිවලෙකුගේ බෙල්ලෙන් රජු සිය දතින් අල්ලා ගත්තේය. හිවලා බියෙන් ගැස්සී දැඟලීමේදී රජු වළෙන් බේරී සෙසු ඇමතිවරුන්ද නිදහස් කරගත්තේය.",
             textEn: "When a jackal approached to eat him, the King bravely grabbed the jackal's neck with his teeth. The jackal's frantic struggle loosened the soil, allowing the King to escape and free his ministers.",
-            img: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80",
+            img: "assets/seelawa-jathakaya/4.png",
             fallbackIcon: "🐺"
         },
         {
@@ -782,7 +782,7 @@ const jatakaStories = {
             titleEn: "05. Victory of Dharma",
             textSi: "යක්ෂයෙකුගේ උපකාරයෙන් රජු සිය යහනට ළඟා වී සතුරා ඉදිරියේ පෙනී සිටියේය. රජුගේ මහා ආනුභාවය දුටු සතුරු රජු සමාව ඉල්ලා රාජ්‍යය නැවත ලබා දී යන්නට ගියේය.",
             textEn: "With a spirit's aid, the King entered his bedchamber, appearing before the usurper. Astounded by his virtue and power, the rival king begged forgiveness and returned Benares.",
-            img: "https://images.unsplash.com/photo-1544027760-ec37dc090775?auto=format&fit=crop&w=600&q=80",
+            img: "assets/seelawa-jathakaya/5.png",
             fallbackIcon: "✨"
         }
     ]
