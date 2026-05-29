@@ -65,3 +65,69 @@ A complete **full-stack frontend** digital Vesak celebration platform featuring:
 ---
 
 ## 📁 Project Structure
+
+Vesak-2026/
+├── index.html
+├── thorana.html
+├── card-genarate.html
+├── style.css
+├── script.js
+├── assets/
+│   ├── buddha.png
+│   ├── vesak1.png, vesak2.png, vesak3.png, vesak4.png, vesak5.png
+│   └── audio/ (6 Vesak songs)
+├── README.md
+└── (future: manifest.json, service-worker.js for PWA)
+
+---
+
+## 🚀 How to Run
+
+1. Download the full project
+2. Open `index.html` in any modern browser (Chrome/Firefox recommended)
+3. Click **Enter Website** → Enjoy the full experience!
+
+> **Note**: Audio may require user interaction due to browser autoplay policies.
+
+---
+
+## 🎨 Screenshots
+
+![Home Page](assets/website/1.png)
+![Features & Countdown](assets/website/2.png)
+![Jataka Story](assets/website/3.png)
+![Thorana Interface](assets/website/4.png)
+![Card Generator](assets/website/5.png)
+
+---
+
+## 🌟 Highlights
+
+- **Cultural Authenticity**: Proper Sinhala typography and traditional Vesak elements
+- **Performance Optimized**: Smooth 60fps animations
+- **Accessibility**: Bilingual support + keyboard friendly
+- **Shareable**: Cards can be easily shared on social media
+- **Made with Love**: Dedicated to Chathunga Bimsara
+
+---
+
+## 🙏 Credits
+
+- **Creator**: Chathunga Bimsara
+- **Design & Development**: Custom built for Vesak 2026
+- **Music**: Artists featured — Mangala Denex, Viraj Perera, Vidusha Rajaguru, etc.
+- **Inspiration**: Traditional Sri Lankan Vesak Thorana & Buddhist values
+
+---
+
+## 📜 License
+
+This project is for **personal & cultural use**. Feel free to share and spread the blessings.
+
+**සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!**  
+**May all beings be happy, peaceful, and enlightened.**
+
+---
+
+**Digital Vesak Thorana & Greetings © 2026**  
+Made with devotion for **Chathunga Bimsara** ❤️
