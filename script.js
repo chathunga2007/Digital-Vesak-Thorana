@@ -575,49 +575,136 @@ function playBell(frequency) {
 /* ==========================================
    3. DIGITAL VESAK THORANA ENGINE
    ========================================== */
-const jatakaStory = [
-    {
-        titleSi: "01. මහා අධිෂ්ඨානය",
-        titleEn: "01. The Devotional Vow",
-        textSi: "පින්බර පොහෝ දිනක සාවා, උණහපුළුවා, සිවලා සහ වඳුරා එක්ව සිල් සමාදන් වීමට අදිටන් කර ගත්හ. සාවා තම යහළුවන්ට කරුණාවෙන් ධර්මය දේශනා කරමින්, පැමිණෙන ඕනෑම යාචකයෙකුට ආහාර දීමට පොරොන්දු විය.",
-        textEn: "On a sacred Full Moon Poya day, the wise hare, the otter, the jackal, and the monkey gathered in the forest and vowed to keep the holy precepts. The virtuous hare preached the Dhamma to his friends, urging them to offer food to any hungry traveler who passed by.",
-        img: "assets/panel1.jpg",
-        fallbackIcon: "🕊️"
-    },
-    {
-        titleSi: "02. දන් සෙවීම",
-        titleEn: "02. Gathering the Offerings",
-        textSi: "අනෙක් සතුන් දානය සඳහා ආහාර සෙවූහ. උණහපුළුවා මසුන් ද, සිවලා මුදවාපු කිරි කළයක් ද, වඳුරා අඹ ගෙඩි ද සොයා ගත්හ. එහෙත් සාවාට සොයා ගත හැකි වූයේ තණකොළ පමණි.",
-        textEn: "The friends went in search of food to offer as alms. The otter caught fresh fish, the jackal found a jar of curd, and the monkey gathered sweet mangoes. However, the gentle hare could only find grass, which was unfit for humans.",
-        img: "assets/panel2.jpg",
-        fallbackIcon: "🐟"
-    },
-    {
-        titleSi: "03. ජීවිත දානය",
-        titleEn: "03. The Ultimate Sacrifice",
-        textSi: "සාවා තමා සතුව දීමට කිසිවක් නැති බව වටහාගෙන, මහත් ශ්‍රද්ධාවෙන් යුතුව තම ශරීරයම දන් දීමට අදිටන් කර ගත්තේය. 'කවුරුන් හෝ පැමිණියහොත් මම මගේම මාංශයෙන් ඔහුව පෝෂණය කරමි' යි සාවා සිතීය.",
-        textEn: "Realizing he had nothing suitable to offer, the hare resolved with pure faith to sacrifice his own life. 'If a guest arrives, I shall offer my own flesh to feed them,' the noble hare selflessly decided under the glowing moon.",
-        img: "assets/panel3.jpg",
-        fallbackIcon: "🐇"
-    },
-    {
-        titleSi: "04. ශක්‍ර දේවේන්ද්‍රයාගේ පරීක්ෂණය",
-        titleEn: "04. The Divine Test",
-        textSi: "සතුන්ගේ අදිටන පරීක්ෂා කරනු පිණිස ශක්‍ර දේවේන්ද්‍රයා මහලු බ්‍රාහ්මණයෙකුගේ වේශයෙන් පැමිණියේය. සෙසු මිතුරන් තම තමන් සොයාගත් ආහාර පූජා කළ අතර, සාවා දානය සඳහා ගිනි ගොඩක් සූදානම් කරන ලෙස පැවසීය.",
-        textEn: "To test their virtue, Lord Sakra, king of the gods, descended disguised as a hungry, old Brahmin. While the other animals offered their collected food, the hare joyfully requested the Brahmin to prepare a fire so he could offer his body.",
-        img: "assets/panel4.jpg",
-        fallbackIcon: "🔥"
-    },
-    {
-        titleSi: "05. ශශ ලාංඡනය",
-        titleEn: "05. The Eternal Tribute",
-        textSi: "සාවා කිසිදු පැකිලීමකින් තොරව රක්ත වර්ණ ගින්නට පැන්නේය. එහෙත් ඔහුගේ උදාර ගුණය නිසා ගින්න සිසිල් විය. පැහැදුණු ශක්‍ර දේවේන්ද්‍රයා සාවාගේ රූපය සදාකාලික සිහිවටනයක් ලෙස සඳ මත ඇන්දේය.",
-        textEn: "With complete selflessness, the hare leapt into the blazing fire. Yet, due to his supreme virtue, the flames turned cold. Overwhelmed with admiration, Lord Sakra revealed his divine form and painted the hare's image on the moon forever.",
-        img: "assets/panel5.jpg",
-        fallbackIcon: "🌕"
-    }
-];
+const jatakaStories = {
+    sasa: [
+        {
+            titleSi: "01. මහා අධිෂ්ඨානය",
+            titleEn: "01. The Devotional Vow",
+            textSi: "පින්බර පොහෝ දිනක සාවා, උණහපුළුවා, සිවලා සහ වඳුරා එක්ව සිල් සමාදන් වීමට අදිටන් කර ගත්හ. සාවා තම යහළුවන්ට කරුණාවෙන් ධර්මය දේශනා කරමින්, පැමිණෙන ඕනෑම යාචකයෙකුට ආහාර දීමට පොරොන්දු විය.",
+            textEn: "On a sacred Full Moon Poya day, the wise hare, the otter, the jackal, and the monkey gathered in the forest and vowed to keep the holy precepts. The virtuous hare preached the Dhamma to his friends, urging them to offer food to any hungry traveler who passed by.",
+            img: "assets/panel1.jpg",
+            fallbackIcon: "🕊️"
+        },
+        {
+            titleSi: "02. දන් සෙවීම",
+            titleEn: "02. Gathering the Offerings",
+            textSi: "අනෙක් සතුන් දානය සඳහා ආහාර සෙවූහ. උණහපුළුවා මසුන් ද, සිවලා මුදවාපු කිරි කළයක් ද, වඳුරා අඹ ගෙඩි ද සොයා ගත්හ. එහෙත් සාවාට සොයා ගත හැකි වූයේ තණකොළ පමණි.",
+            textEn: "The friends went in search of food to offer as alms. The otter caught fresh fish, the jackal found a jar of curd, and the monkey gathered sweet mangoes. However, the gentle hare could only find grass, which was unfit for humans.",
+            img: "assets/panel2.jpg",
+            fallbackIcon: "🐟"
+        },
+        {
+            titleSi: "03. ජීවිත දානය",
+            titleEn: "03. The Ultimate Sacrifice",
+            textSi: "සාවා තමා සතුව දීමට කිසිවක් නැති බව වටහාගෙන, මහත් ශ්‍රද්ධාවෙන් යුතුව තම ශරීරයම දන් දීමට අදිටන් කර ගත්තේය. 'කවුරුන් හෝ පැමිණියහොත් මම මගේම මාංශයෙන් ඔහුව පෝෂණය කරමි' යි සාවා සිතීය.",
+            textEn: "Realizing he had nothing suitable to offer, the hare resolved with pure faith to sacrifice his own life. 'If a guest arrives, I shall offer my own flesh to feed them,' the noble hare selflessly decided under the glowing moon.",
+            img: "assets/panel3.jpg",
+            fallbackIcon: "🐇"
+        },
+        {
+            titleSi: "04. ශක්‍ර දේවේන්ද්‍රයාගේ පරීක්ෂණය",
+            titleEn: "04. The Divine Test",
+            textSi: "සතුන්ගේ අදිටන පරීක්ෂා කරනු පිණිස ශක්‍ර දේවේන්ද්‍රයා මහලු බ්‍රාහ්මණයෙකුගේ වේශයෙන් පැමිණියේය. සෙසු මිතුරන් තම තමන් සොයාගත් ආහාර පූජා කළ අතර, සාවා දානය සඳහා ගිනි ගොඩක් සූදානම් කරන ලෙස පැවසීය.",
+            textEn: "To test their virtue, Lord Sakra, king of the gods, descended disguised as a hungry, old Brahmin. While the other animals offered their collected food, the hare joyfully requested the Brahmin to prepare a fire so he could offer his body.",
+            img: "assets/panel4.jpg",
+            fallbackIcon: "🔥"
+        },
+        {
+            titleSi: "05. ශශ ලාංඡනය",
+            titleEn: "05. The Eternal Tribute",
+            textSi: "සාවා කිසිදු පැකිලීමකින් තොරව රක්ත වර්ණ ගින්නට පැන්නේය. එහෙත් ඔහුගේ උදාර ගුණය නිසා ගින්න සිසිල් විය. පැහැදුණු ශක්‍ර දේවේන්ද්‍රයා සාවාගේ රූපය සදාකාලික සිහිවටනයක් ලෙස සඳ මත ඇන්දේය.",
+            textEn: "With complete selflessness, the hare leapt into the blazing fire. Yet, due to his supreme virtue, the flames turned cold. Overwhelmed with admiration, Lord Sakra revealed his divine form and painted the hare's image on the moon forever.",
+            img: "assets/panel5.jpg",
+            fallbackIcon: "🌕"
+        }
+    ],
+    kuru: [
+        {
+            titleSi: "01. රජතුමාගේ දැහැමි පාලනය",
+            titleEn: "01. The Righteous Reign",
+            textSi: "කුරු රට ධනංජය රජතුමා දස රාජ ධර්මයෙන් සහ උතුම් කුරු ධර්මයෙන් (පංච ශීලයෙන්) රට පාලනය කළේය. රට වැසියන් ද දැහැමි දිවියක් ගත කළහ.",
+            textEn: "King Dhananjaya of Kuru ruled his country with the Ten Royal Virtues and the noble Kuru Dharma (Five Precepts). The citizens also led a righteous life.",
+            img: "assets/kuru1.jpg",
+            fallbackIcon: "👑"
+        },
+        {
+            titleSi: "02. කාලිංගයේ නියඟය",
+            titleEn: "02. The Drought of Kalinga",
+            textSi: "අසල්වැසි කාලිංග දේශයට දරුණු නියඟයක් ඇති වූ අතර, මිනිස්සු සාගින්නෙන් පෙළුණහ. කුරු රටේ සිටින මංගල හස්තිරාජයා නිසා වැසි ලැබෙන බව සිතූ කාලිංග වැසියෝ හස්තියා ඉල්ලා සිටියහ.",
+            textEn: "The neighboring Kalinga kingdom suffered a severe drought, leading to widespread famine. Believing the auspicious state elephant of Kuru brought rain, Kalinga requested it.",
+            img: "assets/kuru2.jpg",
+            fallbackIcon: "🐘"
+        },
+        {
+            titleSi: "03. හස්ති රාජයා දන් දීම",
+            titleEn: "03. Almsgiving of the Elephant",
+            textSi: "ධනංජය රජතුමා කිසිදු මසුරුකමකින් තොරව තම මංගල හස්තිරාජයා කාලිංග දේශයෙන් පැමිණි බ්‍රාහ්මණයන්ට දන් දුන්නේය. එහෙත් කාලිංගයට වැසි නොලැබුණි.",
+            textEn: "King Dhananjaya selflessly donated his prized royal elephant to the Brahmins of Kalinga. However, the drought in Kalinga persisted even after the offering.",
+            img: "assets/kuru3.jpg",
+            fallbackIcon: "🌧️"
+        },
+        {
+            titleSi: "04. කුරු ධර්මය සෙවීම",
+            titleEn: "04. Seeking the Kuru Dharma",
+            textSi: "වැසි නොලැබුණේ රජුගේ ධර්මයේ බලයෙන් බව වටහාගත් කාලිංග දූතයෝ, රජුගෙන් සහ රාජකීයයන්ගෙන් කුරු ධර්මය (පංච ශීලය) ලියා ගැනීමට පැමිණියහ.",
+            textEn: "Realizing the rain was due to the moral power of the Kuru ruler, messengers from Kalinga came to write down the Kuru Dharma (Five Precepts) from the King.",
+            img: "assets/kuru4.jpg",
+            fallbackIcon: "📜"
+        },
+        {
+            titleSi: "05. වැසි වැටී සශ්‍රීක වීම",
+            titleEn: "05. Showers of Prosperity",
+            textSi: "කුරු ධර්මය ගෙන ගොස් කාලිංගයේදී එය සමාදන් වූ වහාම මහා වැසි වැටී නියඟය දුරු විය. මුළු දේශයම සශ්‍රීකත්වයෙන් හා සන්තෝෂයෙන් පිරී ගියේය.",
+            textEn: "As soon as the Kuru Dharma was brought and practiced in Kalinga, heavy rains fell, ending the drought. The entire land became fertile and prosperous.",
+            img: "assets/kuru5.jpg",
+            fallbackIcon: "🌾"
+        }
+    ],
+    dahamsonda: [
+        {
+            titleSi: "01. ධර්ම පිපාසය",
+            titleEn: "01. Thirst for Dhamma",
+            textSi: "දහම්සොඬ රජතුමා බණ ඇසීමට මහත් කැමැත්තක් දැක්වීය. බුදුන් වහන්සේ ලොව පහල නොවූ යුගයක, බණ පදයක් කියා දෙන කෙනෙකුට මුළු රාජ්‍යයම දීමට රජු පොරොන්දු විය.",
+            textEn: "King Dahamsonda had an intense desire to hear the Buddha's teachings. In an era when no Buddha was present, he promised to give his entire kingdom to anyone who could teach him a single stanza.",
+            img: "assets/daham1.jpg",
+            fallbackIcon: "👑"
+        },
+        {
+            titleSi: "02. රාජ්‍යය හැරයාම",
+            titleEn: "02. Leaving the Kingdom",
+            textSi: "නුවර කොතැනකවත් බණ දන්නා අයෙකු නොසිටි බැවින්, රජතුමා සිහසුන අතහැර ධර්මය සොයා ඝන වනාන්තරයට පිවිසුණේය.",
+            textEn: "Finding no one in the kingdom who knew the Dhamma, the King abandoned his throne and ventured into the deep forest in search of holy stanzas.",
+            img: "assets/daham2.jpg",
+            fallbackIcon: "🚶"
+        },
+        {
+            titleSi: "03. රක්ෂසයා හමුවීම",
+            titleEn: "03. Encountering the Demon",
+            textSi: "රජුගේ උදාර අදිටන පරීක්ෂා කරනු පිණිස ශක්‍ර දේවේන්ද්‍රයා බියකරු රක්ෂසයෙකුගේ වේශයෙන් පෙනී සිට බණ පදයක් දන්නා බව පැවසීය.",
+            textEn: "To test the King's resolve, Lord Sakra appeared as a terrifying demon (Rakshasa) and claimed he knew a sacred stanza of the Dhamma.",
+            img: "assets/daham3.jpg",
+            fallbackIcon: "👹"
+        },
+        {
+            titleSi: "04. ජීවිතය පූජා කිරීම",
+            titleEn: "04. Leap of Faith",
+            textSi: "බණ කීමට පෙර රක්ෂසයාට තමාගේ ශරීරය දිය යුතු බව පැවසූ විට, රජු සතුටින් උස් කන්දකින් රක්ෂසයාගේ මුඛයට පැනීමට එකඟ විය.",
+            textEn: "The demon demanded the King's body as food before preaching. The King happily agreed to jump from a high cliff into the demon's mouth to hear the Dhamma.",
+            img: "assets/daham4.jpg",
+            fallbackIcon: "⛰️"
+        },
+        {
+            titleSi: "05. ධර්ම දානය",
+            titleEn: "05. The Divine Reward",
+            textSi: "රජු පහළට පනින විට රක්ෂසයා ශක්‍ර දේවේන්ද්‍රයා බවට පත්ව රජුව සුරක්ෂිතව පිළිගෙන, බණ පද දේශනා කර රාජ්‍යය නැවත ලබා දුන්නේය.",
+            textEn: "As the King leaped, the demon transformed back into Lord Sakra, caught him safely, preached the stanzas, and restored him to his rightful throne.",
+            img: "assets/daham5.jpg",
+            fallbackIcon: "✨"
+        }
+    ]
+};
 
+let activeStoryKey = 'sasa';
 let activePanelIndex = 0;
 let currentLanguage = 'si';
 let autoPlayInterval = null;
@@ -631,6 +718,15 @@ let bulbStateTick = 0;
 
 function initThorana() {
     loadStoryPanel(0);
+
+    const jatakaSelect = document.getElementById('jatakaStorySelect');
+    if (jatakaSelect) {
+        jatakaSelect.addEventListener('change', function() {
+            activeStoryKey = this.value;
+            activePanelIndex = 0;
+            loadStoryPanel(0);
+        });
+    }
 
     document.getElementById('btnPrev').addEventListener('click', () => navigateStory(-1));
     document.getElementById('btnNext').addEventListener('click', () => navigateStory(1));
@@ -671,7 +767,7 @@ function initThorana() {
 
 function loadStoryPanel(index) {
     activePanelIndex = index;
-    const story = jatakaStory[index];
+    const story = jatakaStories[activeStoryKey][index];
 
     document.querySelectorAll('.pandal-panel-trigger').forEach(p => {
         p.classList.toggle('selected', parseInt(p.dataset.panelIndex) === index);
@@ -694,13 +790,13 @@ function loadStoryPanel(index) {
     imgEl.onload = function () { imgEl.style.opacity = 1; };
 
     document.getElementById('btnPrev').disabled = index === 0;
-    document.getElementById('btnNext').disabled = index === jatakaStory.length - 1;
+    document.getElementById('btnNext').disabled = index === jatakaStories[activeStoryKey].length - 1;
 
     if (window.speechSynthesis) window.speechSynthesis.cancel();
 }
 
 function updateStoryDisplay() {
-    const story = jatakaStory[activePanelIndex];
+    const story = jatakaStories[activeStoryKey][activePanelIndex];
     document.getElementById('storyTitleSi').innerText = story.titleSi;
     document.getElementById('storyTitleEn').innerText = story.titleEn;
     document.getElementById('storyTextSi').innerText = story.textSi;
@@ -722,7 +818,7 @@ function setLanguage(lang) {
 
 function navigateStory(dir) {
     const next = activePanelIndex + dir;
-    if (next >= 0 && next < jatakaStory.length) loadStoryPanel(next);
+    if (next >= 0 && next < jatakaStories[activeStoryKey].length) loadStoryPanel(next);
 }
 
 function toggleAutoPlay(button) {
@@ -736,7 +832,7 @@ function toggleAutoPlay(button) {
         button.classList.add('playing');
         button.innerHTML = '⏸️ Stop';
         autoPlayInterval = setInterval(() => {
-            activePanelIndex < jatakaStory.length - 1 ? navigateStory(1) : loadStoryPanel(0);
+            activePanelIndex < jatakaStories[activeStoryKey].length - 1 ? navigateStory(1) : loadStoryPanel(0);
         }, 10000);
     }
 }
@@ -744,7 +840,7 @@ function toggleAutoPlay(button) {
 function speakStory() {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
-    const story = jatakaStory[activePanelIndex];
+    const story = jatakaStories[activeStoryKey][activePanelIndex];
     const text = currentLanguage === 'si' ? story.textSi : story.textEn;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = currentLanguage === 'si' ? 'si-LK' : 'en-US';
