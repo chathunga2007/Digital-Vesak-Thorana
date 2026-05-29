@@ -180,19 +180,31 @@
 
             <!-- 8. Size & Position Sliders -->
             <div class="control-group">
-                <span class="control-label">📏 Font Size</span>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span class="control-label">📏 Font Size</span>
+                    <span id="valTextSize" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Normal</span>
+                </div>
                 <input id="textSize" type="range" class="speed-slider" min="-15" max="30" value="0">
             </div>
             <div class="control-group">
-                <span class="control-label">↔️ Text Horizontal Position</span>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span class="control-label">↔️ Horizontal Position</span>
+                    <span id="valTextX" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Center</span>
+                </div>
                 <input id="textXOffset" type="range" class="speed-slider" min="-250" max="250" value="0">
             </div>
             <div class="control-group">
-                <span class="control-label">↕️ Text Vertical Position</span>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span class="control-label">↕️ Vertical Position</span>
+                    <span id="valTextY" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Middle</span>
+                </div>
                 <input id="textOffset" type="range" class="speed-slider" min="-250" max="250" value="0">
             </div>
             <div class="control-group">
-                <span class="control-label">↕️ Line Spacing (පේළි පරතරය)</span>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span class="control-label">↕️ Line Spacing (පේළි පරතරය)</span>
+                    <span id="valLineH" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">35px</span>
+                </div>
                 <input id="textLineHeight" type="range" class="speed-slider" min="10" max="60" value="35">
             </div>
 
