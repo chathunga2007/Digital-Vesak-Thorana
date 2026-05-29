@@ -35,6 +35,7 @@
                 <li><a href="card-genarate.html">🎨 Card Generator</a></li>
             </ul>
         </nav>
+        <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
 
     <!-- Main Content -->
@@ -368,9 +369,9 @@
                 <rect x="730" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
             </svg>
 
-            <!-- Audio controls below pandal -->
-            <div class="audio-controls" style="margin-top: 1.5rem;">
-                <button id="btnAmbientAudio" class="btn-audio">🎵 Play Ambient Music</button>
+            <!-- Audio status message -->
+            <div class="audio-status" style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center;">
+                🪔 Serene Buddhist Bhakthi Geetha are playing. Adjust music settings in the sidebar dashboard.
             </div>
         </section>
 
@@ -432,6 +433,33 @@
                     <span id="speedVal" style="font-size:0.85rem;color:var(--color-yellow);font-weight:bold;">Normal</span>
                 </div>
                 <input id="speedSlider" type="range" class="speed-slider" min="1" max="10" value="6">
+            </div>
+
+            <!-- Devotional Music Player Card -->
+            <div class="audio-player-card">
+                <span class="control-label" style="display:flex; align-items:center; gap:8px;">
+                    📻 DEVOTIONAL PLAYER (භක්ති ගීත වාදකය)
+                </span>
+                <div class="playlist-controls">
+                    <select id="audioPlaylist" class="custom-input" style="width: 100%; margin-bottom: 12px; font-size: 0.85rem; background: #0c0f1d; border: 1px solid rgba(255,215,0,0.3);">
+                        <option value="0">🌸 බුදු බණ පදයක් - Mangala Denex</option>
+                        <option value="1">🌸 සිද්ධාර්ථ ගෞතම් - Viraj Perera</option>
+                        <option value="2">🌸 සම්බුදු රුව - Vidusha Rajaguru</option>
+                        <option value="synth">🔔 Temple Bell Chimes (Offline Synth)</option>
+                    </select>
+                    <div class="player-controls-row" style="display: flex; gap: 10px; align-items: center;">
+                        <button id="btnAudioPlayPause" class="btn-audio" style="flex: 1; justify-content: center; font-size: 0.85rem;">
+                            ▶ Play Music
+                        </button>
+                        <div class="now-playing-label" id="songDisplay" style="font-size: 0.75rem; color: #94a3b8; flex: 1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border: 1px solid rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
+                            Select a track...
+                        </div>
+                    </div>
+                </div>
+                <div class="volume-control-row" style="display:flex; align-items:center; gap:10px; margin-top:6px;">
+                    <span style="font-size: 0.75rem; color: #64748b; white-space: nowrap;">🔈 Volume</span>
+                    <input id="audioVolume" type="range" class="speed-slider" min="0" max="1" step="0.05" value="0.5" style="flex: 1;">
+                </div>
             </div>
         </section>
     </main>
