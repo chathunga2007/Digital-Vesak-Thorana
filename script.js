@@ -207,22 +207,22 @@ const audioTracks = [
         src: "assets/audio/Vidusha Rajaguru - Sambudu Ruwa (සම්බුදු رුව)  Official Music Video - Vidusha Rajaguru (youtube).mp3"
     },
     {
-        name: "Maha Piritha",
-        sinhala: "මහා පිරිත",
-        artist: "Ven. Nauyane Ariyadhamma Maha Thero",
-        src: "https://archive.org/download/Pirith/01.%20Saranagamanam.mp3"
+        name: "Nidukanane",
+        sinhala: "නිදුකාණන් වහන්සේ",
+        artist: "Aksha Chamudi",
+        src: "assets/audio/Nidukanane - Aksha Chamudi Official Music Video - TB Recordz (youtube).mp3"
     },
     {
-        name: "Seth Pirith",
-        sinhala: "සෙත් පිරිත්",
-        artist: "Ven. Nauyane Ariyadhamma Maha Thero",
-        src: "https://archive.org/download/Pirith/02%20Pancha%20Sila.mp3"
+        name: "Thathagathayanane",
+        sinhala: "තථාගතයාණන් වහන්සේ",
+        artist: "Viraj Perera",
+        src: "assets/audio/Thathagathayanane - Viraj Perera (youtube).mp3"
     },
     {
-        name: "Ratana Sutta",
-        sinhala: "රතන සූත්‍රය",
-        artist: "Ven. Nauyane Ariyadhamma Maha Thero",
-        src: "https://archive.org/download/Pirith/09RatanaSutta.mp3"
+        name: "Sambuddha Raja",
+        sinhala: "සම්බුද්ධ රාජා",
+        artist: "Viraj Perera",
+        src: "assets/audio/Viraj Perera - Sambuddha Raja (සම්බුද්ධ රාජා)  Official Music Video - Viraj Perera (youtube).mp3"
     }
 ];
 
