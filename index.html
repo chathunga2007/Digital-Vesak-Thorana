@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Vesak Thorana & Greetings | ඩිජිටල් වෙසක් තොරණ</title>
+    <meta name="description" content="ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත් නිර්මාණය. Experience the interactive Sasa Jataka digital pandal and customize your Vesak greeting cards here.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Stars Twinkling Background -->
+    <div class="stars-bg">
+        <div class="stars"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Traditional Dhammachakka (Dharma Wheel) -->
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
+                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
+                <!-- 8 spokes -->
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
+                <!-- Wheel rims -->
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+            </svg>
+            <span class="logo-text">Vesak 2026</span>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">🏢 Home (ප්‍රධාන පිටුව)</a></li>
+                <li><a href="thorana.html">🎡 Digital Thorana (ඩිජිටල් තොරණ)</a></li>
+                <li><a href="card-genarate.html">🎨 Card Generator (වෙසක් පත්)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Landing -->
+    <main class="hero-section">
+        <!-- Celestial Meditating Buddha SVG Silhouette -->
+        <svg class="hero-logo-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="buddhaGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.6"/>
+                    <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <!-- Glowing Aura Background -->
+            <circle cx="100" cy="90" r="70" fill="url(#buddhaGlow)"/>
+            <circle cx="100" cy="90" r="45" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5"/>
+            <!-- Buddha Silhouette -->
+            <!-- Lotus throne -->
+            <path d="M 50 145 C 50 135, 150 135, 150 145 C 130 160, 70 160, 50 145 Z" fill="#ffd700" opacity="0.9"/>
+            <!-- Body -->
+            <path d="M 80 140 L 70 110 C 70 95, 130 95, 130 110 L 120 140 Z" fill="#101432"/>
+            <path d="M 82 138 C 90 120, 110 120, 118 138 Z" fill="#ffd700"/>
+            <!-- Head & Hair Crown -->
+            <circle cx="100" cy="85" r="16" fill="#101432"/>
+            <circle cx="100" cy="67" r="5" fill="#ffd700"/>
+        </svg>
+
+        <h1 class="hero-title">DIGITAL VESAK PANDAL</h1>
+        <h2 id="heroTitleSi" class="hero-title-sinhala">විද්‍යුත් වෙසක් තොරණ සහ සුබපැතුම්පත්</h2>
+        
+        <p class="hero-subtitle">
+            පින්බර වෙසක් මංගල්‍යය වෙනුවෙන් සැකසූ සුවිශේෂී ඩිජිටල් අත්දැකීම. 
+            සුවිශේෂී ආලෝක රටා සහිත <strong>සස ජාතක කතාව</strong> විදහා දක්වන තොරණ නරඹා, 
+            ඔබේ හිතමිතුරන් වෙනුවෙන්ම වෙසක් සුබපැතුම්පතක් නිර්මාණය කර බාගත කරගන්න.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-container">
+            <a href="thorana.html" class="btn-premium">
+                <span>🎡 Enter Digital Thorana</span>
+            </a>
+            <a href="card-genarate.html" class="btn-secondary">
+                <span>🎨 Create Vesak Cards</span>
+            </a>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-box">
+            <div class="countdown-item">
+                <span id="daysBox" class="countdown-num">00</span>
+                <span class="countdown-label">Days (දින)</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hoursBox" class="countdown-num">00</span>
+                <span class="countdown-label">Hours (පැය)</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minsBox" class="countdown-num">00</span>
+                <span class="countdown-label">Mins (විනාඩි)</span>
+            </div>
+            <div class="countdown-item">
+                <span id="secsBox" class="countdown-num">00</span>
+                <span class="countdown-label">Secs (තත්පර)</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-text">
+        සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful. <br>
+        Digital Vesak Pandal & Greetings © 2026. Made for <span>Vesak Poya Day</span>.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

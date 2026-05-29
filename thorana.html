@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Digital Vesak Thorana | ඩිජිටල් වෙසක් තොරණ</title>
+    <meta name="description" content="Experience the magnificent interactive Sasa Jataka Digital Vesak Pandal. Toggle dynamic light loops, listen to soothing sounds, and follow the bilingual story.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Stars Twinkling Background -->
+    <div class="stars-bg">
+        <div class="stars"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
+                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+            </svg>
+            <span class="logo-text">Vesak 2026</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">🏢 Home (ප්‍රධාන පිටුව)</a></li>
+                <li class="active"><a href="thorana.html">🎡 Digital Thorana (ඩිජිටල් තොරණ)</a></li>
+                <li><a href="card-genarate.html">🎨 Card Generator (වෙසක් පත්)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="thorana-container">
+        
+        <!-- Left Side: Interactive Pandal View -->
+        <section class="thorana-view">
+            <!-- Pandal Structure SVG -->
+            <svg id="pandalSvg" class="pandal-structure" viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffe875"/>
+                        <stop offset="50%" stop-color="#ffd700"/>
+                        <stop offset="100%" stop-color="#c59b00"/>
+                    </linearGradient>
+                    <radialGradient id="panelGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                    </radialGradient>
+                    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="8" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                </defs>
+
+                <!-- 1. Background Pandal Silhouette & Frame Architecture -->
+                <!-- Main Arch Outline -->
+                <path d="M 50 700 L 50 400 Q 50 150, 300 120 Q 550 150, 550 400 L 550 700 Z" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="4" filter="drop-shadow(0 0 10px rgba(0,0,0,0.8))"/>
+                
+                <!-- Ornate Wings (Side Traditional Designs) -->
+                <path d="M 50 500 Q 0 450, 50 350 Z" fill="#0f1228" stroke="url(#goldGrad)" stroke-width="2"/>
+                <path d="M 550 500 Q 600 450, 550 350 Z" fill="#0f1228" stroke="url(#goldGrad)" stroke-width="2"/>
+                <path d="M 50 350 Q -10 280, 50 200 Z" fill="#0f1228" stroke="url(#goldGrad)" stroke-width="2"/>
+                <path d="M 550 350 Q 610 280, 550 200 Z" fill="#0f1228" stroke="url(#goldGrad)" stroke-width="2"/>
+                
+                <!-- Main Peak Decorative Crown (Makara head stylized shape) -->
+                <path d="M 230 120 C 230 70, 370 70, 370 120 C 350 100, 250 100, 230 120 Z" fill="url(#goldGrad)"/>
+                <circle cx="300" cy="70" r="12" fill="#ffd700" filter="url(#glowEffect)"/>
+                
+                <!-- Traditional Pillar Bases -->
+                <rect x="35" y="680" width="40" height="30" rx="5" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
+                <rect x="525" y="680" width="40" height="30" rx="5" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
+
+                <!-- 2. Decorative Radiant Sun Rays from Center -->
+                <g opacity="0.3">
+                    <line x1="300" y1="360" x2="100" y2="160" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                    <line x1="300" y1="360" x2="500" y2="160" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                    <line x1="300" y1="360" x2="100" y2="560" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                    <line x1="300" y1="360" x2="500" y2="560" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                    <line x1="300" y1="360" x2="300" y2="130" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                    <line x1="300" y1="360" x2="300" y2="590" stroke="#ffd700" stroke-width="3" stroke-dasharray="10,10"/>
+                </g>
+
+                <!-- 3. Dynamic Clickable Jataka Panels Geometry -->
+                <!-- Panel 1 (Bottom Left) -->
+                <g class="pandal-panel-trigger" data-panel-index="0">
+                    <rect x="75" y="470" width="110" height="150" rx="10" fill="#080a1c" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <text x="130" y="555" fill="#ffd700" font-size="28" font-family="'Outfit'" text-anchor="middle" opacity="0.8">🕊️</text>
+                    <text x="130" y="600" fill="#fff" font-size="11" font-family="'Abhaya Libre'" text-anchor="middle">01. අධිෂ්ඨානය</text>
+                </g>
+
+                <!-- Panel 2 (Top Left) -->
+                <g class="pandal-panel-trigger" data-panel-index="1">
+                    <rect x="110" y="230" width="110" height="150" rx="10" fill="#080a1c" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <text x="165" y="315" fill="#ffd700" font-size="28" font-family="'Outfit'" text-anchor="middle" opacity="0.8">🐟</text>
+                    <text x="165" y="360" fill="#fff" font-size="11" font-family="'Abhaya Libre'" text-anchor="middle">02. දන් සෙවීම</text>
+                </g>
+
+                <!-- Panel 3 (Center Top - Principal Panel) -->
+                <g class="pandal-panel-trigger" data-panel-index="2">
+                    <rect x="235" y="160" width="130" height="170" rx="12" fill="#080a1c" stroke="url(#goldGrad)" stroke-width="4"/>
+                    <text x="300" y="250" fill="#ffd700" font-size="34" font-family="'Outfit'" text-anchor="middle" opacity="0.8">🐇</text>
+                    <text x="300" y="305" fill="#ffd700" font-size="12" font-family="'Abhaya Libre'" font-weight="bold" text-anchor="middle">03. සස ජාතකය</text>
+                </g>
+
+                <!-- Panel 4 (Top Right) -->
+                <g class="pandal-panel-trigger" data-panel-index="3">
+                    <rect x="380" y="230" width="110" height="150" rx="10" fill="#080a1c" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <text x="435" y="315" fill="#ffd700" font-size="28" font-family="'Outfit'" text-anchor="middle" opacity="0.8">🔥</text>
+                    <text x="435" y="360" fill="#fff" font-size="11" font-family="'Abhaya Libre'" text-anchor="middle">04. පරීක්ෂණය</text>
+                </g>
+
+                <!-- Panel 5 (Bottom Right) -->
+                <g class="pandal-panel-trigger" data-panel-index="4">
+                    <rect x="415" y="470" width="110" height="150" rx="10" fill="#080a1c" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <text x="470" y="555" fill="#ffd700" font-size="28" font-family="'Outfit'" text-anchor="middle" opacity="0.8">🌕</text>
+                    <text x="470" y="600" fill="#fff" font-size="11" font-family="'Abhaya Libre'" text-anchor="middle">05. සඳෙහි සලකුණ</text>
+                </g>
+
+                <!-- Central Radiant Dharma Wheel / Lotus center -->
+                <g filter="url(#glowEffect)" transform="translate(300, 480)">
+                    <circle cx="0" cy="0" r="45" fill="none" stroke="#ffd700" stroke-width="4"/>
+                    <circle cx="0" cy="0" r="10" fill="#ffd700"/>
+                    <path d="M-45,0 L45,0 M0,-45 L0,45" stroke="#ffd700" stroke-width="3"/>
+                    <path d="M-32,-32 L32,32 M-32,32 L32,-32" stroke="#ffd700" stroke-width="2"/>
+                </g>
+
+                <!-- 4. Interactive Blinking LED Bulbs Circuits (Grouped for patterns) -->
+                <!-- Outer Arch border circuit bulbs (Layer 0) -->
+                <g id="outerArchBulbs">
+                    <circle class="bulb bulb-blue" cx="50" cy="670" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="50" cy="620" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="50" cy="570" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="50" cy="520" r="7" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="50" cy="470" r="7" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="50" cy="420" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="52" cy="370" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="60" cy="320" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="75" cy="272" r="7" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="95" cy="228" r="7" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="125" cy="188" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="160" cy="155" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="202" cy="130" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="250" cy="115" r="7" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="300" cy="110" r="7" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="350" cy="115" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="398" cy="130" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="440" cy="155" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="475" cy="188" r="7" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="505" cy="228" r="7" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="525" cy="272" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="540" cy="320" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="548" cy="370" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="550" cy="420" r="7" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="550" cy="470" r="7" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="550" cy="520" r="7" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="550" cy="570" r="7" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="550" cy="620" r="7" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="550" cy="670" r="7" data-layer="0" />
+                </g>
+
+                <!-- Inner frame outline bulbs (Layer 1) -->
+                <g id="innerFrameBulbs">
+                    <circle class="bulb bulb-yellow" cx="75" cy="450" r="6" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="95" cy="410" r="6" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="120" cy="380" r="6" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="150" cy="360" r="6" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="185" cy="350" r="6" data-layer="1" />
+                    <!-- Right side matching -->
+                    <circle class="bulb bulb-yellow" cx="525" cy="450" r="6" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="505" cy="410" r="6" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="480" cy="380" r="6" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="450" cy="360" r="6" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="415" cy="350" r="6" data-layer="1" />
+                </g>
+
+                <!-- Center Ring circuit bulbs (Layer 2) -->
+                <g id="centerRingBulbs">
+                    <circle class="bulb bulb-red" cx="245" cy="480" r="6" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="250" cy="445" r="6" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="265" cy="415" r="6" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="300" cy="405" r="6" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="335" cy="415" r="6" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="350" cy="445" r="6" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="355" cy="480" r="6" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="350" cy="515" r="6" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="335" cy="545" r="6" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="300" cy="555" r="6" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="265" cy="545" r="6" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="250" cy="515" r="6" data-layer="2" />
+                </g>
+
+                <!-- Radiant Spoke / Ray bulbs (Layer 3) -->
+                <g id="spokeBulbs">
+                    <circle class="bulb bulb-orange" cx="210" cy="390" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="170" cy="350" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="130" cy="310" r="5" data-layer="3" />
+                    
+                    <circle class="bulb bulb-orange" cx="390" cy="390" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="430" cy="350" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="470" cy="310" r="5" data-layer="3" />
+
+                    <circle class="bulb bulb-white" cx="300" cy="360" r="5" data-layer="3" />
+                    <circle class="bulb bulb-red" cx="300" cy="300" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="300" cy="240" r="5" data-layer="3" />
+                </g>
+            </svg>
+            
+            <!-- Controls on the bottom of pandal -->
+            <div class="audio-controls" style="margin-top: 1.5rem;">
+                <button id="btnAmbientAudio" class="btn-audio">
+                    🎵 Play Ambient Music
+                </button>
+            </div>
+        </section>
+
+        <!-- Right Side: Narrative Panel & Config Dashboard -->
+        <section class="thorana-dashboard">
+            
+            <!-- Story Narrative Card -->
+            <div class="story-card">
+                <div class="story-header">
+                    <span id="storyBadge" class="story-badge">පැනලය 1 / Panel 1</span>
+                    <div class="story-lang-toggle">
+                        <button id="btnLangSi" class="btn-lang active">සිංහල</button>
+                        <button id="btnLangEn" class="btn-lang">English</button>
+                    </div>
+                </div>
+
+                <!-- Story Display Area -->
+                <div class="story-body">
+                    <!-- Heading -->
+                    <h3 id="storyTitleSi" class="story-text-sinhala" style="font-size: 1.6rem; color: var(--color-yellow); margin-bottom: 10px;">මහා අධිෂ්ඨානය</h3>
+                    <h3 id="storyTitleEn" class="story-text-english" style="font-size: 1.3rem; color: var(--color-yellow); margin-bottom: 10px; display:none;">The Devotional Vow</h3>
+
+                    <!-- Story illustration frame -->
+                    <div class="story-image-placeholder">
+                        <img id="storyImage" src="assets/panel1.jpg" alt="Sasa Jataka Story Panel">
+                        <!-- Glowing vector icon shown only as a beautiful fallback when image file is missing -->
+                        <div id="storyImgFallback" style="font-size: 5rem; filter: drop-shadow(0 0 15px var(--color-yellow)); display: none;">🕊️</div>
+                    </div>
+
+                    <!-- Paragraph description -->
+                    <div class="story-text" style="margin-top: 1.5rem;">
+                        <p id="storyTextSi" class="story-text-sinhala"></p>
+                        <p id="storyTextEn" class="story-text-english" style="display: none;"></p>
+                    </div>
+                </div>
+
+                <!-- Story Panel controls -->
+                <div class="story-nav">
+                    <button id="btnPrev" class="btn-story-nav" disabled aria-label="Previous Panel">◀</button>
+                    <div class="auto-play-bar">
+                        <button id="btnSpeech" class="btn-audio" style="font-size: 0.8rem; padding: 6px 14px;">🗣️ Read Aloud</button>
+                        <button id="btnAutoPlay" class="btn-audio" style="font-size: 0.8rem; padding: 6px 14px;">🔄 Auto Play</button>
+                    </div>
+                    <button id="btnNext" class="btn-story-nav" aria-label="Next Panel">▶</button>
+                </div>
+            </div>
+
+            <!-- Lighting loop Config -->
+            <div class="control-group">
+                <span class="control-label">💡 Select Flashing Pattern (ආලෝක රටාව)</span>
+                <div class="pattern-grid">
+                    <button class="btn-pattern active" data-pattern="chasing">🔄 Chasing Lights (කැරකෙන රටාව)</button>
+                    <button class="btn-pattern" data-pattern="aura">✨ Golden Aura (රන්වන් ආලෝකය)</button>
+                    <button class="btn-pattern" data-pattern="sparkle">💎 Sparkle Diamond (තරු රටාව)</button>
+                    <button class="btn-pattern" data-pattern="rainbow">🌈 Flag Rainbow (බෞද්ධ ධජ රටාව)</button>
+                    <button class="btn-pattern" data-pattern="calm" style="grid-column: span 2;">🌊 Breathing wave (නිසල රැල්ල)</button>
+                </div>
+            </div>
+
+            <!-- Speed Config -->
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="control-label">⚡ Flashing Speed (වේගය)</span>
+                    <span id="speedVal" style="font-size: 0.85rem; color: var(--color-yellow); font-weight: bold;">Normal</span>
+                </div>
+                <input id="speedSlider" type="range" class="speed-slider" min="1" max="10" value="6">
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-text">
+        සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful. <br>
+        Digital Vesak Pandal & Greetings © 2026. Made for <span>Vesak Poya Day</span>.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
