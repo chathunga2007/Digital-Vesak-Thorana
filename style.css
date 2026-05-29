@@ -652,3 +652,259 @@ nav a:hover, nav li.active a {
     gap: 10px;
     margin-top: 6px;
 }
+
+/* --- HOME PAGE STYLES (MIGRATED) --- */
+.features-section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.feature-card {
+    background: rgba(15, 20, 42, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.12);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+}
+.feature-card.card-thorana::before { background: linear-gradient(to right, #3a86ff, #ffd700); }
+.feature-card.card-generator::before { background: linear-gradient(to right, #ffd700, #ff8c00); }
+.feature-card.card-music::before { background: linear-gradient(to right, #ff0055, #ff7b00); }
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(255,215,0,0.05);
+}
+.feature-icon {
+    font-size: 3rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 12px rgba(255,215,0,0.3));
+}
+.feature-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-yellow);
+}
+.feature-title-si {
+    font-family: var(--font-sinhala);
+    font-size: 1rem;
+    color: #94a3b8;
+    margin-top: -6px;
+}
+.feature-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.7;
+}
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-yellow);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s, gap 0.2s;
+}
+.feature-card:hover .feature-link { opacity: 1; gap: 12px; }
+
+.section-divider {
+    text-align: center;
+    margin: 2rem 0 2.5rem;
+}
+.section-divider h2 {
+    font-family: var(--font-ornamental);
+    font-size: 2rem;
+    background: linear-gradient(to right, #fff, #ffd700, #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine-text 4s linear infinite;
+}
+.section-divider p {
+    color: #64748b;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+/* Buddhist flag color band */
+.flag-band {
+    height: 5px;
+    background: linear-gradient(to right,
+        #1e56b2 20%, #ffd700 20% 40%,
+        #d91e18 40% 60%, #ffffff 60% 80%,
+        #ff6600 80%);
+    margin: 0;
+    opacity: 0.6;
+}
+
+.jataka-teaser {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+.jataka-cards-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+.jataka-mini-card {
+    background: rgba(10, 12, 30, 0.8);
+    border: 1px solid rgba(255,215,0,0.15);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    max-width: 170px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.jataka-mini-card:hover {
+    border-color: rgba(255,215,0,0.4);
+    transform: translateY(-4px);
+    background: rgba(255,215,0,0.05);
+}
+.jataka-mini-icon { font-size: 2rem; margin-bottom: 8px; }
+.jataka-mini-title { font-family: var(--font-sinhala); font-size: 0.82rem; color: #cbd5e1; line-height: 1.4; }
+
+/* --- WELCOME SCREEN OVERLAY --- */
+.welcome-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle at center, rgba(16, 20, 42, 0.98) 0%, rgba(5, 7, 18, 1) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-card {
+    background: rgba(10, 12, 30, 0.75);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 32px;
+    padding: 3rem 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: welcome-entrance 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes welcome-entrance {
+    from { transform: translateY(30px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.welcome-logo {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+    animation: logo-spin 25s linear infinite;
+}
+
+@keyframes logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.welcome-title-si {
+    font-family: var(--font-sinhala);
+    font-size: 1.8rem;
+    color: var(--color-yellow);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.welcome-title-en {
+    font-size: 1.2rem;
+    color: #f1f3f9;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.welcome-blessing {
+    font-family: var(--font-sinhala);
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.welcome-btn {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: btn-pulse 2s infinite alternate;
+}
+
+.welcome-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(255, 140, 0, 0.6);
+    filter: brightness(1.1);
+}
+
+@keyframes btn-pulse {
+    from { box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4); }
+    to { box-shadow: 0 8px 35px rgba(255, 215, 0, 0.7); }
+}
+
+.welcome-note {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Page transitions */
+.spa-transition-fade {
+    animation: spa-fade-in 0.4s ease-out forwards;
+}
+@keyframes spa-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
