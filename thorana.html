@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="si">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +8,9 @@
         content="Experience the magnificent interactive Sasa Jataka Digital Vesak Pandal with swirling rainbow lights, standing Buddha, and bilingual story narration.">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- Welcome/Entry Screen Overlay -->
     <div id="welcomeOverlay" class="welcome-overlay">
         <div class="welcome-card">
-            <!-- Rotating Dharma Wheel -->
             <svg class="welcome-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
                 <circle cx="50" cy="50" r="8" fill="#ffd700" />
@@ -37,12 +32,10 @@
         </div>
     </div>
 
-    <!-- Stars Twinkling Background -->
     <div class="stars-bg">
         <div class="stars"></div>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +50,6 @@
             <span class="logo-text">Vesak 2026</span>
         </div>
 
-        <!-- Desktop Nav -->
         <nav>
             <ul>
                 <li><a href="index.html" class="nav-link">🏠 Home</a></li>
@@ -66,7 +58,6 @@
             </ul>
         </nav>
 
-        <!-- Hamburger -->
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -76,7 +67,6 @@
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
 
         <ul>
@@ -86,10 +76,8 @@
         </ul>
     </div>
 
-    <!-- Main Content -->
     <main class="thorana-container">
 
-        <!-- Left: Interactive Pandal View -->
         <section class="thorana-view">
             <svg id="pandalSvg" class="pandal-structure" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -120,16 +108,12 @@
                     </filter>
                 </defs>
 
-                <!-- ===== BACKGROUND DOME FRAME ===== -->
-                <!-- Grand Dome Outer Shell -->
                 <path d="M 30 650 L 30 350 Q 30 80, 400 50 Q 770 80, 770 350 L 770 650 Z" fill="#080b1a"
                     stroke="url(#goldGrad)" stroke-width="5" />
 
-                <!-- Inner Dome Contour -->
                 <path d="M 60 640 L 60 360 Q 60 110, 400 80 Q 740 110, 740 360 L 740 640 Z" fill="none"
                     stroke="url(#goldGrad)" stroke-width="2" opacity="0.4" />
 
-                <!-- Decorative Side Wings -->
                 <path d="M 30 450 Q -15 380, 30 300" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
                 <path d="M 770 450 Q 815 380, 770 300" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
                 <path d="M 30 350 Q -20 280, 30 200" fill="none" stroke="url(#goldGrad)" stroke-width="2"
@@ -137,20 +121,15 @@
                 <path d="M 770 350 Q 820 280, 770 200" fill="none" stroke="url(#goldGrad)" stroke-width="2"
                     opacity="0.6" />
 
-                <!-- Crown Peak Ornament (Makara Pinnacle) -->
                 <path d="M 350 55 C 350 20, 450 20, 450 55" fill="url(#goldGrad)" />
                 <circle cx="400" cy="25" r="10" fill="#ffd700" filter="url(#glowFilter)" />
                 <path d="M 380 55 L 400 35 L 420 55" fill="url(#goldGrad)" opacity="0.7" />
-                <!-- OM Symbol -->
                 <text x="400" y="32" text-anchor="middle" font-size="14" fill="#ffd700" font-family="serif"
                     opacity="0.9" filter="url(#softGlow)">ॐ</text>
 
-                <!-- ===== CENTRAL RAINBOW MANDALA SPIRAL ===== -->
-                <!-- Outer Mandala Ring -->
                 <circle cx="400" cy="280" r="175" fill="url(#centerGlow)" stroke="url(#goldGrad)" stroke-width="4" />
                 <circle cx="400" cy="280" r="165" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.3" />
 
-                <!-- Spiral Rainbow Blades (12 curved segments) -->
                 <g id="spiralBlades" opacity="0.85">
                     <path d="M 400 280 Q 400 150, 500 120 Q 560 160, 400 280" fill="#3a86ff" opacity="0.7"
                         class="spiral-blade" data-blade="0" />
@@ -178,40 +157,28 @@
                         class="spiral-blade" data-blade="11" />
                 </g>
 
-                <!-- Radiant Halo Circle behind Buddha -->
                 <circle cx="400" cy="280" r="110" fill="url(#haloGlow)" />
                 <circle cx="400" cy="280" r="85" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5"
                     stroke-dasharray="6,3" />
 
-                <!-- ===== STANDING BUDDHA SILHOUETTE ===== -->
                 <g id="buddhaStanding" transform="translate(400, 280)">
-                    <!-- Lotus Pedestal -->
                     <ellipse cx="0" cy="95" rx="50" ry="15" fill="url(#redGrad)" stroke="#ffd700" stroke-width="2" />
                     <path d="M -40 90 Q -45 75, -30 70 Q -15 80, 0 70 Q 15 80, 30 70 Q 45 75, 40 90" fill="#ff4444"
                         stroke="#ffd700" stroke-width="1" />
 
-                    <!-- Body / Robes -->
                     <path d="M -25 90 L -30 20 Q -32 -10, -20 -30 L 20 -30 Q 32 -10, 30 20 L 25 90 Z" fill="#0a0e25"
                         stroke="#ffd700" stroke-width="1.5" opacity="0.95" />
 
-                    <!-- Left Arm -->
                     <path d="M -28 30 Q -45 50, -40 70 Q -35 80, -25 75" fill="none" stroke="#ffd700"
                         stroke-width="1.5" />
-                    <!-- Right Arm (Abhaya Mudra - raised blessing) -->
                     <path d="M 28 20 Q 45 0, 42 -15" fill="none" stroke="#ffd700" stroke-width="1.5" />
                     <circle cx="42" cy="-20" r="8" fill="none" stroke="#ffd700" stroke-width="1" />
 
-                    <!-- Head -->
                     <circle cx="0" cy="-48" r="18" fill="#0a0e25" stroke="#ffd700" stroke-width="2" />
-                    <!-- Hair Crown (Ushnisha) -->
                     <ellipse cx="0" cy="-68" rx="8" ry="6" fill="#ffd700" />
-                    <!-- Face features (minimal elegant) -->
                     <path d="M -5 -50 Q 0 -44, 5 -50" fill="none" stroke="#ffd700" stroke-width="0.8" opacity="0.6" />
                 </g>
 
-                <!-- ===== JATAKA STORY PANELS (Symmetric Chambers) ===== -->
-                <!-- Bottom Base: 5 Arched Chambers -->
-                <!-- Panel 1 (Far Left) -->
                 <g class="pandal-panel-trigger" data-panel-index="0">
                     <path d="M 65 640 L 65 530 Q 65 490, 130 490 Q 195 490, 195 530 L 195 640 Z" fill="#060818"
                         stroke="url(#goldGrad)" stroke-width="3" />
@@ -222,7 +189,6 @@
                         Vow</text>
                 </g>
 
-                <!-- Panel 2 (Left) -->
                 <g class="pandal-panel-trigger" data-panel-index="1">
                     <path d="M 210 640 L 210 530 Q 210 490, 275 490 Q 340 490, 340 530 L 340 640 Z" fill="#060818"
                         stroke="url(#goldGrad)" stroke-width="3" />
@@ -233,7 +199,6 @@
                         text-anchor="middle">Gathering</text>
                 </g>
 
-                <!-- Panel 3 (Center - Principal) -->
                 <g class="pandal-panel-trigger" data-panel-index="2">
                     <path d="M 345 640 L 345 520 Q 345 475, 400 475 Q 455 475, 455 520 L 455 640 Z" fill="#060818"
                         stroke="url(#goldGrad)" stroke-width="4" />
@@ -244,7 +209,6 @@
                         Hare</text>
                 </g>
 
-                <!-- Panel 4 (Right) -->
                 <g class="pandal-panel-trigger" data-panel-index="3">
                     <path d="M 460 640 L 460 530 Q 460 490, 525 490 Q 590 490, 590 530 L 590 640 Z" fill="#060818"
                         stroke="url(#goldGrad)" stroke-width="3" />
@@ -254,8 +218,6 @@
                     <text x="525" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">The
                         Test</text>
                 </g>
-
-                <!-- Panel 5 (Far Right) -->
                 <g class="pandal-panel-trigger" data-panel-index="4">
                     <path d="M 605 640 L 605 530 Q 605 490, 670 490 Q 735 490, 735 530 L 735 640 Z" fill="#060818"
                         stroke="url(#goldGrad)" stroke-width="3" />
@@ -266,15 +228,10 @@
                         Moon</text>
                 </g>
 
-                <!-- Horizontal Divider between base panels and upper pandal -->
                 <line x1="55" y1="480" x2="745" y2="480" stroke="url(#goldGrad)" stroke-width="4" />
                 <line x1="55" y1="475" x2="745" y2="475" stroke="#ffd700" stroke-width="1" opacity="0.3" />
 
-                <!-- ===== LED BULB CIRCUITS (180+ bulbs) ===== -->
-
-                <!-- CIRCUIT 1: Outer Dome Arch (Layer 0) - 40 bulbs -->
                 <g id="outerDomeBulbs">
-                    <!-- Left pillar -->
                     <circle class="bulb bulb-blue" cx="35" cy="640" r="6" data-layer="0" />
                     <circle class="bulb bulb-yellow" cx="35" cy="600" r="6" data-layer="0" />
                     <circle class="bulb bulb-red" cx="35" cy="560" r="6" data-layer="0" />
@@ -294,9 +251,7 @@
                     <circle class="bulb bulb-yellow" cx="290" cy="100" r="6" data-layer="0" />
                     <circle class="bulb bulb-red" cx="340" cy="88" r="6" data-layer="0" />
                     <circle class="bulb bulb-white" cx="370" cy="80" r="6" data-layer="0" />
-                    <!-- Top center -->
                     <circle class="bulb bulb-orange" cx="400" cy="76" r="7" data-layer="0" />
-                    <!-- Right side (mirror) -->
                     <circle class="bulb bulb-white" cx="430" cy="80" r="6" data-layer="0" />
                     <circle class="bulb bulb-red" cx="460" cy="88" r="6" data-layer="0" />
                     <circle class="bulb bulb-yellow" cx="510" cy="100" r="6" data-layer="0" />
@@ -318,7 +273,6 @@
                     <circle class="bulb bulb-blue" cx="765" cy="640" r="6" data-layer="0" />
                 </g>
 
-                <!-- CIRCUIT 2: Mandala Ring (Layer 1) - 36 bulbs around the circle -->
                 <g id="mandalaRingBulbs">
                     <circle class="bulb bulb-yellow" cx="400" cy="105" r="5" data-layer="1" />
                     <circle class="bulb bulb-red" cx="432" cy="108" r="5" data-layer="1" />
@@ -358,7 +312,6 @@
                     <circle class="bulb bulb-yellow" cx="368" cy="108" r="5" data-layer="1" />
                 </g>
 
-                <!-- CIRCUIT 3: Inner Halo Ring (Layer 2) - 24 bulbs -->
                 <g id="haloRingBulbs">
                     <circle class="bulb bulb-orange" cx="400" cy="195" r="4" data-layer="2" />
                     <circle class="bulb bulb-blue" cx="425" cy="197" r="4" data-layer="2" />
@@ -384,7 +337,6 @@
                     <circle class="bulb bulb-blue" cx="375" cy="197" r="4" data-layer="2" />
                 </g>
 
-                <!-- CIRCUIT 4: Base Chaser Lights (Layer 3) - 20 bulbs -->
                 <g id="baseChaserBulbs">
                     <circle class="bulb bulb-red" cx="70" cy="650" r="5" data-layer="3" />
                     <circle class="bulb bulb-yellow" cx="110" cy="650" r="5" data-layer="3" />
@@ -406,59 +358,45 @@
                     <circle class="bulb bulb-blue" cx="730" cy="650" r="5" data-layer="3" />
                 </g>
 
-                <!-- CIRCUIT 5: Radiant Spokes from center (Layer 4) - 16 bulbs -->
                 <g id="spokeBulbs">
-                    <!-- Up -->
                     <circle class="bulb bulb-yellow" cx="400" cy="140" r="4" data-layer="4" />
                     <circle class="bulb bulb-orange" cx="400" cy="160" r="4" data-layer="4" />
-                    <!-- Upper Right -->
                     <circle class="bulb bulb-blue" cx="520" cy="170" r="4" data-layer="4" />
                     <circle class="bulb bulb-red" cx="500" cy="185" r="4" data-layer="4" />
-                    <!-- Right -->
                     <circle class="bulb bulb-white" cx="545" cy="280" r="4" data-layer="4" />
                     <circle class="bulb bulb-yellow" cx="525" cy="280" r="4" data-layer="4" />
-                    <!-- Lower Right -->
                     <circle class="bulb bulb-orange" cx="520" cy="390" r="4" data-layer="4" />
                     <circle class="bulb bulb-blue" cx="500" cy="375" r="4" data-layer="4" />
-                    <!-- Down -->
                     <circle class="bulb bulb-red" cx="400" cy="420" r="4" data-layer="4" />
                     <circle class="bulb bulb-white" cx="400" cy="400" r="4" data-layer="4" />
-                    <!-- Lower Left -->
                     <circle class="bulb bulb-yellow" cx="280" cy="390" r="4" data-layer="4" />
                     <circle class="bulb bulb-orange" cx="300" cy="375" r="4" data-layer="4" />
-                    <!-- Left -->
                     <circle class="bulb bulb-blue" cx="255" cy="280" r="4" data-layer="4" />
                     <circle class="bulb bulb-red" cx="275" cy="280" r="4" data-layer="4" />
-                    <!-- Upper Left -->
                     <circle class="bulb bulb-white" cx="280" cy="170" r="4" data-layer="4" />
                     <circle class="bulb bulb-yellow" cx="300" cy="185" r="4" data-layer="4" />
                 </g>
 
-                <!-- CIRCUIT 6: Panel Highlight Bulbs (Layer 5) - scattered around panels -->
                 <g id="panelHighlightBulbs">
                     <circle class="bulb bulb-orange" cx="130" cy="485" r="4" data-layer="5" />
                     <circle class="bulb bulb-blue" cx="275" cy="485" r="4" data-layer="5" />
                     <circle class="bulb bulb-yellow" cx="400" cy="470" r="5" data-layer="5" />
                     <circle class="bulb bulb-red" cx="525" cy="485" r="4" data-layer="5" />
                     <circle class="bulb bulb-white" cx="670" cy="485" r="4" data-layer="5" />
-                    <!-- Between panels top -->
                     <circle class="bulb bulb-orange" cx="200" cy="478" r="3" data-layer="5" />
                     <circle class="bulb bulb-blue" cx="345" cy="478" r="3" data-layer="5" />
                     <circle class="bulb bulb-yellow" cx="455" cy="478" r="3" data-layer="5" />
                     <circle class="bulb bulb-red" cx="600" cy="478" r="3" data-layer="5" />
                 </g>
 
-                <!-- Decorative Pillar Bases -->
                 <rect x="20" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)"
                     stroke-width="2" />
                 <rect x="730" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)"
                     stroke-width="2" />
             </svg>
 
-            <!-- Decorative Buddha image (loaded from assets). Positioned over the mandala. -->
             <img id="thoranaBuddhaImg" class="thorana-buddha" src="assets/buddha.png" alt="Standing Buddha" />
 
-            <!-- Audio/Music status message -->
             <div id="thoranaAudioStatus" class="audio-status"
                 style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center; transition: color 0.3s;">
                 🔊 Press <strong style="color:var(--color-yellow)">Music On</strong> in the header to start devotional
@@ -466,10 +404,8 @@
             </div>
         </section>
 
-        <!-- Right: Narrative Panel & Config Dashboard -->
         <section class="thorana-dashboard">
 
-            <!-- Jataka Story Selector -->
             <div class="control-group" style="margin-bottom: 1.5rem;">
                 <label for="jatakaStorySelect" class="control-label" style="display:flex; align-items:center; gap:8px;">
                     📖 SELECT JATAKA STORY (ජාතක කතාව තෝරන්න)
@@ -484,7 +420,6 @@
                 </select>
             </div>
 
-            <!-- Story Narrative Card -->
             <div class="story-card">
                 <div class="story-header">
                     <span id="storyBadge" class="story-badge">පැනලය 1 / Panel 1</span>
@@ -525,7 +460,6 @@
                 </div>
             </div>
 
-            <!-- Lighting Pattern Config -->
             <div class="control-group">
                 <span class="control-label">💡 Flashing Pattern (ආලෝක රටාව)</span>
                 <div class="pattern-grid">
@@ -538,7 +472,6 @@
                 </div>
             </div>
 
-            <!-- Speed -->
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;">
                     <span class="control-label">⚡ Flashing Speed</span>
@@ -548,7 +481,6 @@
                 <input id="speedSlider" type="range" class="speed-slider" min="1" max="10" value="6">
             </div>
 
-            <!-- Devotional Music Player Card -->
             <div class="audio-player-card">
                 <span class="control-label" style="display:flex; align-items:center; gap:8px;">
                     📻 DEVOTIONAL PLAYER (භක්ති ගීත වාදකය)
@@ -584,7 +516,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer-text">
         සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful.<br>
         Digital Vesak Thorana &amp; Greetings © 2026. Made for <span> Chathunga Bimsara ❤️ </span>.
@@ -592,5 +523,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
