@@ -169,10 +169,10 @@ function updateGlobalMusicUI() {
     if (globalPlayBtn) {
         if (isAudioPlaying) {
             globalPlayBtn.innerText = "⏸️ Music Off";
-            globalPlayBtn.classList.remove('paused');
+            globalPlayBtn.classList.add('playing');
         } else {
             globalPlayBtn.innerText = "🔊 Music On";
-            globalPlayBtn.classList.add('paused');
+            globalPlayBtn.classList.remove('playing');
         }
     }
 
@@ -189,6 +189,48 @@ function updateGlobalMusicUI() {
             playPauseBtn.innerText = isAudioPlaying ? "⏸️ Pause" : "▶ Play Music";
         }
     }
+
+    // Show/hide the now-playing toast
+    if (isAudioPlaying) {
+        const track = audioTracks[currentTrackIndex];
+        showNowPlayingToast(track);
+    } else {
+        hideNowPlayingToast();
+    }
+}
+
+let toastTimer = null;
+function showNowPlayingToast(track) {
+    let toast = document.getElementById('nowPlayingToast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'nowPlayingToast';
+        toast.className = 'now-playing-toast';
+        toast.innerHTML = `
+            <div class="now-playing-bars">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="now-playing-info">
+                <span class="now-playing-label-sm">Now Playing</span>
+                <span class="now-playing-title" id="toastTrackTitle"></span>
+                <span class="now-playing-artist" id="toastTrackArtist"></span>
+            </div>
+            <button class="now-playing-close" onclick="pauseGlobalMusic(); localStorage.setItem('vesakMusicEnabled','false');">✕</button>
+        `;
+        document.body.appendChild(toast);
+    }
+    document.getElementById('toastTrackTitle').innerText = track.sinhala;
+    document.getElementById('toastTrackArtist').innerText = track.artist;
+    requestAnimationFrame(() => toast.classList.add('visible'));
+
+    // Auto-hide after 5s
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => hideNowPlayingToast(), 5000);
+}
+
+function hideNowPlayingToast() {
+    const toast = document.getElementById('nowPlayingToast');
+    if (toast) toast.classList.remove('visible');
 }
 
 // attemptAutoplay removed - music is fully manual-control only
@@ -759,7 +801,7 @@ function drawCard() {
         drawCoverImage(uploadedImage, W, H);
         ctx.fillStyle = "rgba(0,0,0,0.35)";
         ctx.fillRect(0, 0, W, H);
-    } else if (cardBgImage.complete && cardBgImage.naturalWidth > 0) {
+    } else if (cardBgImage && cardBgImage.complete && cardBgImage.naturalWidth > 0) {
         drawCoverImage(cardBgImage, W, H);
         ctx.fillStyle = "rgba(0,0,0,0.4)";
         ctx.fillRect(0, 0, W, H);
@@ -826,6 +868,7 @@ function drawProceduralBackground(W, H) {
 
 /* --- FRAME DRAWING --- */
 function drawFrame(W, H) {
+    if (currentFrame === 'none') return;
     ctx.save();
     switch (currentFrame) {
         case 'gold':
