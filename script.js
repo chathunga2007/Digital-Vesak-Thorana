@@ -1,9 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     initStars();
-
-    // Initialize global music controller
     initGlobalMusic();
+    initWelcomeScreen();
+    initCurrentPageComponents();
+    setupSPARouting();
+});
 
+function initWelcomeScreen() {
+    const welcome = document.getElementById('welcomeOverlay');
+    const enterBtn = document.getElementById('btnEnterWebsite');
+    
+    if (!welcome) return;
+
+    if (sessionStorage.getItem('vesakEntered') === 'true') {
+        welcome.classList.add('hidden');
+        welcome.remove();
+    } else {
+        if (enterBtn) {
+            enterBtn.addEventListener('click', () => {
+                localStorage.setItem('vesakMusicEnabled', 'true');
+                playGlobalMusic();
+                
+                sessionStorage.setItem('vesakEntered', 'true');
+                welcome.classList.add('hidden');
+                
+                setTimeout(() => {
+                    welcome.remove();
+                }, 800);
+            });
+        }
+    }
+}
+
+function initCurrentPageComponents() {
     if (document.getElementById('pandalSvg')) {
         initThorana();
     }
@@ -19,7 +48,104 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('daysBox')) {
         initCountdown();
     }
-});
+}
+
+function setupSPARouting() {
+    document.body.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a');
+        if (!anchor) return;
+        
+        const href = anchor.getAttribute('href');
+        if (href) {
+            const pageName = href.split('/').pop();
+            if (pageName === 'index.html' || pageName === 'thorana.html' || pageName === 'card-genarate.html') {
+                e.preventDefault();
+                navigateToPage(href);
+            }
+        }
+    });
+
+    window.addEventListener('popstate', (e) => {
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        navigateToPage(path, false);
+    });
+}
+
+function navigateToPage(url, pushState = true) {
+    const pathName = url.split('/').pop();
+    
+    fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error("Navigation failed");
+            return res.text();
+        })
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            document.title = doc.title;
+            
+            cleanupPreviousPage();
+            
+            const newMain = doc.querySelector('main');
+            const currentMain = document.querySelector('main');
+            if (newMain && currentMain) {
+                currentMain.outerHTML = newMain.outerHTML;
+                const updatedMain = document.querySelector('main');
+                if (updatedMain) {
+                    updatedMain.classList.add('spa-transition-fade');
+                }
+            }
+            
+            document.querySelectorAll('nav ul li').forEach(li => {
+                const a = li.querySelector('a');
+                if (a) {
+                    const aHref = a.getAttribute('href').split('/').pop();
+                    if (aHref === pathName) {
+                        li.classList.add('active');
+                    } else {
+                        li.classList.remove('active');
+                    }
+                }
+            });
+            
+            const welcome = document.getElementById('welcomeOverlay');
+            if (welcome) {
+                welcome.classList.add('hidden');
+                welcome.remove();
+            }
+            
+            if (pushState) {
+                history.pushState({ url }, '', url);
+            }
+            
+            initCurrentPageComponents();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(err => {
+            console.warn("SPA navigation fallback to reload:", err);
+            window.location.href = url;
+        });
+}
+
+function cleanupPreviousPage() {
+    if (lightInterval) {
+        clearInterval(lightInterval);
+        lightInterval = null;
+    }
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+    }
+    isAutoPlaying = false;
+    if (spiralAnimFrame) {
+        cancelAnimationFrame(spiralAnimFrame);
+        spiralAnimFrame = null;
+    }
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+}
 
 /* ==========================================
    1. STARFIELD & FLOATING LANTERNS
@@ -128,8 +254,17 @@ function initGlobalMusic() {
         }
     });
 
-    // NO autoplay - always show stopped state on load
-    // Music only starts when the user explicitly clicks the button
+    // If music was enabled, resume playback on the first user interaction
+    const resumeOnInteraction = () => {
+        if (localStorage.getItem('vesakMusicEnabled') === 'true' && !isAudioPlaying) {
+            playGlobalMusic();
+        }
+        window.removeEventListener('click', resumeOnInteraction);
+        window.removeEventListener('keydown', resumeOnInteraction);
+    };
+    window.addEventListener('click', resumeOnInteraction);
+    window.addEventListener('keydown', resumeOnInteraction);
+
     isAudioPlaying = false;
     updateGlobalMusicUI();
 }
