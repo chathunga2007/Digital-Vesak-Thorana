@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     initStars();
 
+    // Initialize global music controller
+    initGlobalMusic();
+
     if (document.getElementById('pandalSvg')) {
         initThorana();
+    }
+
+    if (document.getElementById('audioPlaylist')) {
+        initAudioPlayer();
     }
 
     if (document.getElementById('cardCanvas')) {
@@ -52,42 +59,165 @@ function spawnLantern() {
 }
 
 /* ==========================================
-   2. AMBIENT AUDIO & SYNTH ENGINE
+   2. AMBIENT AUDIO & PLAYLIST SYNTH ENGINE
    ========================================== */
+const audioTracks = [
+    {
+        name: "Budu Bana Padayak",
+        sinhala: "බුදු බණ පදයක්",
+        artist: "Mangala Denex",
+        src: "assets/audio/Budu Bana Padayak (බුදු බණ පදයක්) - Mangala Denex (Hiru Star) (Official Music Video) - Desawana Music (youtube).mp3"
+    },
+    {
+        name: "Sidhdhartha Gautham",
+        sinhala: "සිද්ධාර්ථ ගෞතම්",
+        artist: "Viraj Perera",
+        src: "assets/audio/Sidhdhartha Gautham (සිද්ධාර්ථ ගෞතම්) - Viraj Perera  [Official Audio] - VIP Music (youtube).mp3"
+    },
+    {
+        name: "Sambudu Ruwa",
+        sinhala: "සම්බුදු රුව",
+        artist: "Vidusha Rajaguru",
+        src: "assets/audio/Vidusha Rajaguru - Sambudu Ruwa (සම්බුදු රුව)  Official Music Video - Vidusha Rajaguru (youtube).mp3"
+    }
+];
+
 let audioCtx = null;
 let synthInterval = null;
 let isSynthPlaying = false;
-let bgMusicAudio = null;
+let isAudioPlaying = false;
+let audioPlayer = new Audio();
+audioPlayer.volume = 0.5;
 
-function toggleAmbientAudio(button) {
+function initAudioPlayer() {
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    const playlistSelect = document.getElementById('audioPlaylist');
+    const volumeSlider = document.getElementById('audioVolume');
+    const songDisplay = document.getElementById('songDisplay');
+
+    if (!playPauseBtn || !playlistSelect || !volumeSlider || !songDisplay) return;
+
+    // Set initial volume
+    audioPlayer.volume = parseFloat(volumeSlider.value);
+
+    // Track end event -> auto advance to next song
+    audioPlayer.onended = () => {
+        if (playlistSelect.value === 'synth') {
+            // Synth continues
+        } else {
+            let nextIndex = (parseInt(playlistSelect.value) + 1) % audioTracks.length;
+            playlistSelect.value = nextIndex;
+            changeTrack(nextIndex);
+        }
+    };
+
+    // Play/Pause button
+    playPauseBtn.addEventListener('click', () => {
+        const val = playlistSelect.value;
+        if (val === 'synth') {
+            toggleSynthBellPlaying();
+        } else {
+            toggleTrackPlaying();
+        }
+    });
+
+    // Playlist selector change
+    playlistSelect.addEventListener('change', () => {
+        const val = playlistSelect.value;
+        if (val === 'synth') {
+            stopAudioTrack();
+            songDisplay.innerText = "🔔 Temple Bell Chimes";
+            toggleSynthBellPlaying(true); // force start synth
+        } else {
+            stopAmbientSynth();
+            isSynthPlaying = false;
+            changeTrack(parseInt(val));
+        }
+    });
+
+    // Volume slider
+    volumeSlider.addEventListener('input', (e) => {
+        audioPlayer.volume = parseFloat(e.target.value);
+    });
+}
+
+function changeTrack(index) {
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    const songDisplay = document.getElementById('songDisplay');
+    const track = audioTracks[index];
+
+    audioPlayer.src = track.src;
+    songDisplay.innerText = `🎵 ${track.sinhala} - ${track.artist}`;
+    
+    audioPlayer.play()
+        .then(() => {
+            isAudioPlaying = true;
+            if (playPauseBtn) playPauseBtn.innerText = "⏸️ Pause";
+        })
+        .catch(err => {
+            console.error("Audio playback error:", err);
+            songDisplay.innerText = "⚠️ Click Play to start";
+            isAudioPlaying = false;
+            if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
+        });
+}
+
+function toggleTrackPlaying() {
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    const playlistSelect = document.getElementById('audioPlaylist');
+    const songDisplay = document.getElementById('songDisplay');
+    const idx = parseInt(playlistSelect.value);
+
+    if (!audioPlayer.src || audioPlayer.src === "") {
+        const track = audioTracks[idx];
+        audioPlayer.src = track.src;
+        songDisplay.innerText = `🎵 ${track.sinhala} - ${track.artist}`;
+    }
+
+    if (isAudioPlaying) {
+        audioPlayer.pause();
+        isAudioPlaying = false;
+        if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
+    } else {
+        audioPlayer.play()
+            .then(() => {
+                isAudioPlaying = true;
+                if (playPauseBtn) playPauseBtn.innerText = "⏸️ Pause";
+            })
+            .catch(err => {
+                console.error("Error playing audio:", err);
+                isAudioPlaying = false;
+                if (playPauseBtn) playPauseBtn.innerText = "▶ Play";
+            });
+    }
+}
+
+function toggleSynthBellPlaying(forceStart = false) {
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    const songDisplay = document.getElementById('songDisplay');
+
     if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    if (isSynthPlaying) {
+    if (isSynthPlaying && !forceStart) {
         stopAmbientSynth();
-        if (bgMusicAudio) bgMusicAudio.pause();
-        button.classList.remove('playing');
-        button.innerHTML = '🎵 Play Ambient Music';
         isSynthPlaying = false;
+        if (playPauseBtn) playPauseBtn.innerText = "▶ Play Synth";
+        if (songDisplay) songDisplay.innerText = "🔔 Synth Paused";
     } else {
-        isSynthPlaying = true;
-        button.classList.add('playing');
-        button.innerHTML = '🔊 Playing Devotional Music';
-        playMusicFile();
         startAmbientSynth();
+        isSynthPlaying = true;
+        if (playPauseBtn) playPauseBtn.innerText = "⏸️ Pause Synth";
+        if (songDisplay) songDisplay.innerText = "🔔 Temple Bell Chimes";
     }
 }
 
-function playMusicFile() {
-    if (!bgMusicAudio) {
-        bgMusicAudio = new Audio('assets/vesak_music.mp3');
-        bgMusicAudio.loop = true;
-        bgMusicAudio.volume = 0.5;
-    }
-    bgMusicAudio.play().catch(() => {
-        console.log("Custom MP3 not found. Synth bells playing instead.");
-    });
+function stopAudioTrack() {
+    audioPlayer.pause();
+    isAudioPlaying = false;
+    const playPauseBtn = document.getElementById('btnAudioPlayPause');
+    if (playPauseBtn) playPauseBtn.innerText = "▶ Play Music";
 }
 
 function startAmbientSynth() {
@@ -96,6 +226,7 @@ function startAmbientSynth() {
     playBell(220);
     playBell(330);
     const notes = [220, 277.18, 329.63, 369.99, 440, 554.37, 659.25];
+    if (synthInterval) clearInterval(synthInterval);
     synthInterval = setInterval(() => {
         playBell(notes[Math.floor(Math.random() * notes.length)]);
         if (Math.random() > 0.6) {
@@ -209,7 +340,6 @@ function initThorana() {
     document.getElementById('btnLangSi').addEventListener('click', () => setLanguage('si'));
     document.getElementById('btnLangEn').addEventListener('click', () => setLanguage('en'));
     document.getElementById('btnAutoPlay').addEventListener('click', function () { toggleAutoPlay(this); });
-    document.getElementById('btnAmbientAudio').addEventListener('click', function () { toggleAmbientAudio(this); });
     document.getElementById('btnSpeech').addEventListener('click', () => speakStory());
 
     const patternButtons = document.querySelectorAll('.btn-pattern');
@@ -417,7 +547,9 @@ function initCardGenerator() {
     document.getElementById('cardGreetingText').addEventListener('input', drawCard);
     document.getElementById('textColor').addEventListener('input', drawCard);
     document.getElementById('textSize').addEventListener('input', drawCard);
+    document.getElementById('textXOffset').addEventListener('input', drawCard);
     document.getElementById('textOffset').addEventListener('input', drawCard);
+    document.getElementById('textLineHeight').addEventListener('input', drawCard);
     document.getElementById('cardFont').addEventListener('change', drawCard);
     document.getElementById('useGoldGradient').addEventListener('change', drawCard);
 
@@ -482,7 +614,7 @@ function initCardGenerator() {
         document.getElementById('cardImageUpload').value = '';
         this.style.display = 'none';
         document.querySelector('.bg-option').classList.add('active');
-        selectCardBackground('buddha');
+        selectCardBackground('vesak1');
     });
 
     // Verses
@@ -502,20 +634,31 @@ function initCardGenerator() {
     document.getElementById('btnDownloadCard').addEventListener('click', downloadCardImage);
 
     // Initial
-    selectCardBackground('buddha');
+    selectCardBackground('vesak1');
 }
 
 function selectCardBackground(bgType) {
     currentBgType = bgType;
     let src = '';
-    if (bgType === 'buddha') src = 'assets/bg_buddha.jpg';
-    else if (bgType === 'lanterns') src = 'assets/bg_lanterns.jpg';
-    else if (bgType === 'lotus') src = 'assets/bg_lotus.jpg';
+    if (bgType === 'vesak1') src = 'assets/vesak1.png';
+    else if (bgType === 'vesak2') src = 'assets/vesak2.png';
+    else if (bgType === 'vesak3') src = 'assets/vesak3.png';
+    else if (bgType === 'vesak4') src = 'assets/vesak4.png';
+    else if (bgType === 'vesak5') src = 'assets/vesak5.png';
+    else if (bgType === 'procedural') src = ''; // Custom procedural gradient
 
-    cardBgImage = new Image();
-    cardBgImage.src = src;
-    cardBgImage.onload = () => drawCard();
-    cardBgImage.onerror = () => drawCard();
+    if (src) {
+        cardBgImage = new Image();
+        cardBgImage.onload = () => drawCard();
+        cardBgImage.onerror = () => {
+            console.error("Failed to load background template image: " + src);
+            drawCard();
+        };
+        cardBgImage.src = src;
+    } else {
+        cardBgImage = null;
+        drawCard();
+    }
 }
 
 function drawCard() {
@@ -813,7 +956,9 @@ function drawCardTexts(W, H) {
     const fontName = document.getElementById('cardFont').value;
     const colorHex = document.getElementById('textColor').value;
     const sizeOffset = parseInt(document.getElementById('textSize').value);
+    const horizontalOffset = parseInt(document.getElementById('textXOffset').value);
     const verticalOffset = parseInt(document.getElementById('textOffset').value);
+    const lineHeightVal = parseInt(document.getElementById('textLineHeight').value);
     const useGold = document.getElementById('useGoldGradient').checked;
 
     const fontSize = 32 + sizeOffset;
@@ -825,14 +970,14 @@ function drawCardTexts(W, H) {
     ctx.shadowOffsetY = 2;
 
     // Text alignment
-    let alignX = W / 2;
+    let alignX = W / 2 + horizontalOffset;
     ctx.textAlign = textAlignment;
-    if (textAlignment === 'left') alignX = 70;
-    else if (textAlignment === 'right') alignX = W - 70;
+    if (textAlignment === 'left') alignX = 70 + horizontalOffset;
+    else if (textAlignment === 'right') alignX = W - 70 + horizontalOffset;
 
     // Color or Gold Gradient
     if (useGold) {
-        const goldGrad = ctx.createLinearGradient(0, 400 + verticalOffset, 0, 500 + verticalOffset);
+        const goldGrad = ctx.createLinearGradient(alignX - 100, 400 + verticalOffset, alignX + 100, 500 + verticalOffset);
         goldGrad.addColorStop(0, '#ffe875');
         goldGrad.addColorStop(0.3, '#ffd700');
         goldGrad.addColorStop(0.6, '#daa520');
@@ -845,15 +990,15 @@ function drawCardTexts(W, H) {
     ctx.font = `600 ${fontSize}px '${fontName}', sans-serif`;
     const textYPos = 460 + verticalOffset;
     const maxWidth = textAlignment === 'center' ? 620 : 660;
-    wrapText(ctx, greetingText, alignX, textYPos, maxWidth, fontSize * 1.35);
+    wrapText(ctx, greetingText, alignX, textYPos, maxWidth, lineHeightVal);
 
     // Sender name
     if (senderName) {
         ctx.shadowBlur = 6;
         const lineY = 680 + verticalOffset;
         ctx.beginPath();
-        ctx.moveTo(W / 2 - 80, lineY);
-        ctx.lineTo(W / 2 + 80, lineY);
+        ctx.moveTo(W / 2 - 80 + horizontalOffset, lineY);
+        ctx.lineTo(W / 2 + 80 + horizontalOffset, lineY);
         ctx.strokeStyle = "rgba(255,215,0,0.4)";
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -861,7 +1006,7 @@ function drawCardTexts(W, H) {
         ctx.fillStyle = "#ffd700";
         ctx.textAlign = 'center';
         ctx.font = `500 22px 'Outfit', sans-serif`;
-        ctx.fillText(`~ ${senderName} ~`, W / 2, lineY + 30);
+        ctx.fillText(`~ ${senderName} ~`, W / 2 + horizontalOffset, lineY + 30);
     }
 
     // Reset shadow
