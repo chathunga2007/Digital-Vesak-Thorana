@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Yatra+One&display=swap');
 
-/* --- DESIGN SYSTEM --- */
 :root {
     --bg-dark: #070913;
     --bg-card: rgba(15, 20, 42, 0.6);
@@ -21,7 +20,6 @@
     --font-ornamental: 'Yatra One', cursive;
 }
 
-/* --- RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -47,7 +45,6 @@ main {
     flex: 1;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -65,7 +62,6 @@ main {
     background: rgba(255, 215, 0, 0.6);
 }
 
-/* --- STARFIELD --- */
 .stars-bg {
     position: fixed;
     top: 0;
@@ -134,7 +130,6 @@ main {
     }
 }
 
-/* --- HEADER --- */
 header {
     background: var(--bg-glass);
     backdrop-filter: blur(12px);
@@ -228,7 +223,6 @@ nav li.active a {
     transform: translateY(-1px);
 }
 
-/* Active playing state - glowing gold */
 .btn-music-toggle.playing {
     background: rgba(255, 215, 0, 0.15);
     border-color: var(--color-yellow);
@@ -250,7 +244,6 @@ nav li.active a {
     }
 }
 
-/* Now Playing Toast */
 .now-playing-toast {
     position: fixed;
     bottom: 24px;
@@ -368,7 +361,6 @@ nav li.active a {
     color: #fff;
 }
 
-/* --- HOME HERO --- */
 .hero-section {
     flex: 1;
     display: flex;
@@ -488,7 +480,6 @@ nav li.active a {
     color: #fff;
 }
 
-/* Countdown */
 .countdown-box {
     margin-top: 50px;
     background: var(--bg-glass);
@@ -520,7 +511,6 @@ nav li.active a {
     color: #94a3b8;
 }
 
-/* --- THORANA PAGE --- */
 .thorana-container {
     max-width: 1500px;
     margin: 2rem auto;
@@ -554,7 +544,6 @@ nav li.active a {
     height: auto;
 }
 
-/* ---------- Thorana Buddha Image Overlay (responsive) ---------- */
 .thorana-view {
     position: relative;
 }
@@ -572,7 +561,6 @@ nav li.active a {
     filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
 }
 
-/* Hide original SVG buddha silhouette so the photo doesn't overlap */
 #buddhaStanding {
     display: none;
 }
@@ -598,7 +586,6 @@ nav li.active a {
     }
 }
 
-/* Bulb States */
 .bulb {
     cursor: pointer;
     transition: fill 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
@@ -635,7 +622,6 @@ nav li.active a {
     opacity: 0.5;
 }
 
-/* Panel Triggers */
 .pandal-panel-trigger {
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -651,7 +637,6 @@ nav li.active a {
     filter: brightness(1.3) drop-shadow(0 0 20px var(--color-yellow));
 }
 
-/* Dashboard */
 .thorana-dashboard {
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
@@ -740,7 +725,6 @@ nav li.active a {
     transform: scale(1.2);
 }
 
-/* Story Card */
 .story-card {
     background: rgba(5, 7, 18, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -913,7 +897,6 @@ nav li.active a {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
 }
 
-/* --- CARD GENERATOR PAGE --- */
 .card-generator-container {
     max-width: 1400px;
     margin: 2rem auto;
@@ -964,7 +947,6 @@ nav li.active a {
     gap: 1.8rem;
 }
 
-/* Background Selector */
 .bg-select-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1005,7 +987,6 @@ nav li.active a {
     text-align: center;
 }
 
-/* File Upload */
 .file-upload-wrapper {
     position: relative;
     display: flex;
@@ -1057,7 +1038,6 @@ nav li.active a {
     background: rgba(255, 60, 60, 0.3);
 }
 
-/* Frame Selector */
 .frame-select-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1084,7 +1064,6 @@ nav li.active a {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
 }
 
-/* Text Inputs */
 .text-input-wrapper {
     display: flex;
     flex-direction: column;
@@ -1114,7 +1093,6 @@ nav li.active a {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
 }
 
-/* Verses */
 .verses-list {
     display: flex;
     flex-direction: column;
@@ -1145,7 +1123,6 @@ nav li.active a {
     color: var(--color-yellow);
 }
 
-/* Alignment Buttons */
 .align-btn-group {
     display: flex;
     gap: 8px;
@@ -1170,7 +1147,6 @@ nav li.active a {
     color: var(--color-yellow);
 }
 
-/* Checkbox Row */
 .checkbox-row {
     display: flex;
     align-items: center;
@@ -1179,7 +1155,6 @@ nav li.active a {
     font-size: 0.9rem;
 }
 
-/* Style Controls */
 .style-controls-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1215,7 +1190,6 @@ nav li.active a {
     border-radius: 50%;
 }
 
-/* Sticker Panel */
 .sticker-panel {
     background: rgba(255, 255, 255, 0.02);
     padding: 16px;
@@ -1260,7 +1234,6 @@ nav li.active a {
     box-shadow: 0 0 6px var(--color-yellow);
 }
 
-/* Export */
 .btn-export {
     background: linear-gradient(135deg, #ffd700, #ff8c00);
     border: none;
@@ -1282,7 +1255,6 @@ nav li.active a {
     filter: brightness(1.05);
 }
 
-/* Glow Animation */
 .pulse-glow-border {
     position: relative;
     border: 4px solid transparent !important;
@@ -1316,7 +1288,6 @@ nav li.active a {
     }
 }
 
-/* Card Generator layout animations */
 .card-controls {
     animation: controls-slide-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1350,7 +1321,6 @@ nav li.active a {
 }
 
 
-/* Footer */
 .footer-text {
     text-align: center;
     color: #475569;
@@ -1364,7 +1334,6 @@ nav li.active a {
     color: var(--color-yellow);
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2rem;
@@ -1430,7 +1399,6 @@ nav li.active a {
     }
 }
 
-/* --- AUDIO PLAYER CARD --- */
 .audio-player-card {
     background: rgba(5, 7, 18, 0.85);
     border: 1px solid var(--border-glass);
@@ -1487,7 +1455,6 @@ nav li.active a {
     margin-top: 6px;
 }
 
-/* --- HOME PAGE STYLES (MIGRATED) --- */
 .features-section {
     max-width: 1200px;
     margin: 0 auto 4rem;
@@ -1603,7 +1570,6 @@ nav li.active a {
     font-size: 0.9rem;
 }
 
-/* Buddhist flag color band */
 .flag-band {
     height: 5px;
     background: linear-gradient(to right,
@@ -1660,7 +1626,6 @@ nav li.active a {
     line-height: 1.4;
 }
 
-/* --- WELCOME SCREEN OVERLAY --- */
 .welcome-overlay {
     position: fixed;
     top: 0;
@@ -1791,7 +1756,6 @@ nav li.active a {
     color: #64748b;
 }
 
-/* Page transitions */
 .spa-transition-fade {
     animation: spa-fade-in 0.4s ease-out forwards;
 }
@@ -1808,7 +1772,6 @@ nav li.active a {
     }
 }
 
-/* Jataka Story transitions */
 .story-card .story-body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -1831,7 +1794,6 @@ nav li.active a {
     }
 }
 
-/* ==================== HEADER & NAV ==================== */
 header {
     background: var(--bg-glass);
     backdrop-filter: blur(12px);
@@ -1868,7 +1830,6 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
-/* Desktop Navigation */
 nav ul {
     display: flex;
     list-style: none;
@@ -1895,7 +1856,6 @@ nav a.active {
     border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1912,7 +1872,6 @@ nav a.active {
     transition: 0.4s;
 }
 
-/* ==================== MOBILE MENU (Premium Look) ==================== */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -1974,7 +1933,6 @@ nav a.active {
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
 }
 
-/* Music Button in Mobile */
 .mobile-music-btn {
     margin: 15px 5% 10px;
     background: rgba(255, 215, 0, 0.1);
@@ -1989,7 +1947,6 @@ nav a.active {
     justify-content: center;
 }
 
-/* Hamburger Animation */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
 }
@@ -2001,7 +1958,6 @@ nav a.active {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
-/* ==================== THORANA PAGE RESPONSIVE ==================== */
 
 .thorana-container {
     padding: 1rem 1rem;
@@ -2017,8 +1973,6 @@ nav a.active {
     top: 28%;
 }
 
-/* ==================== HOME PAGE FEATURE CARDS RESPONSIVE ==================== */
-
 .features-section {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
@@ -2026,10 +1980,8 @@ nav a.active {
 }
 
 .feature-card {
-    min-height: 380px; /* සමාන උසක් තියන්න */
+    min-height: 380px;
 }
-
-/* ==================== MUSIC BUTTON RESPONSIVE ==================== */
 
 .btn-music-toggle {
     background: rgba(255, 215, 0, 0.12);
@@ -2044,68 +1996,6 @@ nav a.active {
     flex-shrink: 0;
 }
 
-/* ==================== CARD GENERATOR MOBILE FIX ==================== */
-
-.card-generator-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0.8rem;
-}
-
-.card-preview-area {
-    position: sticky;
-    top: 80px;           /* Header එකට පහතින් තියන්න */
-    z-index: 10;
-    background: var(--bg-dark);
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,215,0,0.15);
-}
-
-.canvas-wrapper {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border-radius: 20px;
-    overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .card-preview-area {
-        top: 70px;           /* ටිකක් උඩට ගත්තා */
-        position: sticky;
-        z-index: 20;
-    }
-
-    #cardCanvas {
-        width: 100% !important;
-        height: auto !important;
-        max-height: 380px;   /* ලොකු වුණත් යටට නොයන්න */
-        object-fit: contain;
-    }
-
-    .card-controls {
-        padding-top: 1rem;
-    }
-
-    /* Scroll කරනකොට preview එක හොඳින් පේන්න */
-    .card-generator-container {
-        scroll-margin-top: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-preview-area {
-        top: 65px;
-    }
-    
-    #cardCanvas {
-        max-height: 340px;
-    }
-}
-
-/* Desktop - Normal */
 @media (min-width: 993px) {
     .btn-music-toggle {
         padding: 10px 20px;
@@ -2113,7 +2003,6 @@ nav a.active {
     }
 }
 
-/* Tablet */
 @media (max-width: 992px) and (min-width: 769px) {
     .btn-music-toggle {
         padding: 9px 14px;
@@ -2121,7 +2010,6 @@ nav a.active {
     }
 }
 
-/* Mobile - Make it compact and nice */
 @media (max-width: 768px) {
     header {
         padding: 0.9rem 5% !important;
@@ -2138,19 +2026,14 @@ nav a.active {
         min-width: auto;
     }
 
-    /* If screen is very narrow, hide text and show only icon */
     @media (max-width: 480px) {
         .btn-music-toggle {
             padding: 8px 10px;
             font-size: 0.75rem;
         }
-        
-        /* Optional: Show only icon on very small screens */
-        /* .btn-music-toggle span { display: none; } */   /* Uncomment if needed */
     }
 }
 
-/* Very Small Screens */
 @media (max-width: 360px) {
     .logo-text {
         font-size: 1.35rem;
@@ -2162,7 +2045,6 @@ nav a.active {
     }
 }
 
-/* Tablet & Mobile - Better stacking */
 @media (max-width: 1024px) {
     .features-section {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -2171,10 +2053,9 @@ nav a.active {
     }
 }
 
-/* Mobile Phones */
 @media (max-width: 768px) {
     .features-section {
-        grid-template-columns: 1fr; /* එක යටට එක */
+        grid-template-columns: 1fr;
         gap: 1.6rem;
         padding: 0 1rem;
     }
@@ -2200,7 +2081,6 @@ nav a.active {
     }
 }
 
-/* Small Mobile Screens */
 @media (max-width: 480px) {
     .features-section {
         padding: 0 0.8rem;
@@ -2226,7 +2106,6 @@ nav a.active {
     }
 }
 
-/* Desktop - Large Screen */
 @media (min-width: 1024px) {
     .thorana-container {
         grid-template-columns: 1.65fr 1fr;
@@ -2239,7 +2118,6 @@ nav a.active {
     }
 }
 
-/* Tablet */
 @media (max-width: 1023px) and (min-width: 769px) {
     .thorana-container {
         grid-template-columns: 1fr;
@@ -2251,7 +2129,6 @@ nav a.active {
     }
 }
 
-/* Mobile - Main Fixes */
 @media (max-width: 768px) {
     .thorana-container {
         grid-template-columns: 1fr;
@@ -2300,7 +2177,6 @@ nav a.active {
     }
 }
 
-/* Small Mobile Phones */
 @media (max-width: 480px) {
     .thorana-buddha {
         top: 34% !important;
@@ -2330,7 +2206,6 @@ nav a.active {
     }
 }
 
-/* Extra Small Screens */
 @media (max-width: 360px) {
     .thorana-buddha {
         top: 35% !important;
@@ -2341,7 +2216,7 @@ nav a.active {
         height: 180px;
     }
 }
-/* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 992px) {
     nav ul {
         display: none;
