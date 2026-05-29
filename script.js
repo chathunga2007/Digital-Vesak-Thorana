@@ -1182,6 +1182,33 @@ function initCardGenerator() {
         versesContainer.appendChild(div);
     });
 
+    // Orientation Controls
+    const btnPortrait = document.getElementById('btnPortrait');
+    const btnSquare = document.getElementById('btnSquare');
+    const btnLandscape = document.getElementById('btnLandscape');
+
+    function resetOrientButtons() {
+        btnPortrait.style.border = 'none';
+        btnSquare.style.border = 'none';
+        btnLandscape.style.border = 'none';
+    }
+
+    btnPortrait.addEventListener('click', () => {
+        resetOrientButtons(); btnPortrait.style.border = '2px solid #fff';
+        canvas.width = 800; canvas.height = 1200; drawCard();
+    });
+    btnSquare.addEventListener('click', () => {
+        resetOrientButtons(); btnSquare.style.border = '2px solid #fff';
+        canvas.width = 800; canvas.height = 800; drawCard();
+    });
+    btnLandscape.addEventListener('click', () => {
+        resetOrientButtons(); btnLandscape.style.border = '2px solid #fff';
+        canvas.width = 1200; canvas.height = 800; drawCard();
+    });
+    
+    // Set default square active border
+    btnSquare.style.border = '2px solid #fff';
+
     // Export
     document.getElementById('btnDownloadCard').addEventListener('click', downloadCardImage);
     const shareBtn = document.getElementById('btnShareCard');
@@ -1557,7 +1584,7 @@ function drawCardTexts(W, H) {
 
     // Color or Gold Gradient
     if (useGold) {
-        const goldGrad = ctx.createLinearGradient(alignX - 100, 400 + verticalOffset, alignX + 100, 500 + verticalOffset);
+        const goldGrad = ctx.createLinearGradient(alignX - 100, (H/2) + verticalOffset - 60, alignX + 100, (H/2) + verticalOffset + 40);
         goldGrad.addColorStop(0, '#ffe875');
         goldGrad.addColorStop(0.3, '#ffd700');
         goldGrad.addColorStop(0.6, '#daa520');
@@ -1568,14 +1595,14 @@ function drawCardTexts(W, H) {
     }
 
     ctx.font = `600 ${fontSize}px '${fontName}', sans-serif`;
-    const textYPos = 460 + verticalOffset;
-    const maxWidth = textAlignment === 'center' ? 620 : 660;
+    const textYPos = (H/2) + 60 + verticalOffset;
+    const maxWidth = textAlignment === 'center' ? W - 180 : W - 140;
     wrapText(ctx, greetingText, alignX, textYPos, maxWidth, lineHeightVal);
 
     // Sender name
     if (senderName) {
         ctx.shadowBlur = 6;
-        const lineY = 680 + verticalOffset;
+        const lineY = H - 120 + verticalOffset;
         ctx.beginPath();
         ctx.moveTo(W / 2 - 80 + horizontalOffset, lineY);
         ctx.lineTo(W / 2 + 80 + horizontalOffset, lineY);
