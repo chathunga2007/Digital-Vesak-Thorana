@@ -486,6 +486,9 @@ function initThorana() {
         const val = parseInt(this.value);
         lightSpeed = 600 - (val * 50);
         restartLightLoop();
+        const labels = ['Very Slow', 'Slow', 'Slow', 'Normal', 'Normal', 'Normal', 'Fast', 'Fast', 'Very Fast', 'Ultra Fast'];
+        const el = document.getElementById('speedVal');
+        if (el) el.innerText = labels[val - 1] || 'Normal';
     });
 
     document.querySelectorAll('.pandal-panel-trigger').forEach(panel => {
@@ -677,10 +680,30 @@ function initCardGenerator() {
     document.getElementById('cardSenderName').addEventListener('input', drawCard);
     document.getElementById('cardGreetingText').addEventListener('input', drawCard);
     document.getElementById('textColor').addEventListener('input', drawCard);
-    document.getElementById('textSize').addEventListener('input', drawCard);
-    document.getElementById('textXOffset').addEventListener('input', drawCard);
-    document.getElementById('textOffset').addEventListener('input', drawCard);
-    document.getElementById('textLineHeight').addEventListener('input', drawCard);
+    document.getElementById('textSize').addEventListener('input', function() {
+        const v = parseInt(this.value);
+        const el = document.getElementById('valTextSize');
+        if (el) el.innerText = v === 0 ? 'Normal' : (v > 0 ? `+${v}px` : `${v}px`);
+        drawCard();
+    });
+    document.getElementById('textXOffset').addEventListener('input', function() {
+        const v = parseInt(this.value);
+        const el = document.getElementById('valTextX');
+        if (el) el.innerText = v === 0 ? 'Center' : (v > 0 ? `+${v}` : `${v}`);
+        drawCard();
+    });
+    document.getElementById('textOffset').addEventListener('input', function() {
+        const v = parseInt(this.value);
+        const el = document.getElementById('valTextY');
+        if (el) el.innerText = v === 0 ? 'Middle' : (v > 0 ? `+${v}` : `${v}`);
+        drawCard();
+    });
+    document.getElementById('textLineHeight').addEventListener('input', function() {
+        const v = parseInt(this.value);
+        const el = document.getElementById('valLineH');
+        if (el) el.innerText = `${v}px`;
+        drawCard();
+    });
     document.getElementById('cardFont').addEventListener('change', drawCard);
     document.getElementById('useGoldGradient').addEventListener('change', drawCard);
 
