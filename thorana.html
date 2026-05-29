@@ -404,6 +404,18 @@
         <!-- Right: Narrative Panel & Config Dashboard -->
         <section class="thorana-dashboard">
 
+            <!-- Jataka Story Selector -->
+            <div class="control-group" style="margin-bottom: 1.5rem;">
+                <label for="jatakaStorySelect" class="control-label" style="display:flex; align-items:center; gap:8px;">
+                    📖 SELECT JATAKA STORY (ජාතක කතාව තෝරන්න)
+                </label>
+                <select id="jatakaStorySelect" class="custom-input" style="width: 100%; border-color: var(--color-yellow); background: #0c0f1d; font-size: 0.9rem;">
+                    <option value="sasa">🐇 Sasa Jataka (සස ජාතකය)</option>
+                    <option value="kuru">🌾 Kuru Dharma Jataka (කුරු ධර්ම ජාතකය)</option>
+                    <option value="dahamsonda">👹 Dahamsonda Jataka (දහම්සොඬ ජාතකය)</option>
+                </select>
+            </div>
+
             <!-- Story Narrative Card -->
             <div class="story-card">
                 <div class="story-header">
@@ -471,6 +483,9 @@
                         <option value="0">🌸 බුදු බණ පදයක් - Mangala Denex</option>
                         <option value="1">🌸 සිද්ධාර්ථ ගෞතම් - Viraj Perera</option>
                         <option value="2">🌸 සම්බුදු රුව - Vidusha Rajaguru</option>
+                        <option value="3">📻 මහා පිරිත - Chanting (Online)</option>
+                        <option value="4">📻 සෙත් පිරිත් - Seth Pirith (Online)</option>
+                        <option value="5">📻 රතන සූත්‍රය - Protection (Online)</option>
                         <option value="synth">🔔 Temple Bell Chimes (Offline Synth)</option>
                     </select>
                     <div class="player-controls-row" style="display: flex; gap: 10px; align-items: center;">
