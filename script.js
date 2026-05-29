@@ -6,10 +6,46 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSPARouting();
 });
 
+// Mobile Menu + Music Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMusicBtn = document.getElementById('mobileMusicBtn');
+    const globalMusicBtn = document.getElementById('btnGlobalMusic');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Sync music button between header and mobile
+    if (mobileMusicBtn && globalMusicBtn) {
+        mobileMusicBtn.addEventListener('click', () => {
+            globalMusicBtn.click(); // Trigger main music button
+        });
+    }
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
+    // Active link
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});
+
 function initWelcomeScreen() {
     const welcome = document.getElementById('welcomeOverlay');
     const enterBtn = document.getElementById('btnEnterWebsite');
-    
+
     if (!welcome) return;
 
     if (sessionStorage.getItem('vesakEntered') === 'true') {
@@ -20,10 +56,10 @@ function initWelcomeScreen() {
             enterBtn.addEventListener('click', () => {
                 localStorage.setItem('vesakMusicEnabled', 'true');
                 playGlobalMusic();
-                
+
                 sessionStorage.setItem('vesakEntered', 'true');
                 welcome.classList.add('hidden');
-                
+
                 setTimeout(() => {
                     welcome.remove();
                 }, 800);
@@ -54,7 +90,7 @@ function setupSPARouting() {
     document.body.addEventListener('click', (e) => {
         const anchor = e.target.closest('a');
         if (!anchor) return;
-        
+
         const href = anchor.getAttribute('href');
         if (href) {
             const pageName = href.split('/').pop();
@@ -73,7 +109,7 @@ function setupSPARouting() {
 
 function navigateToPage(url, pushState = true) {
     const pathName = url.split('/').pop();
-    
+
     fetch(url)
         .then(res => {
             if (!res.ok) throw new Error("Navigation failed");
@@ -82,11 +118,11 @@ function navigateToPage(url, pushState = true) {
         .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            
+
             document.title = doc.title;
-            
+
             cleanupPreviousPage();
-            
+
             const newMain = doc.querySelector('main');
             const currentMain = document.querySelector('main');
             if (newMain && currentMain) {
@@ -96,7 +132,7 @@ function navigateToPage(url, pushState = true) {
                     updatedMain.classList.add('spa-transition-fade');
                 }
             }
-            
+
             document.querySelectorAll('nav ul li').forEach(li => {
                 const a = li.querySelector('a');
                 if (a) {
@@ -108,17 +144,17 @@ function navigateToPage(url, pushState = true) {
                     }
                 }
             });
-            
+
             const welcome = document.getElementById('welcomeOverlay');
             if (welcome) {
                 welcome.classList.add('hidden');
                 welcome.remove();
             }
-            
+
             if (pushState) {
                 history.pushState({ url }, '', url);
             }
-            
+
             initCurrentPageComponents();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
@@ -237,7 +273,7 @@ audioPlayer.volume = 0.5;
 // Global track end event -> auto-advances playlist
 audioPlayer.onended = () => {
     currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length;
-    
+
     const playlistSelect = document.getElementById('audioPlaylist');
     const songDisplay = document.getElementById('songDisplay');
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
@@ -454,7 +490,7 @@ function changeTrack(index) {
 
     audioPlayer.src = track.src;
     songDisplay.innerText = `🎵 ${track.sinhala} - ${track.artist}`;
-    
+
     audioPlayer.play()
         .then(() => {
             isAudioPlaying = true;
@@ -804,9 +840,9 @@ function updateThoranaSVGTexts() {
     const panels = document.querySelectorAll('.pandal-panel-trigger');
     const stories = jatakaStories[activeStoryKey] || jatakaStories['sasa'];
     panels.forEach((panel, i) => {
-        if(stories[i]) {
+        if (stories[i]) {
             const texts = panel.querySelectorAll('text');
-            if(texts.length >= 3) {
+            if (texts.length >= 3) {
                 texts[0].textContent = stories[i].fallbackIcon;
                 texts[1].textContent = stories[i].titleSi;
                 texts[2].textContent = stories[i].titleEn.replace(/^\d+\.\s*/, '');
@@ -821,7 +857,7 @@ function initThorana() {
 
     const jatakaSelect = document.getElementById('jatakaStorySelect');
     if (jatakaSelect) {
-        jatakaSelect.addEventListener('change', function() {
+        jatakaSelect.addEventListener('change', function () {
             activeStoryKey = this.value;
             activePanelIndex = 0;
 
@@ -1078,25 +1114,25 @@ function initCardGenerator() {
     document.getElementById('cardSenderName').addEventListener('input', drawCard);
     document.getElementById('cardGreetingText').addEventListener('input', drawCard);
     document.getElementById('textColor').addEventListener('input', drawCard);
-    document.getElementById('textSize').addEventListener('input', function() {
+    document.getElementById('textSize').addEventListener('input', function () {
         const v = parseInt(this.value);
         const el = document.getElementById('valTextSize');
         if (el) el.innerText = v === 0 ? 'Normal' : (v > 0 ? `+${v}px` : `${v}px`);
         drawCard();
     });
-    document.getElementById('textXOffset').addEventListener('input', function() {
+    document.getElementById('textXOffset').addEventListener('input', function () {
         const v = parseInt(this.value);
         const el = document.getElementById('valTextX');
         if (el) el.innerText = v === 0 ? 'Center' : (v > 0 ? `+${v}` : `${v}`);
         drawCard();
     });
-    document.getElementById('textOffset').addEventListener('input', function() {
+    document.getElementById('textOffset').addEventListener('input', function () {
         const v = parseInt(this.value);
         const el = document.getElementById('valTextY');
         if (el) el.innerText = v === 0 ? 'Middle' : (v > 0 ? `+${v}` : `${v}`);
         drawCard();
     });
-    document.getElementById('textLineHeight').addEventListener('input', function() {
+    document.getElementById('textLineHeight').addEventListener('input', function () {
         const v = parseInt(this.value);
         const el = document.getElementById('valLineH');
         if (el) el.innerText = `${v}px`;
@@ -1205,7 +1241,7 @@ function initCardGenerator() {
         resetOrientButtons(); btnLandscape.style.border = '2px solid #fff';
         canvas.width = 1200; canvas.height = 800; drawCard();
     });
-    
+
     // Set default square active border
     btnSquare.style.border = '2px solid #fff';
 
@@ -1554,7 +1590,7 @@ function drawCardTexts(W, H) {
         ctx.shadowBlur = 8;
         ctx.shadowOffsetX = 1;
         ctx.shadowOffsetY = 1;
-        
+
         const recY = 120;
         ctx.fillStyle = "#ffd700";
         ctx.textAlign = 'center';
@@ -1584,7 +1620,7 @@ function drawCardTexts(W, H) {
 
     // Color or Gold Gradient
     if (useGold) {
-        const goldGrad = ctx.createLinearGradient(alignX - 100, (H/2) + verticalOffset - 60, alignX + 100, (H/2) + verticalOffset + 40);
+        const goldGrad = ctx.createLinearGradient(alignX - 100, (H / 2) + verticalOffset - 60, alignX + 100, (H / 2) + verticalOffset + 40);
         goldGrad.addColorStop(0, '#ffe875');
         goldGrad.addColorStop(0.3, '#ffd700');
         goldGrad.addColorStop(0.6, '#daa520');
@@ -1595,7 +1631,7 @@ function drawCardTexts(W, H) {
     }
 
     ctx.font = `600 ${fontSize}px '${fontName}', sans-serif`;
-    const textYPos = (H/2) + 60 + verticalOffset;
+    const textYPos = (H / 2) + 60 + verticalOffset;
     const maxWidth = textAlignment === 'center' ? W - 180 : W - 140;
     wrapText(ctx, greetingText, alignX, textYPos, maxWidth, lineHeightVal);
 
