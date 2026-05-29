@@ -91,6 +91,8 @@
                 <path d="M 350 55 C 350 20, 450 20, 450 55" fill="url(#goldGrad)"/>
                 <circle cx="400" cy="25" r="10" fill="#ffd700" filter="url(#glowFilter)"/>
                 <path d="M 380 55 L 400 35 L 420 55" fill="url(#goldGrad)" opacity="0.7"/>
+                <!-- OM Symbol -->
+                <text x="400" y="32" text-anchor="middle" font-size="14" fill="#ffd700" font-family="serif" opacity="0.9" filter="url(#softGlow)">ॐ</text>
 
                 <!-- ===== CENTRAL RAINBOW MANDALA SPIRAL ===== -->
                 <!-- Outer Mandala Ring -->
@@ -369,9 +371,9 @@
                 <rect x="730" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
             </svg>
 
-            <!-- Audio status message -->
-            <div class="audio-status" style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center;">
-                🪔 Serene Buddhist Bhakthi Geetha are playing. Adjust music settings in the sidebar dashboard.
+            <!-- Audio/Music status message -->
+            <div id="thoranaAudioStatus" class="audio-status" style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center; transition: color 0.3s;">
+                🔊 Press <strong style="color:var(--color-yellow)">Music On</strong> in the header to start devotional music.
             </div>
         </section>
 
