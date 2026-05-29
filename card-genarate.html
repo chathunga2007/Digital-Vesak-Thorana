@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vesak Card Generator | වෙසක් පත් නිර්මාණය</title>
-    <meta name="description" content="Create and download your own custom Vesak Poya greeting cards. Select serene backgrounds, write Sinhala or English wishes, and export as PNG.">
-    
-    <!-- Stylesheets -->
+    <meta name="description" content="Create and download custom Vesak Poya greeting cards with uploaded photos, premium frames, and decorative stickers.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Stars Twinkling Background -->
-    <div class="stars-bg">
-        <div class="stars"></div>
-    </div>
+    <div class="stars-bg"><div class="stars"></div></div>
 
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -32,148 +27,192 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">🏢 Home (ප්‍රධාන පිටුව)</a></li>
-                <li><a href="thorana.html">🎡 Digital Thorana (ඩිජිටල් තොරණ)</a></li>
-                <li class="active"><a href="card-genarate.html">🎨 Card Generator (වෙසක් පත්)</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="thorana.html">🎡 Digital Thorana</a></li>
+                <li class="active"><a href="card-genarate.html">🎨 Card Generator</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Generator Container -->
+    <!-- Main Generator -->
     <main class="card-generator-container">
-        
-        <!-- Left Side: Live Canvas Preview -->
+
+        <!-- Left: Live Canvas Preview -->
         <section class="card-preview-area">
-            <div class="canvas-wrapper">
+            <div class="canvas-wrapper pulse-glow-border">
                 <canvas id="cardCanvas"></canvas>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center;">
-                ✨ The card is rendered live at 800x800 high-resolution. Click the download button to export!
+            <p style="margin-top:1rem;font-size:0.85rem;color:#64748b;text-align:center;">
+                ✨ Live 800×800 HD preview. Your card updates instantly!
             </p>
         </section>
 
-        <!-- Right Side: Dashboard Controls -->
+        <!-- Right: Controls Dashboard -->
         <section class="card-controls">
             <h2 class="dashboard-title">
-                <span>🎨 Customize Greeting Card</span>
-                <span style="font-family: var(--font-sinhala); font-size: 1.25rem;">වෙසක් පත සකසන්න</span>
+                <span>🎨 Card Studio</span>
+                <span style="font-family:var(--font-sinhala);font-size:1.15rem;">වෙසක් පත් නිර්මාණය</span>
             </h2>
 
-            <!-- 1. Select Background -->
+            <!-- 1. Background Selection -->
             <div class="control-group">
-                <span class="control-label">🖼️ Choose Background (පසුබිම තෝරන්න)</span>
+                <span class="control-label">🖼️ Background (පසුබිම)</span>
                 <div class="bg-select-grid">
-                    <!-- Buddha silhouette -->
                     <div class="bg-option active" data-bg="buddha">
-                        <img src="assets/bg_buddha.jpg" alt="Buddha Silhouette" onerror="this.style.display='none';">
-                        <span class="bg-option-label">Buddha (බුදුරුව)</span>
+                        <div class="bg-option-preview" style="background:radial-gradient(circle at center,#1d1947,#03030c);">🧘</div>
+                        <span class="bg-option-label">Buddha</span>
                     </div>
-                    <!-- Lanterns -->
                     <div class="bg-option" data-bg="lanterns">
-                        <img src="assets/bg_lanterns.jpg" alt="Vesak Lanterns" onerror="this.style.display='none';">
-                        <span class="bg-option-label">Lanterns (වෙසක් කූඩු)</span>
+                        <div class="bg-option-preview" style="background:linear-gradient(180deg,#1f1303,#050200);">🏮</div>
+                        <span class="bg-option-label">Lanterns</span>
                     </div>
-                    <!-- Lotus floating -->
                     <div class="bg-option" data-bg="lotus">
-                        <img src="assets/bg_lotus.jpg" alt="Lotus Lamp" onerror="this.style.display='none';">
-                        <span class="bg-option-label">Lotus (නෙළුම් මල)</span>
+                        <div class="bg-option-preview" style="background:linear-gradient(135deg,#0d021c,#1f0d3a);">🪷</div>
+                        <span class="bg-option-label">Lotus</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. Customize Greetings Text -->
+            <!-- 2. Upload Custom Image -->
+            <div class="control-group">
+                <span class="control-label">📤 Upload Your Photo (ඔබේ පින්තූරයක් උඩුගත කරන්න)</span>
+                <div class="file-upload-wrapper">
+                    <input id="cardImageUpload" type="file" accept="image/*">
+                    <label for="cardImageUpload" class="file-upload-label">
+                        <span>📁 Choose Image File...</span>
+                    </label>
+                    <button id="btnClearUpload" class="btn-clear-upload" style="display:none;">✕ Clear</button>
+                </div>
+            </div>
+
+            <!-- 3. Frame Style -->
+            <div class="control-group">
+                <span class="control-label">🖼️ Frame Style (රාමු මෝස්තරය)</span>
+                <div class="frame-select-grid">
+                    <button class="btn-frame active" data-frame="gold">🏆 Traditional Gold</button>
+                    <button class="btn-frame" data-frame="floral">🌸 Lotus Floral</button>
+                    <button class="btn-frame" data-frame="neon">💫 Neon Glow</button>
+                    <button class="btn-frame" data-frame="none">❌ No Frame</button>
+                </div>
+            </div>
+
+            <!-- 4. Greeting Text -->
             <div class="text-input-wrapper">
-                <label for="cardGreetingText" class="control-label">✍️ Greeting Message (සුබපැතුම් පණිවිඩය)</label>
+                <label for="cardGreetingText" class="control-label">✍️ Greeting Message (සුබපැතුම්)</label>
                 <textarea id="cardGreetingText" class="custom-textarea" placeholder="මෙහි සුබපැතුම් පණිවිඩය ලියන්න..."></textarea>
             </div>
 
-            <!-- 3. Pre-made Verses list -->
+            <!-- 5. Quick Verses -->
             <div class="control-group">
-                <span class="control-label">📜 Quick Verses (පෙර සැකසූ පද්‍ය/ප්‍රාර්ථනා)</span>
-                <div id="versesList" class="verses-list">
-                    <!-- JavaScript populates this list -->
-                </div>
+                <span class="control-label">📜 Quick Verses (පෙර සැකසූ ප්‍රාර්ථනා)</span>
+                <div id="versesList" class="verses-list"></div>
             </div>
 
-            <!-- 4. Customize Sender Name -->
+            <!-- 6. Sender Name -->
             <div class="text-input-wrapper">
-                <label for="cardSenderName" class="control-label">👤 Sender's Name (ඔබේ නම)</label>
+                <label for="cardSenderName" class="control-label">👤 Sender Name (ඔබේ නම)</label>
                 <input id="cardSenderName" type="text" class="custom-input" placeholder="උදා: සරත් ගුණසේකර">
             </div>
 
-            <!-- 5. Styles (color, size, placement) -->
-            <div class="style-controls-grid">
-                <div class="control-group">
-                    <span class="control-label">🎨 Font Color (වර්ණය)</span>
-                    <div class="color-picker-wrapper">
-                        <input id="textColor" type="color" value="#ffd700">
-                        <span style="font-size: 0.8rem; font-weight: bold;">Select Color</span>
+            <!-- 7. Text Styling Grid -->
+            <div class="control-group">
+                <span class="control-label">🎨 Text Styling (අකුරු සැකසුම්)</span>
+                <div class="style-controls-grid">
+                    <div class="control-group">
+                        <span class="control-label" style="font-size:0.75rem;">Color (වර්ණය)</span>
+                        <div class="color-picker-wrapper">
+                            <input id="textColor" type="color" value="#ffd700">
+                            <span style="font-size:0.75rem;">Pick</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <span class="control-label" style="font-size:0.75rem;">Font (අකුරු)</span>
+                        <select id="cardFont" class="custom-input" style="height:42px;padding:6px;">
+                            <option value="Abhaya Libre">Abhaya Libre</option>
+                            <option value="Outfit">Outfit</option>
+                            <option value="Yatra One">Yatra One</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Text Alignment -->
+                <div style="margin-top:10px;">
+                    <span class="control-label" style="font-size:0.75rem;margin-bottom:6px;display:block;">Alignment (පෙළ ගැස්ම)</span>
+                    <div class="align-btn-group">
+                        <button class="btn-align" data-align="left">◀ Left</button>
+                        <button class="btn-align active" data-align="center">● Center</button>
+                        <button class="btn-align" data-align="right">▶ Right</button>
+                    </div>
+                </div>
+                <!-- Gold Gradient Toggle -->
+                <label class="checkbox-row" style="margin-top:10px;">
+                    <input id="useGoldGradient" type="checkbox" style="width:18px;height:18px;accent-color:var(--color-yellow);">
+                    <span>✨ Use Gold Gradient Text</span>
+                </label>
+            </div>
+
+            <!-- 8. Size & Position Sliders -->
+            <div class="control-group">
+                <span class="control-label">📏 Font Size</span>
+                <input id="textSize" type="range" class="speed-slider" min="-12" max="20" value="0">
+            </div>
+            <div class="control-group">
+                <span class="control-label">↕️ Text Vertical Position</span>
+                <input id="textOffset" type="range" class="speed-slider" min="-150" max="150" value="0">
+            </div>
+
+            <!-- 9. Decorative Stickers -->
+            <div class="control-group sticker-panel">
+                <span class="control-label">🎀 Decorative Stickers (අලංකරණ)</span>
+
+                <!-- Oil Lamp -->
+                <div class="sticker-control-row">
+                    <label class="checkbox-row">
+                        <input id="stickerLamp" type="checkbox" checked style="accent-color:var(--color-yellow);">
+                        <span>🪔 Oil Lamps</span>
+                    </label>
+                    <div class="sticker-sliders">
+                        <label style="font-size:0.7rem;color:#64748b;">Size</label>
+                        <input id="stickerLampScale" type="range" class="mini-slider" min="50" max="200" value="100">
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <span class="control-label">🖋️ Font Style (අකුරු හැඩය)</span>
-                    <select id="cardFont" class="custom-input" style="height: 48px; padding: 8px;">
-                        <option value="Abhaya Libre">Abhaya Libre (Sinhala Serif)</option>
-                        <option value="Outfit">Outfit (Modern Clean)</option>
-                        <option value="Yatra One">Yatra One (Ornamental)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- 6. Size and Offset controls -->
-            <div class="control-group">
-                <div style="display: flex; justify-content: space-between;">
-                    <span class="control-label">📏 Font Size (අකුරු ප්‍රමාණය)</span>
-                </div>
-                <input id="textSize" type="range" class="speed-slider" min="-12" max="15" value="0">
-            </div>
-
-            <div class="control-group">
-                <div style="display: flex; justify-content: space-between;">
-                    <span class="control-label">↕️ Vertical Position (උස සකසන්න)</span>
-                </div>
-                <input id="textOffset" type="range" class="speed-slider" min="-100" max="100" value="0">
-            </div>
-
-            <!-- 7. Border & Stamp Overlays -->
-            <div class="control-group" style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                <span class="control-label" style="margin-bottom: 12px; display: block;">🎀 Decorative Overlays (අලංකරණ සැරසිලි)</span>
-                
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem;">
-                        <input id="overlayBorders" type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-yellow);">
-                        <span>Golden Border Frame (රන්වන් මායිම)</span>
+                <!-- Lotus -->
+                <div class="sticker-control-row">
+                    <label class="checkbox-row">
+                        <input id="stickerLotus" type="checkbox" checked style="accent-color:var(--color-yellow);">
+                        <span>🪷 Lotus Flowers</span>
                     </label>
+                    <div class="sticker-sliders">
+                        <label style="font-size:0.7rem;color:#64748b;">Size</label>
+                        <input id="stickerLotusScale" type="range" class="mini-slider" min="50" max="200" value="100">
+                    </div>
+                </div>
 
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem;">
-                        <input id="overlayLamps" type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-yellow);">
-                        <span>Glowing Clay Lamps (පහන් මාලාවක්)</span>
+                <!-- Lantern -->
+                <div class="sticker-control-row">
+                    <label class="checkbox-row">
+                        <input id="stickerLantern" type="checkbox" style="accent-color:var(--color-yellow);">
+                        <span>🏮 Vesak Lanterns</span>
                     </label>
-
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem;">
-                        <input id="overlayLotus" type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-yellow);">
-                        <span>Lotus Ornaments (නෙළුම් මල් සැරසිලි)</span>
-                    </label>
+                    <div class="sticker-sliders">
+                        <label style="font-size:0.7rem;color:#64748b;">Size</label>
+                        <input id="stickerLanternScale" type="range" class="mini-slider" min="50" max="200" value="100">
+                    </div>
                 </div>
             </div>
 
-            <!-- 8. Export Action -->
+            <!-- 10. Export -->
             <button id="btnDownloadCard" class="btn-export">
-                💾 Download Greeting Card (බාගත කරන්න)
+                💾 Download HD Card (බාගත කරන්න)
             </button>
-
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="footer-text">
-        සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful. <br>
-        Digital Vesak Pandal & Greetings © 2026. Made for <span>Vesak Poya Day</span>.
+        සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful.<br>
+        Digital Vesak Pandal &amp; Greetings © 2026. Made for <span>Vesak Poya Day</span>.
     </footer>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
