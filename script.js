@@ -120,14 +120,21 @@ function initGlobalMusic() {
 
     globalPlayBtn.addEventListener('click', () => {
         if (isAudioPlaying) {
+            localStorage.setItem('vesakMusicEnabled', 'false');
             pauseGlobalMusic();
         } else {
+            localStorage.setItem('vesakMusicEnabled', 'true');
             playGlobalMusic();
         }
     });
 
-    // Attempt autoplay immediately
-    attemptAutoplay();
+    // Attempt autoplay if not explicitly disabled by user
+    const musicEnabled = localStorage.getItem('vesakMusicEnabled');
+    if (musicEnabled !== 'false') {
+        attemptAutoplay();
+    } else {
+        updateGlobalMusicUI();
+    }
 }
 
 function playGlobalMusic() {
