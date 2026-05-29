@@ -197,6 +197,19 @@ function updateGlobalMusicUI() {
     } else {
         hideNowPlayingToast();
     }
+
+    // Update thorana audio status bar if present
+    const thoranaStatus = document.getElementById('thoranaAudioStatus');
+    if (thoranaStatus) {
+        if (isAudioPlaying) {
+            const track = audioTracks[currentTrackIndex];
+            thoranaStatus.style.color = '#ffd700';
+            thoranaStatus.innerHTML = `🎵 Now Playing: <strong>${track.sinhala}</strong> — ${track.artist}`;
+        } else {
+            thoranaStatus.style.color = '';
+            thoranaStatus.innerHTML = `🔊 Press <strong style="color:var(--color-yellow)">Music On</strong> in the header to start devotional music.`;
+        }
+    }
 }
 
 let toastTimer = null;
