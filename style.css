@@ -95,6 +95,34 @@ nav a:hover, nav li.active a {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
+.btn-music-toggle {
+    background: rgba(255, 215, 0, 0.12);
+    border: 1px solid var(--color-yellow);
+    color: var(--color-yellow);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+.btn-music-toggle:hover {
+    background: var(--color-yellow);
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+}
+.btn-music-toggle.paused {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #94a3b8;
+    text-shadow: none;
+}
+
 /* --- HOME HERO --- */
 .hero-section {
     min-height: calc(100vh - 80px); display: flex; flex-direction: column;
@@ -490,4 +518,56 @@ nav a:hover, nav li.active a {
     .bg-select-grid { grid-template-columns: repeat(3, 1fr); }
     .frame-select-grid { grid-template-columns: 1fr; }
     .style-controls-grid { grid-template-columns: 1fr; }
+}
+
+/* --- AUDIO PLAYER CARD --- */
+.audio-player-card {
+    background: rgba(5, 7, 18, 0.85);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.audio-player-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--color-yellow), var(--color-orange));
+}
+.playlist-controls {
+    display: flex;
+    flex-direction: column;
+}
+.player-controls-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.now-playing-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    flex: 1.5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.volume-control-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
 }
