@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="si">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vesak Card Generator | වෙසක් පත් නිර්මාණය</title>
-    <meta name="description" content="Create and download custom Vesak Poya greeting cards with uploaded photos, premium frames, and decorative stickers.">
+    <meta name="description"
+        content="Create and download custom Vesak Poya greeting cards with uploaded photos, premium frames, and decorative stickers.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Welcome/Entry Screen Overlay -->
@@ -14,17 +17,18 @@
         <div class="welcome-card">
             <!-- Rotating Dharma Wheel -->
             <svg class="welcome-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <h1 class="welcome-title-si">ඩිජිටල් වෙසක් තොරණ 2026</h1>
             <h2 class="welcome-title-en">Digital Vesak Thorana 2026</h2>
-            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
+            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span
+                    style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
             <button id="btnEnterWebsite" class="welcome-btn">
                 <span>Enter Website</span>
                 <span style="font-size:1.4rem;">🪷</span>
@@ -33,31 +37,56 @@
         </div>
     </div>
 
-    <div class="stars-bg"><div class="stars"></div></div>
+    <div class="stars-bg">
+        <div class="stars"></div>
+    </div>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <span class="logo-text">Vesak 2026</span>
         </div>
+
+        <!-- Desktop Nav -->
         <nav>
             <ul>
-                <li><a href="index.html">🏠 Home</a></li>
-                <li><a href="thorana.html">🎡 Digital Thorana</a></li>
-                <li class="active"><a href="card-genarate.html">🎨 Card Generator</a></li>
+                <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+                <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
             </ul>
         </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileMusicBtn" class="mobile-music-btn">
+            🔊 Music On
+        </button>
+
+        <ul>
+            <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+            <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+            <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
+        </ul>
+    </div>
 
     <!-- Main Generator -->
     <main class="card-generator-container">
@@ -83,9 +112,12 @@
             <div class="control-group">
                 <span class="control-label">📏 Orientation</span>
                 <div class="color-presets" style="justify-content: flex-start; gap: 10px;">
-                    <button class="btn-export" id="btnPortrait" style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Portrait</button>
-                    <button class="btn-export" id="btnSquare" style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Square</button>
-                    <button class="btn-export" id="btnLandscape" style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Landscape</button>
+                    <button class="btn-export" id="btnPortrait"
+                        style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Portrait</button>
+                    <button class="btn-export" id="btnSquare"
+                        style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Square</button>
+                    <button class="btn-export" id="btnLandscape"
+                        style="width: auto; padding: 8px 12px; font-size: 0.85rem;">Landscape</button>
                 </div>
             </div>
 
@@ -95,41 +127,48 @@
                 <div class="bg-select-grid" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
                     <div class="bg-option active" data-bg="vesak1">
                         <div class="bg-option-preview" style="background: #0d1020;">
-                            <img src="assets/vesak1.png" alt="T1" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="assets/vesak1.png" alt="T1" style="width:100%; height:100%; object-fit:cover;"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="fallback-emoji" style="display:none; font-size: 1.5rem;">🪷</span>
                         </div>
                         <span class="bg-option-label">Template 1</span>
                     </div>
                     <div class="bg-option" data-bg="vesak2">
                         <div class="bg-option-preview" style="background: #0d1020;">
-                            <img src="assets/vesak2.png" alt="T2" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="assets/vesak2.png" alt="T2" style="width:100%; height:100%; object-fit:cover;"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="fallback-emoji" style="display:none; font-size: 1.5rem;">🏮</span>
                         </div>
                         <span class="bg-option-label">Template 2</span>
                     </div>
                     <div class="bg-option" data-bg="vesak3">
                         <div class="bg-option-preview" style="background: #0d1020;">
-                            <img src="assets/vesak3.png" alt="T3" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="assets/vesak3.png" alt="T3" style="width:100%; height:100%; object-fit:cover;"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="fallback-emoji" style="display:none; font-size: 1.5rem;">🧘</span>
                         </div>
                         <span class="bg-option-label">Template 3</span>
                     </div>
                     <div class="bg-option" data-bg="vesak4">
                         <div class="bg-option-preview" style="background: #0d1020;">
-                            <img src="assets/vesak4.png" alt="T4" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="assets/vesak4.png" alt="T4" style="width:100%; height:100%; object-fit:cover;"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="fallback-emoji" style="display:none; font-size: 1.5rem;">✨</span>
                         </div>
                         <span class="bg-option-label">Template 4</span>
                     </div>
                     <div class="bg-option" data-bg="vesak5">
                         <div class="bg-option-preview" style="background: #0d1020;">
-                            <img src="assets/vesak5.png" alt="T5" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="assets/vesak5.png" alt="T5" style="width:100%; height:100%; object-fit:cover;"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="fallback-emoji" style="display:none; font-size: 1.5rem;">🎡</span>
                         </div>
                         <span class="bg-option-label">Template 5</span>
                     </div>
                     <div class="bg-option" data-bg="procedural">
-                        <div class="bg-option-preview" style="background:radial-gradient(circle at center,#1d1947,#03030c); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">🌌</div>
+                        <div class="bg-option-preview"
+                            style="background:radial-gradient(circle at center,#1d1947,#03030c); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                            🌌</div>
                         <span class="bg-option-label">Custom Glow</span>
                     </div>
                 </div>
@@ -161,7 +200,8 @@
             <!-- 4. Greeting Text -->
             <div class="text-input-wrapper">
                 <label for="cardGreetingText" class="control-label">✍️ Greeting Message (සුබපැතුම්)</label>
-                <textarea id="cardGreetingText" class="custom-textarea" placeholder="මෙහි සුබපැතුම් පණිවිඩය ලියන්න..."></textarea>
+                <textarea id="cardGreetingText" class="custom-textarea"
+                    placeholder="මෙහි සුබපැතුම් පණිවිඩය ලියන්න..."></textarea>
             </div>
 
             <!-- 5. Quick Verses -->
@@ -173,12 +213,14 @@
             <!-- 6. Recipient & Sender Names (To / From) -->
             <div class="text-input-wrapper">
                 <label for="cardRecipientName" class="control-label">👤 Recipient Name (To / ලබන්නාගේ නම)</label>
-                <input id="cardRecipientName" type="text" class="custom-input" placeholder="ලබන්නාගේ නම (උදා: මල්කාන්ති පෙරේරා)">
+                <input id="cardRecipientName" type="text" class="custom-input"
+                    placeholder="ලබන්නාගේ නම (උදා: මල්කාන්ති පෙරේරා)">
             </div>
 
             <div class="text-input-wrapper">
                 <label for="cardSenderName" class="control-label">👤 Sender Name (From / එවන්නාගේ නම)</label>
-                <input id="cardSenderName" type="text" class="custom-input" value="Chathunga Bimsara" placeholder="ඔබේ නම (උදා: Chathunga Bimsara)">
+                <input id="cardSenderName" type="text" class="custom-input" value="Chathunga Bimsara"
+                    placeholder="ඔබේ නම (උදා: Chathunga Bimsara)">
             </div>
 
             <!-- 7. Text Styling Grid -->
@@ -203,7 +245,8 @@
                 </div>
                 <!-- Text Alignment -->
                 <div style="margin-top:10px;">
-                    <span class="control-label" style="font-size:0.75rem;margin-bottom:6px;display:block;">Alignment (පෙළ ගැස්ම)</span>
+                    <span class="control-label" style="font-size:0.75rem;margin-bottom:6px;display:block;">Alignment
+                        (පෙළ ගැස්ම)</span>
                     <div class="align-btn-group">
                         <button class="btn-align" data-align="left">◀ Left</button>
                         <button class="btn-align active" data-align="center">● Center</button>
@@ -212,7 +255,8 @@
                 </div>
                 <!-- Gold Gradient Toggle -->
                 <label class="checkbox-row" style="margin-top:10px;">
-                    <input id="useGoldGradient" type="checkbox" style="width:18px;height:18px;accent-color:var(--color-yellow);">
+                    <input id="useGoldGradient" type="checkbox"
+                        style="width:18px;height:18px;accent-color:var(--color-yellow);">
                     <span>✨ Use Gold Gradient Text</span>
                 </label>
             </div>
@@ -221,21 +265,24 @@
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span class="control-label">📏 Font Size</span>
-                    <span id="valTextSize" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Normal</span>
+                    <span id="valTextSize"
+                        style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Normal</span>
                 </div>
                 <input id="textSize" type="range" class="speed-slider" min="-15" max="30" value="0">
             </div>
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span class="control-label">↔️ Horizontal Position</span>
-                    <span id="valTextX" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Center</span>
+                    <span id="valTextX"
+                        style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Center</span>
                 </div>
                 <input id="textXOffset" type="range" class="speed-slider" min="-250" max="250" value="0">
             </div>
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span class="control-label">↕️ Vertical Position</span>
-                    <span id="valTextY" style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Middle</span>
+                    <span id="valTextY"
+                        style="font-size:0.82rem;color:var(--color-yellow);font-weight:700;">Middle</span>
                 </div>
                 <input id="textOffset" type="range" class="speed-slider" min="-250" max="250" value="0">
             </div>
@@ -290,10 +337,12 @@
 
             <!-- 10. Export -->
             <div style="display: flex; gap: 12px; margin-top: 15px; width: 100%;">
-                <button id="btnDownloadCard" class="btn-export" style="flex: 1; margin-top: 0; padding: 14px; font-size: 0.95rem;">
+                <button id="btnDownloadCard" class="btn-export"
+                    style="flex: 1; margin-top: 0; padding: 14px; font-size: 0.95rem;">
                     💾 Download (බාගත කරන්න)
                 </button>
-                <button id="btnShareCard" class="btn-export" style="flex: 1; margin-top: 0; padding: 14px; font-size: 0.95rem; background: linear-gradient(135deg, #00c6ff, #0072ff); border: none; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3); color: #fff;">
+                <button id="btnShareCard" class="btn-export"
+                    style="flex: 1; margin-top: 0; padding: 14px; font-size: 0.95rem; background: linear-gradient(135deg, #00c6ff, #0072ff); border: none; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3); color: #fff;">
                     📤 Share (බෙදාගන්න)
                 </button>
             </div>
@@ -307,4 +356,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
