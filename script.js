@@ -919,7 +919,7 @@ function loadStoryPanel(index) {
         p.classList.toggle('selected', parseInt(p.dataset.panelIndex) === index);
     });
 
-    document.getElementById('storyBadge').innerText = `පැනලය ${index + 1} / Panel ${index + 1}`;
+    document.getElementById('storyBadge').innerText = `Panel ${index + 1 < 10 ? '0' + (index + 1) : index + 1}`;
     updateStoryDisplay();
 
     const imgEl = document.getElementById('storyImage');
