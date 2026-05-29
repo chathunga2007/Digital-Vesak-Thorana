@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="si">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Digital Vesak Thorana | ඩිජිටල් වෙසක් තොරණ</title>
-    <meta name="description" content="Experience the magnificent interactive Sasa Jataka Digital Vesak Pandal with swirling rainbow lights, standing Buddha, and bilingual story narration.">
+    <meta name="description"
+        content="Experience the magnificent interactive Sasa Jataka Digital Vesak Pandal with swirling rainbow lights, standing Buddha, and bilingual story narration.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Welcome/Entry Screen Overlay -->
@@ -14,17 +17,18 @@
         <div class="welcome-card">
             <!-- Rotating Dharma Wheel -->
             <svg class="welcome-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <h1 class="welcome-title-si">ඩිජිටල් වෙසක් තොරණ 2026</h1>
             <h2 class="welcome-title-en">Digital Vesak Thorana 2026</h2>
-            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
+            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span
+                    style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
             <button id="btnEnterWebsite" class="welcome-btn">
                 <span>Enter Website</span>
                 <span style="font-size:1.4rem;">🪷</span>
@@ -42,25 +46,48 @@
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <span class="logo-text">Vesak 2026</span>
         </div>
+
+        <!-- Desktop Nav -->
         <nav>
             <ul>
-                <li><a href="index.html">🏠 Home</a></li>
-                <li class="active"><a href="thorana.html">🎡 Digital Thorana</a></li>
-                <li><a href="card-genarate.html">🎨 Card Generator</a></li>
+                <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+                <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
             </ul>
         </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileMusicBtn" class="mobile-music-btn">
+            🔊 Music On
+        </button>
+
+        <ul>
+            <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+            <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+            <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <main class="thorana-container">
@@ -70,337 +97,375 @@
             <svg id="pandalSvg" class="pandal-structure" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#ffe875"/>
-                        <stop offset="50%" stop-color="#ffd700"/>
-                        <stop offset="100%" stop-color="#b8860b"/>
+                        <stop offset="0%" stop-color="#ffe875" />
+                        <stop offset="50%" stop-color="#ffd700" />
+                        <stop offset="100%" stop-color="#b8860b" />
                     </linearGradient>
                     <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#ff4444"/>
-                        <stop offset="100%" stop-color="#8b0000"/>
+                        <stop offset="0%" stop-color="#ff4444" />
+                        <stop offset="100%" stop-color="#8b0000" />
                     </linearGradient>
                     <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#ffd700" stop-opacity="0.7"/>
-                        <stop offset="60%" stop-color="#ffd700" stop-opacity="0.15"/>
-                        <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                        <stop offset="0%" stop-color="#ffd700" stop-opacity="0.7" />
+                        <stop offset="60%" stop-color="#ffd700" stop-opacity="0.15" />
+                        <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
                     </radialGradient>
                     <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#1a0a3a" stop-opacity="0.8"/>
-                        <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+                        <stop offset="0%" stop-color="#1a0a3a" stop-opacity="0.8" />
+                        <stop offset="100%" stop-color="#050510" stop-opacity="1" />
                     </radialGradient>
                     <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
-                        <feGaussianBlur stdDeviation="6" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        <feGaussianBlur stdDeviation="6" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
                     </filter>
                     <filter id="softGlow">
-                        <feGaussianBlur stdDeviation="3"/>
+                        <feGaussianBlur stdDeviation="3" />
                     </filter>
                 </defs>
 
                 <!-- ===== BACKGROUND DOME FRAME ===== -->
                 <!-- Grand Dome Outer Shell -->
-                <path d="M 30 650 L 30 350 Q 30 80, 400 50 Q 770 80, 770 350 L 770 650 Z"
-                      fill="#080b1a" stroke="url(#goldGrad)" stroke-width="5"/>
+                <path d="M 30 650 L 30 350 Q 30 80, 400 50 Q 770 80, 770 350 L 770 650 Z" fill="#080b1a"
+                    stroke="url(#goldGrad)" stroke-width="5" />
 
                 <!-- Inner Dome Contour -->
-                <path d="M 60 640 L 60 360 Q 60 110, 400 80 Q 740 110, 740 360 L 740 640 Z"
-                      fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.4"/>
+                <path d="M 60 640 L 60 360 Q 60 110, 400 80 Q 740 110, 740 360 L 740 640 Z" fill="none"
+                    stroke="url(#goldGrad)" stroke-width="2" opacity="0.4" />
 
                 <!-- Decorative Side Wings -->
-                <path d="M 30 450 Q -15 380, 30 300" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
-                <path d="M 770 450 Q 815 380, 770 300" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
-                <path d="M 30 350 Q -20 280, 30 200" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.6"/>
-                <path d="M 770 350 Q 820 280, 770 200" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.6"/>
+                <path d="M 30 450 Q -15 380, 30 300" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+                <path d="M 770 450 Q 815 380, 770 300" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+                <path d="M 30 350 Q -20 280, 30 200" fill="none" stroke="url(#goldGrad)" stroke-width="2"
+                    opacity="0.6" />
+                <path d="M 770 350 Q 820 280, 770 200" fill="none" stroke="url(#goldGrad)" stroke-width="2"
+                    opacity="0.6" />
 
                 <!-- Crown Peak Ornament (Makara Pinnacle) -->
-                <path d="M 350 55 C 350 20, 450 20, 450 55" fill="url(#goldGrad)"/>
-                <circle cx="400" cy="25" r="10" fill="#ffd700" filter="url(#glowFilter)"/>
-                <path d="M 380 55 L 400 35 L 420 55" fill="url(#goldGrad)" opacity="0.7"/>
+                <path d="M 350 55 C 350 20, 450 20, 450 55" fill="url(#goldGrad)" />
+                <circle cx="400" cy="25" r="10" fill="#ffd700" filter="url(#glowFilter)" />
+                <path d="M 380 55 L 400 35 L 420 55" fill="url(#goldGrad)" opacity="0.7" />
                 <!-- OM Symbol -->
-                <text x="400" y="32" text-anchor="middle" font-size="14" fill="#ffd700" font-family="serif" opacity="0.9" filter="url(#softGlow)">ॐ</text>
+                <text x="400" y="32" text-anchor="middle" font-size="14" fill="#ffd700" font-family="serif"
+                    opacity="0.9" filter="url(#softGlow)">ॐ</text>
 
                 <!-- ===== CENTRAL RAINBOW MANDALA SPIRAL ===== -->
                 <!-- Outer Mandala Ring -->
-                <circle cx="400" cy="280" r="175" fill="url(#centerGlow)" stroke="url(#goldGrad)" stroke-width="4"/>
-                <circle cx="400" cy="280" r="165" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.3"/>
+                <circle cx="400" cy="280" r="175" fill="url(#centerGlow)" stroke="url(#goldGrad)" stroke-width="4" />
+                <circle cx="400" cy="280" r="165" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.3" />
 
                 <!-- Spiral Rainbow Blades (12 curved segments) -->
                 <g id="spiralBlades" opacity="0.85">
-                    <path d="M 400 280 Q 400 150, 500 120 Q 560 160, 400 280" fill="#3a86ff" opacity="0.7" class="spiral-blade" data-blade="0"/>
-                    <path d="M 400 280 Q 490 160, 565 200 Q 575 270, 400 280" fill="#ffd700" opacity="0.7" class="spiral-blade" data-blade="1"/>
-                    <path d="M 400 280 Q 560 220, 575 310 Q 540 370, 400 280" fill="#ff3b30" opacity="0.7" class="spiral-blade" data-blade="2"/>
-                    <path d="M 400 280 Q 560 340, 520 420 Q 460 440, 400 280" fill="#ffffff" opacity="0.5" class="spiral-blade" data-blade="3"/>
-                    <path d="M 400 280 Q 500 420, 430 450 Q 380 430, 400 280" fill="#ff7b00" opacity="0.7" class="spiral-blade" data-blade="4"/>
-                    <path d="M 400 280 Q 410 450, 340 440 Q 300 400, 400 280" fill="#3a86ff" opacity="0.7" class="spiral-blade" data-blade="5"/>
-                    <path d="M 400 280 Q 310 420, 260 380 Q 250 320, 400 280" fill="#ffd700" opacity="0.7" class="spiral-blade" data-blade="6"/>
-                    <path d="M 400 280 Q 240 340, 230 260 Q 260 200, 400 280" fill="#ff3b30" opacity="0.7" class="spiral-blade" data-blade="7"/>
-                    <path d="M 400 280 Q 240 220, 280 150 Q 330 120, 400 280" fill="#ffffff" opacity="0.5" class="spiral-blade" data-blade="8"/>
-                    <path d="M 400 280 Q 300 140, 360 110 Q 400 105, 400 280" fill="#ff7b00" opacity="0.7" class="spiral-blade" data-blade="9"/>
-                    <path d="M 400 280 Q 360 120, 420 108 Q 460 120, 400 280" fill="#3a86ff" opacity="0.6" class="spiral-blade" data-blade="10"/>
-                    <path d="M 400 280 Q 460 120, 520 160 Q 540 200, 400 280" fill="#ffd700" opacity="0.6" class="spiral-blade" data-blade="11"/>
+                    <path d="M 400 280 Q 400 150, 500 120 Q 560 160, 400 280" fill="#3a86ff" opacity="0.7"
+                        class="spiral-blade" data-blade="0" />
+                    <path d="M 400 280 Q 490 160, 565 200 Q 575 270, 400 280" fill="#ffd700" opacity="0.7"
+                        class="spiral-blade" data-blade="1" />
+                    <path d="M 400 280 Q 560 220, 575 310 Q 540 370, 400 280" fill="#ff3b30" opacity="0.7"
+                        class="spiral-blade" data-blade="2" />
+                    <path d="M 400 280 Q 560 340, 520 420 Q 460 440, 400 280" fill="#ffffff" opacity="0.5"
+                        class="spiral-blade" data-blade="3" />
+                    <path d="M 400 280 Q 500 420, 430 450 Q 380 430, 400 280" fill="#ff7b00" opacity="0.7"
+                        class="spiral-blade" data-blade="4" />
+                    <path d="M 400 280 Q 410 450, 340 440 Q 300 400, 400 280" fill="#3a86ff" opacity="0.7"
+                        class="spiral-blade" data-blade="5" />
+                    <path d="M 400 280 Q 310 420, 260 380 Q 250 320, 400 280" fill="#ffd700" opacity="0.7"
+                        class="spiral-blade" data-blade="6" />
+                    <path d="M 400 280 Q 240 340, 230 260 Q 260 200, 400 280" fill="#ff3b30" opacity="0.7"
+                        class="spiral-blade" data-blade="7" />
+                    <path d="M 400 280 Q 240 220, 280 150 Q 330 120, 400 280" fill="#ffffff" opacity="0.5"
+                        class="spiral-blade" data-blade="8" />
+                    <path d="M 400 280 Q 300 140, 360 110 Q 400 105, 400 280" fill="#ff7b00" opacity="0.7"
+                        class="spiral-blade" data-blade="9" />
+                    <path d="M 400 280 Q 360 120, 420 108 Q 460 120, 400 280" fill="#3a86ff" opacity="0.6"
+                        class="spiral-blade" data-blade="10" />
+                    <path d="M 400 280 Q 460 120, 520 160 Q 540 200, 400 280" fill="#ffd700" opacity="0.6"
+                        class="spiral-blade" data-blade="11" />
                 </g>
 
                 <!-- Radiant Halo Circle behind Buddha -->
-                <circle cx="400" cy="280" r="110" fill="url(#haloGlow)"/>
-                <circle cx="400" cy="280" r="85" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5" stroke-dasharray="6,3"/>
+                <circle cx="400" cy="280" r="110" fill="url(#haloGlow)" />
+                <circle cx="400" cy="280" r="85" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5"
+                    stroke-dasharray="6,3" />
 
                 <!-- ===== STANDING BUDDHA SILHOUETTE ===== -->
                 <g id="buddhaStanding" transform="translate(400, 280)">
                     <!-- Lotus Pedestal -->
-                    <ellipse cx="0" cy="95" rx="50" ry="15" fill="url(#redGrad)" stroke="#ffd700" stroke-width="2"/>
-                    <path d="M -40 90 Q -45 75, -30 70 Q -15 80, 0 70 Q 15 80, 30 70 Q 45 75, 40 90" fill="#ff4444" stroke="#ffd700" stroke-width="1"/>
+                    <ellipse cx="0" cy="95" rx="50" ry="15" fill="url(#redGrad)" stroke="#ffd700" stroke-width="2" />
+                    <path d="M -40 90 Q -45 75, -30 70 Q -15 80, 0 70 Q 15 80, 30 70 Q 45 75, 40 90" fill="#ff4444"
+                        stroke="#ffd700" stroke-width="1" />
 
                     <!-- Body / Robes -->
-                    <path d="M -25 90 L -30 20 Q -32 -10, -20 -30 L 20 -30 Q 32 -10, 30 20 L 25 90 Z" fill="#0a0e25" stroke="#ffd700" stroke-width="1.5" opacity="0.95"/>
+                    <path d="M -25 90 L -30 20 Q -32 -10, -20 -30 L 20 -30 Q 32 -10, 30 20 L 25 90 Z" fill="#0a0e25"
+                        stroke="#ffd700" stroke-width="1.5" opacity="0.95" />
 
                     <!-- Left Arm -->
-                    <path d="M -28 30 Q -45 50, -40 70 Q -35 80, -25 75" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+                    <path d="M -28 30 Q -45 50, -40 70 Q -35 80, -25 75" fill="none" stroke="#ffd700"
+                        stroke-width="1.5" />
                     <!-- Right Arm (Abhaya Mudra - raised blessing) -->
-                    <path d="M 28 20 Q 45 0, 42 -15" fill="none" stroke="#ffd700" stroke-width="1.5"/>
-                    <circle cx="42" cy="-20" r="8" fill="none" stroke="#ffd700" stroke-width="1"/>
+                    <path d="M 28 20 Q 45 0, 42 -15" fill="none" stroke="#ffd700" stroke-width="1.5" />
+                    <circle cx="42" cy="-20" r="8" fill="none" stroke="#ffd700" stroke-width="1" />
 
                     <!-- Head -->
-                    <circle cx="0" cy="-48" r="18" fill="#0a0e25" stroke="#ffd700" stroke-width="2"/>
+                    <circle cx="0" cy="-48" r="18" fill="#0a0e25" stroke="#ffd700" stroke-width="2" />
                     <!-- Hair Crown (Ushnisha) -->
-                    <ellipse cx="0" cy="-68" rx="8" ry="6" fill="#ffd700"/>
+                    <ellipse cx="0" cy="-68" rx="8" ry="6" fill="#ffd700" />
                     <!-- Face features (minimal elegant) -->
-                    <path d="M -5 -50 Q 0 -44, 5 -50" fill="none" stroke="#ffd700" stroke-width="0.8" opacity="0.6"/>
+                    <path d="M -5 -50 Q 0 -44, 5 -50" fill="none" stroke="#ffd700" stroke-width="0.8" opacity="0.6" />
                 </g>
 
                 <!-- ===== JATAKA STORY PANELS (Symmetric Chambers) ===== -->
                 <!-- Bottom Base: 5 Arched Chambers -->
                 <!-- Panel 1 (Far Left) -->
                 <g class="pandal-panel-trigger" data-panel-index="0">
-                    <path d="M 65 640 L 65 530 Q 65 490, 130 490 Q 195 490, 195 530 L 195 640 Z" fill="#060818" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <path d="M 65 640 L 65 530 Q 65 490, 130 490 Q 195 490, 195 530 L 195 640 Z" fill="#060818"
+                        stroke="url(#goldGrad)" stroke-width="3" />
                     <text x="130" y="565" fill="#ffd700" font-size="26" text-anchor="middle" opacity="0.9">🕊️</text>
-                    <text x="130" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'" text-anchor="middle">01. අධිෂ්ඨානය</text>
-                    <text x="130" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">The Vow</text>
+                    <text x="130" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'"
+                        text-anchor="middle">01. අධිෂ්ඨානය</text>
+                    <text x="130" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">The
+                        Vow</text>
                 </g>
 
                 <!-- Panel 2 (Left) -->
                 <g class="pandal-panel-trigger" data-panel-index="1">
-                    <path d="M 210 640 L 210 530 Q 210 490, 275 490 Q 340 490, 340 530 L 340 640 Z" fill="#060818" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <path d="M 210 640 L 210 530 Q 210 490, 275 490 Q 340 490, 340 530 L 340 640 Z" fill="#060818"
+                        stroke="url(#goldGrad)" stroke-width="3" />
                     <text x="275" y="565" fill="#ffd700" font-size="26" text-anchor="middle" opacity="0.9">🐟</text>
-                    <text x="275" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'" text-anchor="middle">02. දන් සෙවීම</text>
-                    <text x="275" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">Gathering</text>
+                    <text x="275" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'"
+                        text-anchor="middle">02. දන් සෙවීම</text>
+                    <text x="275" y="618" fill="#999" font-size="8" font-family="'Outfit'"
+                        text-anchor="middle">Gathering</text>
                 </g>
 
                 <!-- Panel 3 (Center - Principal) -->
                 <g class="pandal-panel-trigger" data-panel-index="2">
-                    <path d="M 345 640 L 345 520 Q 345 475, 400 475 Q 455 475, 455 520 L 455 640 Z" fill="#060818" stroke="url(#goldGrad)" stroke-width="4"/>
+                    <path d="M 345 640 L 345 520 Q 345 475, 400 475 Q 455 475, 455 520 L 455 640 Z" fill="#060818"
+                        stroke="url(#goldGrad)" stroke-width="4" />
                     <text x="400" y="555" fill="#ffd700" font-size="30" text-anchor="middle" opacity="1">🐇</text>
-                    <text x="400" y="595" fill="#ffd700" font-size="11" font-family="'Abhaya Libre'" font-weight="bold" text-anchor="middle">03. සස ජාතකය</text>
-                    <text x="400" y="613" fill="#ccc" font-size="9" font-family="'Outfit'" text-anchor="middle">The Wise Hare</text>
+                    <text x="400" y="595" fill="#ffd700" font-size="11" font-family="'Abhaya Libre'" font-weight="bold"
+                        text-anchor="middle">03. සස ජාතකය</text>
+                    <text x="400" y="613" fill="#ccc" font-size="9" font-family="'Outfit'" text-anchor="middle">The Wise
+                        Hare</text>
                 </g>
 
                 <!-- Panel 4 (Right) -->
                 <g class="pandal-panel-trigger" data-panel-index="3">
-                    <path d="M 460 640 L 460 530 Q 460 490, 525 490 Q 590 490, 590 530 L 590 640 Z" fill="#060818" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <path d="M 460 640 L 460 530 Q 460 490, 525 490 Q 590 490, 590 530 L 590 640 Z" fill="#060818"
+                        stroke="url(#goldGrad)" stroke-width="3" />
                     <text x="525" y="565" fill="#ffd700" font-size="26" text-anchor="middle" opacity="0.9">🔥</text>
-                    <text x="525" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'" text-anchor="middle">04. පරීක්ෂණය</text>
-                    <text x="525" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">The Test</text>
+                    <text x="525" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'"
+                        text-anchor="middle">04. පරීක්ෂණය</text>
+                    <text x="525" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">The
+                        Test</text>
                 </g>
 
                 <!-- Panel 5 (Far Right) -->
                 <g class="pandal-panel-trigger" data-panel-index="4">
-                    <path d="M 605 640 L 605 530 Q 605 490, 670 490 Q 735 490, 735 530 L 735 640 Z" fill="#060818" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <path d="M 605 640 L 605 530 Q 605 490, 670 490 Q 735 490, 735 530 L 735 640 Z" fill="#060818"
+                        stroke="url(#goldGrad)" stroke-width="3" />
                     <text x="670" y="565" fill="#ffd700" font-size="26" text-anchor="middle" opacity="0.9">🌕</text>
-                    <text x="670" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'" text-anchor="middle">05. සඳ ලකුණ</text>
-                    <text x="670" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">Eternal Moon</text>
+                    <text x="670" y="600" fill="#ddd" font-size="10" font-family="'Abhaya Libre'"
+                        text-anchor="middle">05. සඳ ලකුණ</text>
+                    <text x="670" y="618" fill="#999" font-size="8" font-family="'Outfit'" text-anchor="middle">Eternal
+                        Moon</text>
                 </g>
 
                 <!-- Horizontal Divider between base panels and upper pandal -->
-                <line x1="55" y1="480" x2="745" y2="480" stroke="url(#goldGrad)" stroke-width="4"/>
-                <line x1="55" y1="475" x2="745" y2="475" stroke="#ffd700" stroke-width="1" opacity="0.3"/>
+                <line x1="55" y1="480" x2="745" y2="480" stroke="url(#goldGrad)" stroke-width="4" />
+                <line x1="55" y1="475" x2="745" y2="475" stroke="#ffd700" stroke-width="1" opacity="0.3" />
 
                 <!-- ===== LED BULB CIRCUITS (180+ bulbs) ===== -->
 
                 <!-- CIRCUIT 1: Outer Dome Arch (Layer 0) - 40 bulbs -->
                 <g id="outerDomeBulbs">
                     <!-- Left pillar -->
-                    <circle class="bulb bulb-blue" cx="35" cy="640" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="35" cy="600" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="35" cy="560" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="35" cy="520" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="35" cy="480" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="35" cy="440" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="35" cy="400" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="38" cy="360" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="45" cy="320" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="55" cy="282" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="72" cy="246" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="95" cy="214" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="125" cy="185" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="160" cy="160" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="200" cy="138" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="245" cy="118" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="290" cy="100" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="340" cy="88" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="370" cy="80" r="6" data-layer="0"/>
+                    <circle class="bulb bulb-blue" cx="35" cy="640" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="35" cy="600" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="35" cy="560" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="35" cy="520" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="35" cy="480" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="35" cy="440" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="35" cy="400" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="38" cy="360" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="45" cy="320" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="55" cy="282" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="72" cy="246" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="95" cy="214" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="125" cy="185" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="160" cy="160" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="200" cy="138" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="245" cy="118" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="290" cy="100" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="340" cy="88" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="370" cy="80" r="6" data-layer="0" />
                     <!-- Top center -->
-                    <circle class="bulb bulb-orange" cx="400" cy="76" r="7" data-layer="0"/>
+                    <circle class="bulb bulb-orange" cx="400" cy="76" r="7" data-layer="0" />
                     <!-- Right side (mirror) -->
-                    <circle class="bulb bulb-white" cx="430" cy="80" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="460" cy="88" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="510" cy="100" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="555" cy="118" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="600" cy="138" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="640" cy="160" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="675" cy="185" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="705" cy="214" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="728" cy="246" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="745" cy="282" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="755" cy="320" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="762" cy="360" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="765" cy="400" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="765" cy="440" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-orange" cx="765" cy="480" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-white" cx="765" cy="520" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-red" cx="765" cy="560" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-yellow" cx="765" cy="600" r="6" data-layer="0"/>
-                    <circle class="bulb bulb-blue" cx="765" cy="640" r="6" data-layer="0"/>
+                    <circle class="bulb bulb-white" cx="430" cy="80" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="460" cy="88" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="510" cy="100" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="555" cy="118" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="600" cy="138" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="640" cy="160" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="675" cy="185" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="705" cy="214" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="728" cy="246" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="745" cy="282" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="755" cy="320" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="762" cy="360" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="765" cy="400" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="765" cy="440" r="6" data-layer="0" />
+                    <circle class="bulb bulb-orange" cx="765" cy="480" r="6" data-layer="0" />
+                    <circle class="bulb bulb-white" cx="765" cy="520" r="6" data-layer="0" />
+                    <circle class="bulb bulb-red" cx="765" cy="560" r="6" data-layer="0" />
+                    <circle class="bulb bulb-yellow" cx="765" cy="600" r="6" data-layer="0" />
+                    <circle class="bulb bulb-blue" cx="765" cy="640" r="6" data-layer="0" />
                 </g>
 
                 <!-- CIRCUIT 2: Mandala Ring (Layer 1) - 36 bulbs around the circle -->
                 <g id="mandalaRingBulbs">
-                    <circle class="bulb bulb-yellow" cx="400" cy="105" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="432" cy="108" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="462" cy="115" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="490" cy="128" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="515" cy="145" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="536" cy="166" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="552" cy="192" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="563" cy="220" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="570" cy="250" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="572" cy="280" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="570" cy="310" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="563" cy="340" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="552" cy="368" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="536" cy="394" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="515" cy="415" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="490" cy="432" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="462" cy="445" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="432" cy="452" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="400" cy="455" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="368" cy="452" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="338" cy="445" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="310" cy="432" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="285" cy="415" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="264" cy="394" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="248" cy="368" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="237" cy="340" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="230" cy="310" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="228" cy="280" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="230" cy="250" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="237" cy="220" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="248" cy="192" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-red" cx="264" cy="166" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-white" cx="285" cy="145" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-orange" cx="310" cy="128" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-blue" cx="338" cy="115" r="5" data-layer="1"/>
-                    <circle class="bulb bulb-yellow" cx="368" cy="108" r="5" data-layer="1"/>
+                    <circle class="bulb bulb-yellow" cx="400" cy="105" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="432" cy="108" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="462" cy="115" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="490" cy="128" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="515" cy="145" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="536" cy="166" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="552" cy="192" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="563" cy="220" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="570" cy="250" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="572" cy="280" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="570" cy="310" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="563" cy="340" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="552" cy="368" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="536" cy="394" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="515" cy="415" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="490" cy="432" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="462" cy="445" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="432" cy="452" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="400" cy="455" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="368" cy="452" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="338" cy="445" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="310" cy="432" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="285" cy="415" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="264" cy="394" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="248" cy="368" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="237" cy="340" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="230" cy="310" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="228" cy="280" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="230" cy="250" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="237" cy="220" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="248" cy="192" r="5" data-layer="1" />
+                    <circle class="bulb bulb-red" cx="264" cy="166" r="5" data-layer="1" />
+                    <circle class="bulb bulb-white" cx="285" cy="145" r="5" data-layer="1" />
+                    <circle class="bulb bulb-orange" cx="310" cy="128" r="5" data-layer="1" />
+                    <circle class="bulb bulb-blue" cx="338" cy="115" r="5" data-layer="1" />
+                    <circle class="bulb bulb-yellow" cx="368" cy="108" r="5" data-layer="1" />
                 </g>
 
                 <!-- CIRCUIT 3: Inner Halo Ring (Layer 2) - 24 bulbs -->
                 <g id="haloRingBulbs">
-                    <circle class="bulb bulb-orange" cx="400" cy="195" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-blue" cx="425" cy="197" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-yellow" cx="448" cy="205" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-red" cx="467" cy="220" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-white" cx="480" cy="240" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-orange" cx="488" cy="262" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-blue" cx="488" cy="290" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-yellow" cx="482" cy="316" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-red" cx="470" cy="338" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-white" cx="452" cy="354" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-orange" cx="428" cy="364" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-blue" cx="400" cy="368" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-yellow" cx="372" cy="364" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-red" cx="348" cy="354" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-white" cx="330" cy="338" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-orange" cx="318" cy="316" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-blue" cx="312" cy="290" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-yellow" cx="312" cy="262" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-red" cx="320" cy="240" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-white" cx="333" cy="220" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-orange" cx="352" cy="205" r="4" data-layer="2"/>
-                    <circle class="bulb bulb-blue" cx="375" cy="197" r="4" data-layer="2"/>
+                    <circle class="bulb bulb-orange" cx="400" cy="195" r="4" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="425" cy="197" r="4" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="448" cy="205" r="4" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="467" cy="220" r="4" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="480" cy="240" r="4" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="488" cy="262" r="4" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="488" cy="290" r="4" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="482" cy="316" r="4" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="470" cy="338" r="4" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="452" cy="354" r="4" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="428" cy="364" r="4" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="400" cy="368" r="4" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="372" cy="364" r="4" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="348" cy="354" r="4" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="330" cy="338" r="4" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="318" cy="316" r="4" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="312" cy="290" r="4" data-layer="2" />
+                    <circle class="bulb bulb-yellow" cx="312" cy="262" r="4" data-layer="2" />
+                    <circle class="bulb bulb-red" cx="320" cy="240" r="4" data-layer="2" />
+                    <circle class="bulb bulb-white" cx="333" cy="220" r="4" data-layer="2" />
+                    <circle class="bulb bulb-orange" cx="352" cy="205" r="4" data-layer="2" />
+                    <circle class="bulb bulb-blue" cx="375" cy="197" r="4" data-layer="2" />
                 </g>
 
                 <!-- CIRCUIT 4: Base Chaser Lights (Layer 3) - 20 bulbs -->
                 <g id="baseChaserBulbs">
-                    <circle class="bulb bulb-red" cx="70" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-yellow" cx="110" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-blue" cx="150" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-white" cx="190" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-orange" cx="230" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-red" cx="270" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-yellow" cx="310" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-blue" cx="350" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-white" cx="390" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-orange" cx="410" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-red" cx="450" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-yellow" cx="490" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-blue" cx="530" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-white" cx="570" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-orange" cx="610" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-red" cx="650" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-yellow" cx="690" cy="650" r="5" data-layer="3"/>
-                    <circle class="bulb bulb-blue" cx="730" cy="650" r="5" data-layer="3"/>
+                    <circle class="bulb bulb-red" cx="70" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="110" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="150" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-white" cx="190" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-orange" cx="230" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-red" cx="270" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="310" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="350" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-white" cx="390" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-orange" cx="410" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-red" cx="450" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="490" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="530" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-white" cx="570" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-orange" cx="610" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-red" cx="650" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-yellow" cx="690" cy="650" r="5" data-layer="3" />
+                    <circle class="bulb bulb-blue" cx="730" cy="650" r="5" data-layer="3" />
                 </g>
 
                 <!-- CIRCUIT 5: Radiant Spokes from center (Layer 4) - 16 bulbs -->
                 <g id="spokeBulbs">
                     <!-- Up -->
-                    <circle class="bulb bulb-yellow" cx="400" cy="140" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-orange" cx="400" cy="160" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-yellow" cx="400" cy="140" r="4" data-layer="4" />
+                    <circle class="bulb bulb-orange" cx="400" cy="160" r="4" data-layer="4" />
                     <!-- Upper Right -->
-                    <circle class="bulb bulb-blue" cx="520" cy="170" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-red" cx="500" cy="185" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-blue" cx="520" cy="170" r="4" data-layer="4" />
+                    <circle class="bulb bulb-red" cx="500" cy="185" r="4" data-layer="4" />
                     <!-- Right -->
-                    <circle class="bulb bulb-white" cx="545" cy="280" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-yellow" cx="525" cy="280" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-white" cx="545" cy="280" r="4" data-layer="4" />
+                    <circle class="bulb bulb-yellow" cx="525" cy="280" r="4" data-layer="4" />
                     <!-- Lower Right -->
-                    <circle class="bulb bulb-orange" cx="520" cy="390" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-blue" cx="500" cy="375" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-orange" cx="520" cy="390" r="4" data-layer="4" />
+                    <circle class="bulb bulb-blue" cx="500" cy="375" r="4" data-layer="4" />
                     <!-- Down -->
-                    <circle class="bulb bulb-red" cx="400" cy="420" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-white" cx="400" cy="400" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-red" cx="400" cy="420" r="4" data-layer="4" />
+                    <circle class="bulb bulb-white" cx="400" cy="400" r="4" data-layer="4" />
                     <!-- Lower Left -->
-                    <circle class="bulb bulb-yellow" cx="280" cy="390" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-orange" cx="300" cy="375" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-yellow" cx="280" cy="390" r="4" data-layer="4" />
+                    <circle class="bulb bulb-orange" cx="300" cy="375" r="4" data-layer="4" />
                     <!-- Left -->
-                    <circle class="bulb bulb-blue" cx="255" cy="280" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-red" cx="275" cy="280" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-blue" cx="255" cy="280" r="4" data-layer="4" />
+                    <circle class="bulb bulb-red" cx="275" cy="280" r="4" data-layer="4" />
                     <!-- Upper Left -->
-                    <circle class="bulb bulb-white" cx="280" cy="170" r="4" data-layer="4"/>
-                    <circle class="bulb bulb-yellow" cx="300" cy="185" r="4" data-layer="4"/>
+                    <circle class="bulb bulb-white" cx="280" cy="170" r="4" data-layer="4" />
+                    <circle class="bulb bulb-yellow" cx="300" cy="185" r="4" data-layer="4" />
                 </g>
 
                 <!-- CIRCUIT 6: Panel Highlight Bulbs (Layer 5) - scattered around panels -->
                 <g id="panelHighlightBulbs">
-                    <circle class="bulb bulb-orange" cx="130" cy="485" r="4" data-layer="5"/>
-                    <circle class="bulb bulb-blue" cx="275" cy="485" r="4" data-layer="5"/>
-                    <circle class="bulb bulb-yellow" cx="400" cy="470" r="5" data-layer="5"/>
-                    <circle class="bulb bulb-red" cx="525" cy="485" r="4" data-layer="5"/>
-                    <circle class="bulb bulb-white" cx="670" cy="485" r="4" data-layer="5"/>
+                    <circle class="bulb bulb-orange" cx="130" cy="485" r="4" data-layer="5" />
+                    <circle class="bulb bulb-blue" cx="275" cy="485" r="4" data-layer="5" />
+                    <circle class="bulb bulb-yellow" cx="400" cy="470" r="5" data-layer="5" />
+                    <circle class="bulb bulb-red" cx="525" cy="485" r="4" data-layer="5" />
+                    <circle class="bulb bulb-white" cx="670" cy="485" r="4" data-layer="5" />
                     <!-- Between panels top -->
-                    <circle class="bulb bulb-orange" cx="200" cy="478" r="3" data-layer="5"/>
-                    <circle class="bulb bulb-blue" cx="345" cy="478" r="3" data-layer="5"/>
-                    <circle class="bulb bulb-yellow" cx="455" cy="478" r="3" data-layer="5"/>
-                    <circle class="bulb bulb-red" cx="600" cy="478" r="3" data-layer="5"/>
+                    <circle class="bulb bulb-orange" cx="200" cy="478" r="3" data-layer="5" />
+                    <circle class="bulb bulb-blue" cx="345" cy="478" r="3" data-layer="5" />
+                    <circle class="bulb bulb-yellow" cx="455" cy="478" r="3" data-layer="5" />
+                    <circle class="bulb bulb-red" cx="600" cy="478" r="3" data-layer="5" />
                 </g>
 
                 <!-- Decorative Pillar Bases -->
-                <rect x="20" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
-                <rect x="730" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)" stroke-width="2"/>
+                <rect x="20" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)"
+                    stroke-width="2" />
+                <rect x="730" y="645" width="50" height="20" rx="4" fill="#0b0d1e" stroke="url(#goldGrad)"
+                    stroke-width="2" />
             </svg>
 
             <!-- Decorative Buddha image (loaded from assets). Positioned over the mandala. -->
             <img id="thoranaBuddhaImg" class="thorana-buddha" src="assets/buddha.png" alt="Standing Buddha" />
 
             <!-- Audio/Music status message -->
-            <div id="thoranaAudioStatus" class="audio-status" style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center; transition: color 0.3s;">
-                🔊 Press <strong style="color:var(--color-yellow)">Music On</strong> in the header to start devotional music.
+            <div id="thoranaAudioStatus" class="audio-status"
+                style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center; transition: color 0.3s;">
+                🔊 Press <strong style="color:var(--color-yellow)">Music On</strong> in the header to start devotional
+                music.
             </div>
         </section>
 
@@ -412,7 +477,8 @@
                 <label for="jatakaStorySelect" class="control-label" style="display:flex; align-items:center; gap:8px;">
                     📖 SELECT JATAKA STORY (ජාතක කතාව තෝරන්න)
                 </label>
-                <select id="jatakaStorySelect" class="custom-input" style="width: 100%; border-color: var(--color-yellow); background: #0c0f1d; font-size: 0.9rem;">
+                <select id="jatakaStorySelect" class="custom-input"
+                    style="width: 100%; border-color: var(--color-yellow); background: #0c0f1d; font-size: 0.9rem;">
                     <option value="sasa">🐇 Sasa Jataka (සස ජාතකය)</option>
                     <option value="kuru">🌾 Kuru Dharma Jataka (කුරු ධර්ම ජාතකය)</option>
                     <option value="dahamsonda">👹 Dahamsonda Jataka (දහම්සොඬ ජාතකය)</option>
@@ -432,12 +498,16 @@
                 </div>
 
                 <div class="story-body">
-                    <h3 id="storyTitleSi" class="story-text-sinhala" style="font-size:1.5rem;color:var(--color-yellow);margin-bottom:10px;"></h3>
-                    <h3 id="storyTitleEn" class="story-text-english" style="font-size:1.2rem;color:var(--color-yellow);margin-bottom:10px;display:none;"></h3>
+                    <h3 id="storyTitleSi" class="story-text-sinhala"
+                        style="font-size:1.5rem;color:var(--color-yellow);margin-bottom:10px;"></h3>
+                    <h3 id="storyTitleEn" class="story-text-english"
+                        style="font-size:1.2rem;color:var(--color-yellow);margin-bottom:10px;display:none;"></h3>
 
                     <div class="story-image-placeholder">
                         <img id="storyImage" src="assets/panel1.jpg" alt="Sasa Jataka Story Panel">
-                        <div id="storyImgFallback" style="font-size:5rem;filter:drop-shadow(0 0 15px var(--color-yellow));display:none;position:absolute;"></div>
+                        <div id="storyImgFallback"
+                            style="font-size:5rem;filter:drop-shadow(0 0 15px var(--color-yellow));display:none;position:absolute;">
+                        </div>
                     </div>
 
                     <div class="story-text" style="margin-top:1.5rem;">
@@ -449,8 +519,10 @@
                 <div class="story-nav">
                     <button id="btnPrev" class="btn-story-nav" disabled>◀</button>
                     <div class="auto-play-bar">
-                        <button id="btnSpeech" class="btn-audio" style="font-size:0.8rem;padding:6px 14px;">🗣️ Read Aloud</button>
-                        <button id="btnAutoPlay" class="btn-audio" style="font-size:0.8rem;padding:6px 14px;">🔄 Auto Play</button>
+                        <button id="btnSpeech" class="btn-audio" style="font-size:0.8rem;padding:6px 14px;">🗣️ Read
+                            Aloud</button>
+                        <button id="btnAutoPlay" class="btn-audio" style="font-size:0.8rem;padding:6px 14px;">🔄 Auto
+                            Play</button>
                     </div>
                     <button id="btnNext" class="btn-story-nav">▶</button>
                 </div>
@@ -473,7 +545,8 @@
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;">
                     <span class="control-label">⚡ Flashing Speed</span>
-                    <span id="speedVal" style="font-size:0.85rem;color:var(--color-yellow);font-weight:bold;">Normal</span>
+                    <span id="speedVal"
+                        style="font-size:0.85rem;color:var(--color-yellow);font-weight:bold;">Normal</span>
                 </div>
                 <input id="speedSlider" type="range" class="speed-slider" min="1" max="10" value="6">
             </div>
@@ -484,7 +557,8 @@
                     📻 DEVOTIONAL PLAYER (භක්ති ගීත වාදකය)
                 </span>
                 <div class="playlist-controls">
-                    <select id="audioPlaylist" class="custom-input" style="width: 100%; margin-bottom: 12px; font-size: 0.85rem; background: #0c0f1d; border: 1px solid rgba(255,215,0,0.3);">
+                    <select id="audioPlaylist" class="custom-input"
+                        style="width: 100%; margin-bottom: 12px; font-size: 0.85rem; background: #0c0f1d; border: 1px solid rgba(255,215,0,0.3);">
                         <option value="0">🌸 බුදු බණ පදයක් - Mangala Denex</option>
                         <option value="1">🌸 සිද්ධාර්ථ ගෞතම් - Viraj Perera</option>
                         <option value="2">🌸 සම්බුදු රුව - Vidusha Rajaguru</option>
@@ -494,17 +568,20 @@
                         <option value="synth">🔔 Temple Bell Chimes (Offline Synth)</option>
                     </select>
                     <div class="player-controls-row" style="display: flex; gap: 10px; align-items: center;">
-                        <button id="btnAudioPlayPause" class="btn-audio" style="flex: 1; justify-content: center; font-size: 0.85rem;">
+                        <button id="btnAudioPlayPause" class="btn-audio"
+                            style="flex: 1; justify-content: center; font-size: 0.85rem;">
                             ▶ Play Music
                         </button>
-                        <div class="now-playing-label" id="songDisplay" style="font-size: 0.75rem; color: #94a3b8; flex: 1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border: 1px solid rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
+                        <div class="now-playing-label" id="songDisplay"
+                            style="font-size: 0.75rem; color: #94a3b8; flex: 1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border: 1px solid rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
                             Select a track...
                         </div>
                     </div>
                 </div>
                 <div class="volume-control-row" style="display:flex; align-items:center; gap:10px; margin-top:6px;">
                     <span style="font-size: 0.75rem; color: #64748b; white-space: nowrap;">🔈 Volume</span>
-                    <input id="audioVolume" type="range" class="speed-slider" min="0" max="1" step="0.05" value="0.5" style="flex: 1;">
+                    <input id="audioVolume" type="range" class="speed-slider" min="0" max="1" step="0.05" value="0.5"
+                        style="flex: 1;">
                 </div>
             </div>
         </section>
@@ -518,4 +595,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
