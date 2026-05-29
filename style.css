@@ -567,11 +567,41 @@ nav a:hover, nav li.active a {
 }
 
 /* Glow Animation */
-.pulse-glow-border { animation: gold-pulse 4s infinite alternate; }
-@keyframes gold-pulse {
-    from { border-color: rgba(255, 215, 0, 0.15); box-shadow: 0 0 15px rgba(255, 215, 0, 0.05); }
-    to { border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
+.pulse-glow-border {
+    position: relative;
+    border: 4px solid transparent !important;
+    background: linear-gradient(#0f1228, #0f1228) padding-box,
+                linear-gradient(135deg, #ffd700, #ff8c00, #ff0055, #ffd700) border-box !important;
+    background-size: 300% 300% !important;
+    animation: gold-pulse-enhanced 4s ease infinite alternate, border-rotate 8s linear infinite !important;
 }
+@keyframes gold-pulse-enhanced {
+    from { box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
+    to { box-shadow: 0 0 35px rgba(255, 215, 0, 0.5); }
+}
+@keyframes border-rotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card Generator layout animations */
+.card-controls {
+    animation: controls-slide-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes controls-slide-in {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.card-preview-area {
+    animation: preview-slide-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes preview-slide-in {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 
 /* Footer */
 .footer-text {
