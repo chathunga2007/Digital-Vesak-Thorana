@@ -198,7 +198,7 @@ nav a:hover, nav li.active a {
 
 /* --- HOME HERO --- */
 .hero-section {
-    min-height: calc(100vh - 80px); display: flex; flex-direction: column;
+    min-height: 80vh; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
     padding: 3rem 1.5rem;
 }
@@ -606,7 +606,7 @@ nav a:hover, nav li.active a {
 /* Footer */
 .footer-text {
     text-align: center; color: #475569; font-size: 0.85rem;
-    margin-top: 4rem; padding: 2rem 0;
+    margin-top: 1.5rem; padding: 1rem 0;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 .footer-text span { color: var(--color-yellow); }
