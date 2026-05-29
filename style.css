@@ -285,6 +285,31 @@ nav a:hover, nav li.active a {
     padding: 1.5rem 1rem; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 .pandal-structure { width: 100%; max-width: 750px; height: auto; }
+/* ---------- Thorana Buddha Image Overlay (responsive) ---------- */
+.thorana-view { position: relative; }
+.thorana-buddha {
+    position: absolute;
+    left: 50%;
+    top: 21%;
+    transform: translate(-50%, -50%);
+    width: clamp(160px, 24vw, 360px);
+    max-width: 36%;
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+}
+
+/* Hide original SVG buddha silhouette so the photo doesn't overlap */
+#buddhaStanding { display: none; }
+
+@media (max-width: 1024px) {
+    .thorana-buddha { top: 38%; width: clamp(140px, 30vw, 420px); max-width: 42%; }
+}
+@media (max-width: 520px) {
+    .thorana-buddha { top: 36%; width: clamp(120px, 42vw, 320px); max-width: 62%; }
+    .pandal-structure { max-width: 100%; height: auto; }
+}
 
 /* Bulb States */
 .bulb { cursor: pointer; transition: fill 0.15s ease, filter 0.15s ease, opacity 0.15s ease; }
