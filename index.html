@@ -3,11 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Vesak Thorana & Greetings | ඩිජිටල් වෙසක් තොරණ</title>
+    <title>Digital Vesak Thorana 2026 | ඩිජිටල් වෙසක් තොරණ</title>
     <meta name="description" content="ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත් නිර්මාණය. Experience the interactive Sasa Jataka digital pandal and customize your Vesak greeting cards here.">
-    
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Home-specific extra styles */
+        .features-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: rgba(15, 20, 42, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-radius: 24px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+        }
+        .feature-card.card-thorana::before { background: linear-gradient(to right, #3a86ff, #ffd700); }
+        .feature-card.card-generator::before { background: linear-gradient(to right, #ffd700, #ff8c00); }
+        .feature-card.card-music::before { background: linear-gradient(to right, #ff0055, #ff7b00); }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.35);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(255,215,0,0.05);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            line-height: 1;
+            filter: drop-shadow(0 0 12px rgba(255,215,0,0.3));
+        }
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-yellow);
+        }
+        .feature-title-si {
+            font-family: var(--font-sinhala);
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: -6px;
+        }
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-yellow);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: auto;
+            opacity: 0.8;
+            transition: opacity 0.2s, gap 0.2s;
+        }
+        .feature-card:hover .feature-link { opacity: 1; gap: 12px; }
+
+        .section-divider {
+            text-align: center;
+            margin: 2rem 0 2.5rem;
+        }
+        .section-divider h2 {
+            font-family: var(--font-ornamental);
+            font-size: 2rem;
+            background: linear-gradient(to right, #fff, #ffd700, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine-text 4s linear infinite;
+        }
+        .section-divider p {
+            color: #64748b;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Buddhist flag color band */
+        .flag-band {
+            height: 5px;
+            background: linear-gradient(to right,
+                #1e56b2 20%, #ffd700 20% 40%,
+                #d91e18 40% 60%, #ffffff 60% 80%,
+                #ff6600 80%);
+            margin: 0;
+            opacity: 0.6;
+        }
+
+        .jataka-teaser {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+        .jataka-cards-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .jataka-mini-card {
+            background: rgba(10, 12, 30, 0.8);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+            max-width: 170px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .jataka-mini-card:hover {
+            border-color: rgba(255,215,0,0.4);
+            transform: translateY(-4px);
+            background: rgba(255,215,0,0.05);
+        }
+        .jataka-mini-icon { font-size: 2rem; margin-bottom: 8px; }
+        .jataka-mini-title { font-family: var(--font-sinhala); font-size: 0.82rem; color: #cbd5e1; line-height: 1.4; }
+    </style>
 </head>
 <body>
 
@@ -15,6 +148,9 @@
     <div class="stars-bg">
         <div class="stars"></div>
     </div>
+
+    <!-- Buddhist Flag Colour Band -->
+    <div class="flag-band"></div>
 
     <!-- Header Navigation -->
     <header>
@@ -35,9 +171,9 @@
         </div>
         <nav>
             <ul>
-                <li class="active"><a href="index.html">🏢 Home (ප්‍රධාන පිටුව)</a></li>
-                <li><a href="thorana.html">🎡 Digital Thorana (ඩිජිටල් තොරණ)</a></li>
-                <li><a href="card-genarate.html">🎨 Card Generator (වෙසක් පත්)</a></li>
+                <li class="active"><a href="index.html">🏠 Home</a></li>
+                <li><a href="thorana.html">🎡 Digital Thorana</a></li>
+                <li><a href="card-genarate.html">🎨 Card Generator</a></li>
             </ul>
         </nav>
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
@@ -107,10 +243,84 @@
         </div>
     </main>
 
+    <!-- Features Section -->
+    <div class="section-divider">
+        <h2>✨ What's Inside</h2>
+        <p>Three experiences in one beautiful digital space</p>
+    </div>
+
+    <section class="features-section">
+        <a href="thorana.html" class="feature-card card-thorana">
+            <div class="feature-icon">🎡</div>
+            <div class="feature-title">Digital Thorana</div>
+            <div class="feature-title-si">ඩිජිටල් වෙසක් තොරණ</div>
+            <p class="feature-desc">
+                180+ interactive LED lights, 6 animated patterns (Chasing, Rainbow, Spiral, Aura…), and the complete Sasa Jataka story narration in Sinhala &amp; English.
+            </p>
+            <span class="feature-link">Enter Thorana →</span>
+        </a>
+
+        <a href="card-genarate.html" class="feature-card card-generator">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Card Generator</div>
+            <div class="feature-title-si">වෙසක් පත් නිර්මාණය</div>
+            <p class="feature-desc">
+                Create personalised 800×800 HD Vesak greeting cards with 5 Vesak templates, 3 frame styles, decorative stickers, and Sinhala verses. Download as PNG instantly.
+            </p>
+            <span class="feature-link">Create Card →</span>
+        </a>
+
+        <div class="feature-card card-music" style="cursor:default;">
+            <div class="feature-icon">🎵</div>
+            <div class="feature-title">Vesak Music</div>
+            <div class="feature-title-si">වෙසක් ගී</div>
+            <p class="feature-desc">
+                Three devotional Vesak songs play throughout your visit: <em>බුදු බණ පදයක්</em>, <em>සිද්ධාර්ථ ගෞතම්</em>, and <em>සම්බුදු රුව</em>. Press 🔊 Music On anytime.
+            </p>
+            <span class="feature-link" style="color:#94a3b8; cursor:default;">Use button above ↑</span>
+        </div>
+    </section>
+
+    <!-- Jataka Story Teaser -->
+    <div class="section-divider" style="margin-top:0;">
+        <h2>🐇 සස ජාතක කතාව</h2>
+        <p>The Five Chapters of the Noble Hare's Story</p>
+    </div>
+
+    <section class="jataka-teaser">
+        <div class="jataka-cards-row">
+            <div class="jataka-mini-card">
+                <div class="jataka-mini-icon">🕊️</div>
+                <div class="jataka-mini-title">මහා අධිෂ්ඨානය<br><small style="color:#64748b;font-family:inherit">The Vow</small></div>
+            </div>
+            <div class="jataka-mini-card">
+                <div class="jataka-mini-icon">🐟</div>
+                <div class="jataka-mini-title">දන් සෙවීම<br><small style="color:#64748b;font-family:inherit">Gathering Alms</small></div>
+            </div>
+            <div class="jataka-mini-card">
+                <div class="jataka-mini-icon">🐇</div>
+                <div class="jataka-mini-title">ජීවිත දානය<br><small style="color:#64748b;font-family:inherit">The Sacrifice</small></div>
+            </div>
+            <div class="jataka-mini-card">
+                <div class="jataka-mini-icon">🔥</div>
+                <div class="jataka-mini-title">දේව පරීක්ෂාව<br><small style="color:#64748b;font-family:inherit">Divine Test</small></div>
+            </div>
+            <div class="jataka-mini-card">
+                <div class="jataka-mini-icon">🌕</div>
+                <div class="jataka-mini-title">ශශ ලාංඡනය<br><small style="color:#64748b;font-family:inherit">The Moon Mark</small></div>
+            </div>
+        </div>
+        <div style="margin-top: 2rem;">
+            <a href="thorana.html" class="btn-premium" style="display:inline-flex;">
+                <span>📖 Read the Full Story</span>
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer-text">
         සැමදෙනාටම ධර්මයේ ආලෝකය ලැබේවා! May all beings be happy and peaceful. <br>
-        Digital Vesak Pandal & Greetings © 2026. Made for <span>Vesak Poya Day</span>.
+        Digital Vesak Pandal &amp; Greetings © 2026. Made for <span>Vesak Poya Day</span>.
     </footer>
 
     <!-- Scripts -->
