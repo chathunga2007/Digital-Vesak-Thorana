@@ -800,7 +800,23 @@ let lightSpeed = 300;
 let activePattern = 'chasing';
 let bulbStateTick = 0;
 
+function updateThoranaSVGTexts() {
+    const panels = document.querySelectorAll('.pandal-panel-trigger');
+    const stories = jatakaStories[activeStoryKey] || jatakaStories['sasa'];
+    panels.forEach((panel, i) => {
+        if(stories[i]) {
+            const texts = panel.querySelectorAll('text');
+            if(texts.length >= 3) {
+                texts[0].textContent = stories[i].fallbackIcon;
+                texts[1].textContent = stories[i].titleSi;
+                texts[2].textContent = stories[i].titleEn.replace(/^\d+\.\s*/, '');
+            }
+        }
+    });
+}
+
 function initThorana() {
+    updateThoranaSVGTexts();
     loadStoryPanel(0);
 
     const jatakaSelect = document.getElementById('jatakaStorySelect');
@@ -833,6 +849,7 @@ function initThorana() {
                 btn.classList.toggle('active', btn.dataset.pattern === activePattern);
             });
 
+            updateThoranaSVGTexts();
             loadStoryPanel(0);
         });
     }
