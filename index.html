@@ -81,9 +81,6 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button id="mobileMusicBtn" class="mobile-music-btn">
-            🔊 Music On
-        </button>
 
         <ul>
             <li><a href="index.html" class="nav-link">🏠 Home</a></li>
@@ -95,25 +92,36 @@
     <!-- Main Hero Landing -->
     <main class="hero-section">
         <!-- Celestial Meditating Buddha SVG Silhouette -->
-        <svg class="hero-logo-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Hero Buddha Logo - Larger Image -->
+        <svg class="hero-logo-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+
             <defs>
-                <radialGradient id="buddhaGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.6" />
+                <radialGradient id="buddhaGlow" cx="50%" cy="50%" r="52%">
+                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.7" />
                     <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
                 </radialGradient>
+
+                <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
             </defs>
-            <!-- Glowing Aura Background -->
-            <circle cx="100" cy="90" r="70" fill="url(#buddhaGlow)" />
-            <circle cx="100" cy="90" r="45" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5" />
-            <!-- Buddha Silhouette -->
-            <!-- Lotus throne -->
-            <path d="M 50 145 C 50 135, 150 135, 150 145 C 130 160, 70 160, 50 145 Z" fill="#ffd700" opacity="0.9" />
-            <!-- Body -->
-            <path d="M 80 140 L 70 110 C 70 95, 130 95, 130 110 L 120 140 Z" fill="#101432" />
-            <path d="M 82 138 C 90 120, 110 120, 118 138 Z" fill="#ffd700" />
-            <!-- Head & Hair Crown -->
-            <circle cx="100" cy="85" r="16" fill="#101432" />
-            <circle cx="100" cy="67" r="5" fill="#ffd700" />
+
+            <!-- Bigger Buddha Image -->
+            <image href="assets/buddha.png" x="22" y="12" width="156" height="162" opacity="0.93"
+                preserveAspectRatio="xMidYMid meet" />
+
+            <!-- Enhanced Glowing Aura -->
+            <circle cx="100" cy="93" r="76" fill="url(#buddhaGlow)" opacity="0.78" />
+            <circle cx="100" cy="93" r="52" fill="none" stroke="#ffd700" stroke-width="2.5" opacity="0.5" />
+
+            <!-- Lotus Throne -->
+            <path d="M 45 150 C 45 139, 155 139, 155 150 C 135 167, 65 167, 45 150 Z" fill="#ffd700" opacity="0.95" />
+
         </svg>
 
         <h1 class="hero-title">DIGITAL VESAK THORANA</h1>
