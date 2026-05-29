@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSPARouting();
 });
 
-// Mobile Menu + Music Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -18,14 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('active');
     });
 
-    // Sync music button between header and mobile
     if (mobileMusicBtn && globalMusicBtn) {
         mobileMusicBtn.addEventListener('click', () => {
-            globalMusicBtn.click(); // Trigger main music button
+            globalMusicBtn.click();
         });
     }
 
-    // Close menu on link click
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Active link
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('href') === currentPage) {
@@ -183,9 +179,6 @@ function cleanupPreviousPage() {
     }
 }
 
-/* ==========================================
-   1. STARFIELD & FLOATING LANTERNS
-   ========================================== */
 function initStars() {
     const starContainer = document.querySelector('.stars');
     if (!starContainer) return;
@@ -220,9 +213,6 @@ function spawnLantern() {
     setTimeout(() => lantern.remove(), 35000);
 }
 
-/* ==========================================
-   2. AMBIENT AUDIO & PLAYLIST SYNTH ENGINE
-   ========================================== */
 const audioTracks = [
     {
         name: "Budu Bana Padayak",
@@ -270,7 +260,6 @@ let currentTrackIndex = 0;
 let audioPlayer = new Audio();
 audioPlayer.volume = 0.5;
 
-// Global track end event -> auto-advances playlist
 audioPlayer.onended = () => {
     currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length;
 
@@ -284,7 +273,6 @@ audioPlayer.onended = () => {
             changeTrack(currentTrackIndex);
         }
     } else {
-        // Just play next song
         audioPlayer.src = audioTracks[currentTrackIndex].src;
         playGlobalMusic();
     }
@@ -308,7 +296,6 @@ function initGlobalMusic() {
         }
     });
 
-    // If music was enabled, resume playback on the first user interaction
     const resumeOnInteraction = () => {
         if (localStorage.getItem('vesakMusicEnabled') === 'true' && !isAudioPlaying) {
             playGlobalMusic();
@@ -365,7 +352,6 @@ function updateGlobalMusicUI() {
         }
     }
 
-    // Sync with sidebar dashboard controls if on thorana.html
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
     const songDisplay = document.getElementById('songDisplay');
     const playlistSelect = document.getElementById('audioPlaylist');
@@ -379,7 +365,6 @@ function updateGlobalMusicUI() {
         }
     }
 
-    // Show/hide the now-playing toast
     if (isAudioPlaying) {
         const track = audioTracks[currentTrackIndex];
         showNowPlayingToast(track);
@@ -387,7 +372,6 @@ function updateGlobalMusicUI() {
         hideNowPlayingToast();
     }
 
-    // Update thorana audio status bar if present
     const thoranaStatus = document.getElementById('thoranaAudioStatus');
     if (thoranaStatus) {
         if (isAudioPlaying) {
@@ -425,7 +409,6 @@ function showNowPlayingToast(track) {
     document.getElementById('toastTrackArtist').innerText = track.artist;
     requestAnimationFrame(() => toast.classList.add('visible'));
 
-    // Auto-hide after 5s
     if (toastTimer) clearTimeout(toastTimer);
     toastTimer = setTimeout(() => hideNowPlayingToast(), 5000);
 }
@@ -434,8 +417,6 @@ function hideNowPlayingToast() {
     const toast = document.getElementById('nowPlayingToast');
     if (toast) toast.classList.remove('visible');
 }
-
-// attemptAutoplay removed - music is fully manual-control only
 
 function initAudioPlayer() {
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
@@ -447,7 +428,6 @@ function initAudioPlayer() {
 
     audioPlayer.volume = parseFloat(volumeSlider.value);
 
-    // If music is already playing globally, sync UI
     if (isAudioPlaying) {
         playlistSelect.value = currentTrackIndex;
         const track = audioTracks[currentTrackIndex];
@@ -830,7 +810,6 @@ let currentLanguage = 'si';
 let autoPlayInterval = null;
 let isAutoPlaying = false;
 
-// Thorana lights
 let lightInterval = null;
 let lightSpeed = 300;
 let activePattern = 'chasing';
@@ -861,7 +840,6 @@ function initThorana() {
             activeStoryKey = this.value;
             activePanelIndex = 0;
 
-            // Automatically morph the Thorana lights animation based on Jataka story mood!
             const themes = {
                 sasa: { pattern: 'chasing', speedVal: 7 },
                 kuru: { pattern: 'rainbow', speedVal: 5 },
@@ -923,7 +901,6 @@ function initThorana() {
 
     startLightLoop();
 
-    // Start spiral blade animation
     startSpiralAnimation();
 }
 
@@ -931,11 +908,10 @@ function loadStoryPanel(index) {
     activePanelIndex = index;
     const story = jatakaStories[activeStoryKey][index];
 
-    // Trigger visual card active transition
     const storyBody = document.querySelector('.story-card .story-body');
     if (storyBody) {
         storyBody.classList.remove('active-slide');
-        void storyBody.offsetWidth; // force reflow
+        void storyBody.offsetWidth;
         storyBody.classList.add('active-slide');
     }
 
@@ -1018,7 +994,6 @@ function speakStory() {
     window.speechSynthesis.speak(utterance);
 }
 
-/* --- SPIRAL BLADE ANIMATION --- */
 let spiralAnimFrame = null;
 let spiralAngle = 0;
 
@@ -1034,7 +1009,6 @@ function startSpiralAnimation() {
     animateSpiral();
 }
 
-/* --- THORANA BULB LIGHT LOOP --- */
 function startLightLoop() { restartLightLoop(); }
 
 function restartLightLoop() {
@@ -1066,7 +1040,6 @@ function runLightPatternStep() {
                 on = (idx % 5) === (bulbStateTick % 5);
                 break;
             case 'spiral':
-                // Spiral pattern: wave propagates outward from center ring
                 const phase = (layer * 3 + idx) % 8;
                 on = phase === (bulbStateTick % 8);
                 break;
@@ -1080,10 +1053,6 @@ function runLightPatternStep() {
     });
 }
 
-
-/* ==========================================
-   4. VESAK CARD GENERATOR ENGINE (ADVANCED)
-   ========================================== */
 let canvas, ctx;
 let cardBgImage = new Image();
 let uploadedImage = null;
@@ -1108,7 +1077,6 @@ function initCardGenerator() {
     canvas.width = 800;
     canvas.height = 800;
 
-    // Event bindings
     const recipientInput = document.getElementById('cardRecipientName');
     if (recipientInput) recipientInput.addEventListener('input', drawCard);
     document.getElementById('cardSenderName').addEventListener('input', drawCard);
@@ -1141,7 +1109,6 @@ function initCardGenerator() {
     document.getElementById('cardFont').addEventListener('change', drawCard);
     document.getElementById('useGoldGradient').addEventListener('change', drawCard);
 
-    // Sticker toggles & sliders
     ['stickerLamp', 'stickerLotus', 'stickerLantern'].forEach(id => {
         document.getElementById(id).addEventListener('change', drawCard);
     });
@@ -1149,7 +1116,6 @@ function initCardGenerator() {
         document.getElementById(id).addEventListener('input', drawCard);
     });
 
-    // Background selectors
     document.querySelectorAll('.bg-option').forEach(opt => {
         opt.addEventListener('click', function () {
             document.querySelectorAll('.bg-option').forEach(o => o.classList.remove('active'));
@@ -1160,7 +1126,6 @@ function initCardGenerator() {
         });
     });
 
-    // Frame selectors
     document.querySelectorAll('.btn-frame').forEach(btn => {
         btn.addEventListener('click', function () {
             document.querySelectorAll('.btn-frame').forEach(b => b.classList.remove('active'));
@@ -1170,7 +1135,6 @@ function initCardGenerator() {
         });
     });
 
-    // Alignment buttons
     document.querySelectorAll('.btn-align').forEach(btn => {
         btn.addEventListener('click', function () {
             document.querySelectorAll('.btn-align').forEach(b => b.classList.remove('active'));
@@ -1180,7 +1144,6 @@ function initCardGenerator() {
         });
     });
 
-    // Image Upload
     document.getElementById('cardImageUpload').addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (!file) return;
@@ -1205,7 +1168,6 @@ function initCardGenerator() {
         selectCardBackground('vesak1');
     });
 
-    // Verses
     const versesContainer = document.getElementById('versesList');
     vesakVerses.forEach(verse => {
         const div = document.createElement('div');
@@ -1218,7 +1180,6 @@ function initCardGenerator() {
         versesContainer.appendChild(div);
     });
 
-    // Orientation Controls
     const btnPortrait = document.getElementById('btnPortrait');
     const btnSquare = document.getElementById('btnSquare');
     const btnLandscape = document.getElementById('btnLandscape');
@@ -1242,15 +1203,12 @@ function initCardGenerator() {
         canvas.width = 1200; canvas.height = 800; drawCard();
     });
 
-    // Set default square active border
     btnSquare.style.border = '2px solid #fff';
 
-    // Export
     document.getElementById('btnDownloadCard').addEventListener('click', downloadCardImage);
     const shareBtn = document.getElementById('btnShareCard');
     if (shareBtn) shareBtn.addEventListener('click', shareCardImage);
 
-    // Initial
     selectCardBackground('vesak1');
 }
 
@@ -1282,7 +1240,6 @@ function drawCard() {
     const W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);
 
-    // === 1. Background ===
     if (uploadedImage) {
         drawCoverImage(uploadedImage, W, H);
         ctx.fillStyle = "rgba(0,0,0,0.35)";
@@ -1295,18 +1252,14 @@ function drawCard() {
         drawProceduralBackground(W, H);
     }
 
-    // === 2. Frame ===
     drawFrame(W, H);
 
-    // === 3. Stickers ===
     drawStickers(W, H);
 
-    // === 4. Text ===
     drawCardTexts(W, H);
 }
 
 function drawCoverImage(img, W, H) {
-    // Cover-fit the image (like CSS object-fit: cover)
     const ratio = Math.max(W / img.width, H / img.height);
     const nw = img.width * ratio;
     const nh = img.height * ratio;
@@ -1328,7 +1281,6 @@ function drawProceduralBackground(W, H) {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
 
-    // Full moon
     ctx.beginPath();
     ctx.arc(400, 170, 75, 0, Math.PI * 2);
     const moonGrad = ctx.createRadialGradient(400, 170, 10, 400, 170, 75);
@@ -1336,7 +1288,6 @@ function drawProceduralBackground(W, H) {
     ctx.fillStyle = moonGrad;
     ctx.fill();
 
-    // Procedural Buddha silhouette
     if (currentBgType === 'buddha') {
         ctx.fillStyle = "rgba(0,0,0,0.95)";
         ctx.beginPath(); ctx.ellipse(400, 510, 80, 20, 0, 0, Math.PI * 2); ctx.fill();
@@ -1344,7 +1295,6 @@ function drawProceduralBackground(W, H) {
         ctx.beginPath(); ctx.ellipse(400, 455, 80, 40, 0, 0, Math.PI * 2); ctx.fill();
         ctx.beginPath(); ctx.arc(400, 345, 35, 0, Math.PI * 2); ctx.fill();
         ctx.beginPath(); ctx.arc(400, 300, 10, 0, Math.PI * 2); ctx.fill();
-        // Halo
         ctx.beginPath(); ctx.arc(400, 340, 70, 0, Math.PI * 2);
         ctx.strokeStyle = "rgba(255,215,0,0.45)"; ctx.lineWidth = 4;
         ctx.shadowColor = "rgba(255,215,0,0.8)"; ctx.shadowBlur = 25;
@@ -1352,7 +1302,6 @@ function drawProceduralBackground(W, H) {
     }
 }
 
-/* --- FRAME DRAWING --- */
 function drawFrame(W, H) {
     if (currentFrame === 'none') return;
     ctx.save();
@@ -1371,14 +1320,11 @@ function drawFrame(W, H) {
 }
 
 function drawGoldFrame(W, H) {
-    // Outer border
     ctx.strokeStyle = "#ffd700"; ctx.lineWidth = 5;
     ctx.strokeRect(25, 25, W - 50, H - 50);
-    // Inner border
     ctx.strokeStyle = "rgba(255,215,0,0.4)"; ctx.lineWidth = 1.5;
     ctx.strokeRect(38, 38, W - 76, H - 76);
 
-    // Ornate corners
     const corners = [
         { x: 25, y: 25, dx: 1, dy: 1 },
         { x: W - 25, y: 25, dx: -1, dy: 1 },
@@ -1393,19 +1339,16 @@ function drawGoldFrame(W, H) {
         ctx.lineTo(c.x + c.dx * 50, c.y);
         ctx.stroke();
 
-        // Diamond ornament
         ctx.fillStyle = "#ffd700";
         ctx.beginPath();
         const dx = c.x + c.dx * 28, dy = c.y + c.dy * 28;
         ctx.moveTo(dx, dy - 6); ctx.lineTo(dx + 6, dy); ctx.lineTo(dx, dy + 6); ctx.lineTo(dx - 6, dy);
         ctx.closePath(); ctx.fill();
 
-        // Small circles
         ctx.beginPath(); ctx.arc(c.x + c.dx * 15, c.y + c.dy * 50, 3, 0, Math.PI * 2); ctx.fill();
         ctx.beginPath(); ctx.arc(c.x + c.dx * 50, c.y + c.dy * 15, 3, 0, Math.PI * 2); ctx.fill();
     });
 
-    // Top center deco
     ctx.fillStyle = "#ffd700";
     ctx.beginPath();
     ctx.moveTo(W / 2, 15); ctx.lineTo(W / 2 - 10, 25); ctx.lineTo(W / 2 + 10, 25); ctx.closePath(); ctx.fill();
@@ -1414,11 +1357,9 @@ function drawGoldFrame(W, H) {
 }
 
 function drawFloralFrame(W, H) {
-    // Soft pink floral outer border
     ctx.strokeStyle = "rgba(255,130,180,0.6)"; ctx.lineWidth = 6;
     ctx.strokeRect(20, 20, W - 40, H - 40);
 
-    // Draw lotus petals in all four corners and centers
     const positions = [
         { x: 50, y: 50 }, { x: W - 50, y: 50 },
         { x: 50, y: H - 50 }, { x: W - 50, y: H - 50 },
@@ -1427,13 +1368,11 @@ function drawFloralFrame(W, H) {
     ];
     positions.forEach(pos => drawLotusIcon(pos.x, pos.y, 18));
 
-    // Inner decorative line
     ctx.strokeStyle = "rgba(255,215,0,0.3)"; ctx.lineWidth = 1;
     ctx.strokeRect(35, 35, W - 70, H - 70);
 }
 
 function drawNeonFrame(W, H) {
-    // Buddhist flag colors neon glow
     const colors = ['#3a86ff', '#ffd700', '#ff3b30', '#ffffff', '#ff7b00'];
 
     ctx.shadowBlur = 15;
@@ -1462,7 +1401,6 @@ function drawLotusIcon(x, y, r) {
     ctx.restore();
 }
 
-/* --- STICKER DRAWING --- */
 function drawStickers(W, H) {
     const lampActive = document.getElementById('stickerLamp').checked;
     const lotusActive = document.getElementById('stickerLotus').checked;
@@ -1488,14 +1426,12 @@ function drawOilLamps(W, H, scale) {
         ctx.translate(p.x, p.y);
         ctx.scale(scale, scale);
 
-        // Clay body
         ctx.beginPath();
         ctx.moveTo(-45, 0); ctx.bezierCurveTo(-45, 25, 45, 25, 45, 0);
         ctx.quadraticCurveTo(0, -8, -45, 0);
         ctx.fillStyle = "#a0522d"; ctx.fill();
         ctx.strokeStyle = "#8b4513"; ctx.lineWidth = 2; ctx.stroke();
 
-        // Flame
         ctx.shadowColor = "#ff8c00"; ctx.shadowBlur = 25;
         ctx.beginPath();
         ctx.moveTo(0, -8); ctx.quadraticCurveTo(-12, -30, 0, -52);
@@ -1537,11 +1473,9 @@ function drawLanternStickers(W, H, scale) {
         ctx.translate(p.x, p.y);
         ctx.scale(scale, scale);
 
-        // Lantern string
         ctx.strokeStyle = "#ffd700"; ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.moveTo(0, -50); ctx.lineTo(0, -25); ctx.stroke();
 
-        // Lantern body (Vesak Kudu shape)
         ctx.fillStyle = "rgba(255,140,0,0.7)";
         ctx.beginPath();
         ctx.moveTo(0, -25);
@@ -1551,14 +1485,12 @@ function drawLanternStickers(W, H, scale) {
         ctx.fill();
         ctx.strokeStyle = "#ffd700"; ctx.lineWidth = 1; ctx.stroke();
 
-        // Inner glow
         ctx.beginPath();
         ctx.arc(0, 5, 12, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255,255,200,0.4)";
         ctx.shadowColor = "#ffd700"; ctx.shadowBlur = 15;
         ctx.fill(); ctx.shadowBlur = 0;
 
-        // Bottom tassel
         ctx.fillStyle = "#ffd700";
         ctx.beginPath();
         ctx.moveTo(-12, 30); ctx.lineTo(0, 45); ctx.lineTo(12, 30); ctx.fill();
@@ -1567,7 +1499,6 @@ function drawLanternStickers(W, H, scale) {
     });
 }
 
-/* --- CARD TEXT RENDERING --- */
 function drawCardTexts(W, H) {
     const greetingText = document.getElementById('cardGreetingText').value.trim() || "සැමදෙනාටම පින්බර වෙසක් මංගල්‍යයක් වේවා!";
     const senderName = document.getElementById('cardSenderName').value.trim();
@@ -1583,7 +1514,6 @@ function drawCardTexts(W, H) {
 
     const fontSize = 32 + sizeOffset;
 
-    // Recipient Name (drawn at the top)
     if (recipientName) {
         ctx.save();
         ctx.shadowColor = "rgba(0,0,0,0.85)";
@@ -1606,19 +1536,16 @@ function drawCardTexts(W, H) {
         ctx.restore();
     }
 
-    // Shadow for main text
     ctx.shadowColor = "rgba(0,0,0,0.85)";
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 2;
     ctx.shadowOffsetY = 2;
 
-    // Text alignment
     let alignX = W / 2 + horizontalOffset;
     ctx.textAlign = textAlignment;
     if (textAlignment === 'left') alignX = 70 + horizontalOffset;
     else if (textAlignment === 'right') alignX = W - 70 + horizontalOffset;
 
-    // Color or Gold Gradient
     if (useGold) {
         const goldGrad = ctx.createLinearGradient(alignX - 100, (H / 2) + verticalOffset - 60, alignX + 100, (H / 2) + verticalOffset + 40);
         goldGrad.addColorStop(0, '#ffe875');
@@ -1635,7 +1562,6 @@ function drawCardTexts(W, H) {
     const maxWidth = textAlignment === 'center' ? W - 180 : W - 140;
     wrapText(ctx, greetingText, alignX, textYPos, maxWidth, lineHeightVal);
 
-    // Sender name
     if (senderName) {
         ctx.shadowBlur = 6;
         const lineY = H - 120 + verticalOffset;
@@ -1652,7 +1578,6 @@ function drawCardTexts(W, H) {
         ctx.fillText(`From: ${senderName}`, W / 2 + horizontalOffset, lineY + 30);
     }
 
-    // Reset shadow
     ctx.shadowColor = "transparent";
     ctx.shadowBlur = 0;
     ctx.shadowOffsetX = 0;
@@ -1698,7 +1623,6 @@ async function shareCardImage() {
                 text: 'මා ඔබට එවන පින්බර වෙසක් සුබපැතුම්පත! Wishing you a blessed Vesak Poya Day!'
             });
         } else {
-            // Web Share fallback
             await navigator.clipboard.writeText("Wishing you a blessed Vesak! Generate yours at " + window.location.href);
             alert("සුබපැතුම්පතේ ලින්ක් එක Clipboard එකට Copy කරගත්තා! ඔබට එය ඕනෑම තැනක Share කළ හැක. (Link copied to clipboard!)");
         }
@@ -1709,9 +1633,6 @@ async function shareCardImage() {
     }
 }
 
-/* ==========================================
-   5. VESAK POYA COUNTDOWN
-   ========================================== */
 function initCountdown() {
     const targetDate = new Date("May 31, 2026 00:00:00").getTime();
 
