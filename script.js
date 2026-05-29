@@ -939,6 +939,8 @@ function initCardGenerator() {
     canvas.height = 800;
 
     // Event bindings
+    const recipientInput = document.getElementById('cardRecipientName');
+    if (recipientInput) recipientInput.addEventListener('input', drawCard);
     document.getElementById('cardSenderName').addEventListener('input', drawCard);
     document.getElementById('cardGreetingText').addEventListener('input', drawCard);
     document.getElementById('textColor').addEventListener('input', drawCard);
@@ -1370,6 +1372,8 @@ function drawLanternStickers(W, H, scale) {
 function drawCardTexts(W, H) {
     const greetingText = document.getElementById('cardGreetingText').value.trim() || "සැමදෙනාටම පින්බර වෙසක් මංගල්‍යයක් වේවා!";
     const senderName = document.getElementById('cardSenderName').value.trim();
+    const recipientInput = document.getElementById('cardRecipientName');
+    const recipientName = recipientInput ? recipientInput.value.trim() : "";
     const fontName = document.getElementById('cardFont').value;
     const colorHex = document.getElementById('textColor').value;
     const sizeOffset = parseInt(document.getElementById('textSize').value);
@@ -1380,7 +1384,30 @@ function drawCardTexts(W, H) {
 
     const fontSize = 32 + sizeOffset;
 
-    // Shadow
+    // Recipient Name (drawn at the top)
+    if (recipientName) {
+        ctx.save();
+        ctx.shadowColor = "rgba(0,0,0,0.85)";
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+        
+        const recY = 120;
+        ctx.fillStyle = "#ffd700";
+        ctx.textAlign = 'center';
+        ctx.font = `600 24px 'Outfit', sans-serif`;
+        ctx.fillText(`To: ${recipientName}`, W / 2, recY);
+
+        ctx.beginPath();
+        ctx.moveTo(W / 2 - 100, recY + 12);
+        ctx.lineTo(W / 2 + 100, recY + 12);
+        ctx.strokeStyle = "rgba(255,215,0,0.5)";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    // Shadow for main text
     ctx.shadowColor = "rgba(0,0,0,0.85)";
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 2;
@@ -1423,7 +1450,7 @@ function drawCardTexts(W, H) {
         ctx.fillStyle = "#ffd700";
         ctx.textAlign = 'center';
         ctx.font = `500 22px 'Outfit', sans-serif`;
-        ctx.fillText(`~ ${senderName} ~`, W / 2 + horizontalOffset, lineY + 30);
+        ctx.fillText(`From: ${senderName}`, W / 2 + horizontalOffset, lineY + 30);
     }
 
     // Reset shadow
