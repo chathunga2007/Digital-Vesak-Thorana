@@ -204,7 +204,7 @@ const audioTracks = [
         name: "Sambudu Ruwa",
         sinhala: "සම්බුදු රුව",
         artist: "Vidusha Rajaguru",
-        src: "assets/audio/Vidusha Rajaguru - Sambudu Ruwa (සම්බුදු رුව)  Official Music Video - Vidusha Rajaguru (youtube).mp3"
+        src: "assets/audio/Vidusha Rajaguru - Sambudu Ruwa (සම්බුදු රුව)  Official Music Video - Vidusha Rajaguru (youtube).mp3"
     },
     {
         name: "Nidukanane",
