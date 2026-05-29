@@ -24,6 +24,8 @@
 /* --- RESET --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
     background-color: var(--bg-dark);
     color: #f1f3f9;
@@ -32,6 +34,12 @@ body {
     overflow-x: hidden;
     position: relative;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d1020; }
+::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,215,0,0.6); }
 
 /* --- STARFIELD --- */
 .stars-bg {
@@ -484,6 +492,8 @@ nav a:hover, nav li.active a {
     font-size: 0.82rem; padding: 8px 12px; border-radius: 8px;
     background: rgba(255,255,255,0.02); cursor: pointer;
     transition: all 0.2s ease; border-left: 2px solid transparent;
+    font-family: var(--font-sinhala);
+    line-height: 1.5;
 }
 .verse-item:hover {
     background: rgba(255, 215, 0, 0.05); border-left-color: var(--color-yellow);
