@@ -551,10 +551,9 @@ nav li.active a {
 .thorana-buddha {
     position: absolute;
     left: 50%;
-    top: 21%;
     transform: translate(-50%, -50%);
     width: clamp(160px, 24vw, 360px);
-    max-width: 36%;
+    max-width: 30%;
     height: auto;
     z-index: 5;
     pointer-events: none;
