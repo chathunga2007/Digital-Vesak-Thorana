@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="si">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Vesak Thorana 2026 | ඩිජිටල් වෙසක් තොරණ</title>
-    <meta name="description" content="ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත් නිර්මාණය. Experience the interactive Sasa Jataka digital pandal and customize your Vesak greeting cards here.">
+    <meta name="description"
+        content="ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත් නිර්මාණය. Experience the interactive Sasa Jataka digital pandal and customize your Vesak greeting cards here.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Welcome/Entry Screen Overlay -->
@@ -14,17 +17,18 @@
         <div class="welcome-card">
             <!-- Rotating Dharma Wheel -->
             <svg class="welcome-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <h1 class="welcome-title-si">ඩිජිටල් වෙසක් තොරණ 2026</h1>
             <h2 class="welcome-title-en">Digital Vesak Thorana 2026</h2>
-            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
+            <p class="welcome-blessing">"සැමට පින්බර වෙසක් මංගල්‍යයක් වේවා!"<br><span
+                    style="font-size:0.9rem;opacity:0.8;">May you have a blessed and peaceful Vesak!</span></p>
             <button id="btnEnterWebsite" class="welcome-btn">
                 <span>Enter Website</span>
                 <span style="font-size:1.4rem;">🪷</span>
@@ -45,28 +49,48 @@
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Traditional Dhammachakka (Dharma Wheel) -->
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5"/>
-                <circle cx="50" cy="50" r="8" fill="#ffd700"/>
-                <!-- 8 spokes -->
-                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4"/>
-                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4"/>
-                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4"/>
-                <!-- Wheel rims -->
-                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffd700" stroke-width="5" />
+                <circle cx="50" cy="50" r="8" fill="#ffd700" />
+                <line x1="50" y1="12" x2="50" y2="88" stroke="#ffd700" stroke-width="4" />
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="23" x2="77" y2="77" stroke="#ffd700" stroke-width="4" />
+                <line x1="23" y1="77" x2="77" y2="23" stroke="#ffd700" stroke-width="4" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,2" />
             </svg>
             <span class="logo-text">Vesak 2026</span>
         </div>
+
+        <!-- Desktop Nav -->
         <nav>
             <ul>
-                <li class="active"><a href="index.html">🏠 Home</a></li>
-                <li><a href="thorana.html">🎡 Digital Thorana</a></li>
-                <li><a href="card-genarate.html">🎨 Card Generator</a></li>
+                <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+                <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
             </ul>
         </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileMusicBtn" class="mobile-music-btn">
+            🔊 Music On
+        </button>
+
+        <ul>
+            <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+            <li><a href="thorana.html" class="nav-link">🎡 Digital Thorana</a></li>
+            <li><a href="card-genarate.html" class="nav-link">🎨 Card Generator</a></li>
+        </ul>
+    </div>
 
     <!-- Main Hero Landing -->
     <main class="hero-section">
@@ -74,30 +98,30 @@
         <svg class="hero-logo-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <radialGradient id="buddhaGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.6" />
+                    <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
                 </radialGradient>
             </defs>
             <!-- Glowing Aura Background -->
-            <circle cx="100" cy="90" r="70" fill="url(#buddhaGlow)"/>
-            <circle cx="100" cy="90" r="45" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="100" cy="90" r="70" fill="url(#buddhaGlow)" />
+            <circle cx="100" cy="90" r="45" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5" />
             <!-- Buddha Silhouette -->
             <!-- Lotus throne -->
-            <path d="M 50 145 C 50 135, 150 135, 150 145 C 130 160, 70 160, 50 145 Z" fill="#ffd700" opacity="0.9"/>
+            <path d="M 50 145 C 50 135, 150 135, 150 145 C 130 160, 70 160, 50 145 Z" fill="#ffd700" opacity="0.9" />
             <!-- Body -->
-            <path d="M 80 140 L 70 110 C 70 95, 130 95, 130 110 L 120 140 Z" fill="#101432"/>
-            <path d="M 82 138 C 90 120, 110 120, 118 138 Z" fill="#ffd700"/>
+            <path d="M 80 140 L 70 110 C 70 95, 130 95, 130 110 L 120 140 Z" fill="#101432" />
+            <path d="M 82 138 C 90 120, 110 120, 118 138 Z" fill="#ffd700" />
             <!-- Head & Hair Crown -->
-            <circle cx="100" cy="85" r="16" fill="#101432"/>
-            <circle cx="100" cy="67" r="5" fill="#ffd700"/>
+            <circle cx="100" cy="85" r="16" fill="#101432" />
+            <circle cx="100" cy="67" r="5" fill="#ffd700" />
         </svg>
 
         <h1 class="hero-title">DIGITAL VESAK THORANA</h1>
         <h2 id="heroTitleSi" class="hero-title-sinhala">විද්‍යුත් වෙසක් තොරණ සහ සුබපැතුම්පත්</h2>
-        
+
         <p class="hero-subtitle">
-            පින්බර වෙසක් මංගල්‍යය වෙනුවෙන් සැකසූ සුවිශේෂී ඩිජිටල් අත්දැකීම. 
-            සුවිශේෂී ආලෝක රටා සහිත <strong>සස ජාතක කතාව</strong> විදහා දක්වන තොරණ නරඹා, 
+            පින්බර වෙසක් මංගල්‍යය වෙනුවෙන් සැකසූ සුවිශේෂී ඩිජිටල් අත්දැකීම.
+            සුවිශේෂී ආලෝක රටා සහිත <strong>සස ජාතක කතාව</strong> විදහා දක්වන තොරණ නරඹා,
             ඔබේ හිතමිතුරන් වෙනුවෙන්ම වෙසක් සුබපැතුම්පතක් නිර්මාණය කර බාගත කරගන්න.
         </p>
 
@@ -131,79 +155,87 @@
             </div>
         </div>
 
-    <!-- Features Section -->
-    <div class="section-divider">
-        <h2>✨ What's Inside</h2>
-        <p>Three experiences in one beautiful digital space</p>
-    </div>
-
-    <section class="features-section">
-        <a href="thorana.html" class="feature-card card-thorana">
-            <div class="feature-icon">🎡</div>
-            <div class="feature-title">Digital Thorana</div>
-            <div class="feature-title-si">ඩිජිටල් වෙසක් තොරණ</div>
-            <p class="feature-desc">
-                180+ interactive LED lights, 6 animated patterns (Chasing, Rainbow, Spiral, Aura…), and the complete Sasa Jataka story narration in Sinhala &amp; English.
-            </p>
-            <span class="feature-link">Enter Thorana →</span>
-        </a>
-
-        <a href="card-genarate.html" class="feature-card card-generator">
-            <div class="feature-icon">🎨</div>
-            <div class="feature-title">Card Generator</div>
-            <div class="feature-title-si">වෙසක් පත් නිර්මාණය</div>
-            <p class="feature-desc">
-                Create personalised 800×800 HD Vesak greeting cards with 5 Vesak templates, 3 frame styles, decorative stickers, and Sinhala verses. Download as PNG instantly.
-            </p>
-            <span class="feature-link">Create Card →</span>
-        </a>
-
-        <div class="feature-card card-music" style="cursor:default;">
-            <div class="feature-icon">🎵</div>
-            <div class="feature-title">Vesak Music</div>
-            <div class="feature-title-si">වෙසක් ගී</div>
-            <p class="feature-desc">
-                Three devotional Vesak songs play throughout your visit: <em>බුදු බණ පදයක්</em>, <em>සිද්ධාර්ථ ගෞතම්</em>, and <em>සම්බුදු රුව</em>. Press 🔊 Music On anytime.
-            </p>
-            <span class="feature-link" style="color:#94a3b8; cursor:default;">Use button above ↑</span>
+        <!-- Features Section -->
+        <div class="section-divider">
+            <h2>✨ What's Inside</h2>
+            <p>Three experiences in one beautiful digital space</p>
         </div>
-    </section>
 
-    <!-- Jataka Story Teaser -->
-    <div class="section-divider" style="margin-top:0;">
-        <h2>🐇 සස ජාතක කතාව</h2>
-        <p>The Five Chapters of the Noble Hare's Story</p>
-    </div>
-
-    <section class="jataka-teaser">
-        <div class="jataka-cards-row">
-            <div class="jataka-mini-card">
-                <div class="jataka-mini-icon">🕊️</div>
-                <div class="jataka-mini-title">මහා අධිෂ්ඨානය<br><small style="color:#64748b;font-family:inherit">The Vow</small></div>
-            </div>
-            <div class="jataka-mini-card">
-                <div class="jataka-mini-icon">🐟</div>
-                <div class="jataka-mini-title">දන් සෙවීම<br><small style="color:#64748b;font-family:inherit">Gathering Alms</small></div>
-            </div>
-            <div class="jataka-mini-card">
-                <div class="jataka-mini-icon">🐇</div>
-                <div class="jataka-mini-title">ජීවිත දානය<br><small style="color:#64748b;font-family:inherit">The Sacrifice</small></div>
-            </div>
-            <div class="jataka-mini-card">
-                <div class="jataka-mini-icon">🔥</div>
-                <div class="jataka-mini-title">දේව පරීක්ෂාව<br><small style="color:#64748b;font-family:inherit">Divine Test</small></div>
-            </div>
-            <div class="jataka-mini-card">
-                <div class="jataka-mini-icon">🌕</div>
-                <div class="jataka-mini-title">ශශ ලාංඡනය<br><small style="color:#64748b;font-family:inherit">The Moon Mark</small></div>
-            </div>
-        </div>
-        <div style="margin-top: 2rem;">
-            <a href="thorana.html" class="btn-premium" style="display:inline-flex;">
-                <span>📖 Read the Full Story</span>
+        <section class="features-section">
+            <a href="thorana.html" class="feature-card card-thorana">
+                <div class="feature-icon">🎡</div>
+                <div class="feature-title">Digital Thorana</div>
+                <div class="feature-title-si">ඩිජිටල් වෙසක් තොරණ</div>
+                <p class="feature-desc">
+                    180+ interactive LED lights, 6 animated patterns (Chasing, Rainbow, Spiral, Aura…), and the complete
+                    Sasa Jataka story narration in Sinhala &amp; English.
+                </p>
+                <span class="feature-link">Enter Thorana →</span>
             </a>
+
+            <a href="card-genarate.html" class="feature-card card-generator">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-title">Card Generator</div>
+                <div class="feature-title-si">වෙසක් පත් නිර්මාණය</div>
+                <p class="feature-desc">
+                    Create personalised 800×800 HD Vesak greeting cards with 5 Vesak templates, 3 frame styles,
+                    decorative stickers, and Sinhala verses. Download as PNG instantly.
+                </p>
+                <span class="feature-link">Create Card →</span>
+            </a>
+
+            <div class="feature-card card-music" style="cursor:default;">
+                <div class="feature-icon">🎵</div>
+                <div class="feature-title">Vesak Music</div>
+                <div class="feature-title-si">වෙසක් ගී</div>
+                <p class="feature-desc">
+                    Three devotional Vesak songs play throughout your visit: <em>බුදු බණ පදයක්</em>, <em>සිද්ධාර්ථ
+                        ගෞතම්</em>, and <em>සම්බුදු රුව</em>. Press 🔊 Music On anytime.
+                </p>
+                <span class="feature-link" style="color:#94a3b8; cursor:default;">Use button above ↑</span>
+            </div>
+        </section>
+
+        <!-- Jataka Story Teaser -->
+        <div class="section-divider" style="margin-top:0;">
+            <h2>🐇 සස ජාතක කතාව</h2>
+            <p>The Five Chapters of the Noble Hare's Story</p>
         </div>
-    </section>
+
+        <section class="jataka-teaser">
+            <div class="jataka-cards-row">
+                <div class="jataka-mini-card">
+                    <div class="jataka-mini-icon">🕊️</div>
+                    <div class="jataka-mini-title">මහා අධිෂ්ඨානය<br><small style="color:#64748b;font-family:inherit">The
+                            Vow</small></div>
+                </div>
+                <div class="jataka-mini-card">
+                    <div class="jataka-mini-icon">🐟</div>
+                    <div class="jataka-mini-title">දන් සෙවීම<br><small
+                            style="color:#64748b;font-family:inherit">Gathering Alms</small></div>
+                </div>
+                <div class="jataka-mini-card">
+                    <div class="jataka-mini-icon">🐇</div>
+                    <div class="jataka-mini-title">ජීවිත දානය<br><small style="color:#64748b;font-family:inherit">The
+                            Sacrifice</small></div>
+                </div>
+                <div class="jataka-mini-card">
+                    <div class="jataka-mini-icon">🔥</div>
+                    <div class="jataka-mini-title">දේව පරීක්ෂාව<br><small
+                            style="color:#64748b;font-family:inherit">Divine Test</small></div>
+                </div>
+                <div class="jataka-mini-card">
+                    <div class="jataka-mini-icon">🌕</div>
+                    <div class="jataka-mini-title">ශශ ලාංඡනය<br><small style="color:#64748b;font-family:inherit">The
+                            Moon Mark</small></div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="thorana.html" class="btn-premium" style="display:inline-flex;">
+                    <span>📖 Read the Full Story</span>
+                </a>
+            </div>
+        </section>
 
     </main>
 
@@ -216,4 +248,5 @@
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>
+
 </html>
