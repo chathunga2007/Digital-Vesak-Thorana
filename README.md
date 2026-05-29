@@ -1,6 +1,6 @@
 # 🌕 Digital Vesak Thorana 2026
 
-> **ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත්** — A stunning, interactive, and culturally rich digital experience dedicated to Vesak Poya 2026.
+> **ඩිජිටල් වෙසක් තොරණ සහ වෙසක් සුබපැතුම්පත්** — A stunning, interactive, and culturally rich digital experience dedicated to Vesak Poya 2026. 
 
 ![Vesak 2026 Banner](assets/vesak5.png)
 
