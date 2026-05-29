@@ -2001,7 +2001,285 @@ nav a.active {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+/* ==================== THORANA PAGE RESPONSIVE ==================== */
 
+.thorana-container {
+    padding: 1rem 1rem;
+    gap: 1.5rem;
+}
+
+.thorana-view {
+    padding: 1rem 0.5rem;
+}
+
+.thorana-buddha {
+    width: clamp(120px, 38vw, 280px);
+    top: 28%;
+}
+
+/* ==================== HOME PAGE FEATURE CARDS RESPONSIVE ==================== */
+
+.features-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.feature-card {
+    min-height: 380px; /* සමාන උසක් තියන්න */
+}
+
+/* ==================== MUSIC BUTTON RESPONSIVE ==================== */
+
+.btn-music-toggle {
+    background: rgba(255, 215, 0, 0.12);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: var(--color-yellow);
+    padding: 9px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Desktop - Normal */
+@media (min-width: 993px) {
+    .btn-music-toggle {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) and (min-width: 769px) {
+    .btn-music-toggle {
+        padding: 9px 14px;
+        font-size: 0.82rem;
+    }
+}
+
+/* Mobile - Make it compact and nice */
+@media (max-width: 768px) {
+    header {
+        padding: 0.9rem 5% !important;
+        gap: 8px;
+    }
+
+    .logo-text {
+        font-size: 1.45rem;
+    }
+
+    .btn-music-toggle {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        min-width: auto;
+    }
+
+    /* If screen is very narrow, hide text and show only icon */
+    @media (max-width: 480px) {
+        .btn-music-toggle {
+            padding: 8px 10px;
+            font-size: 0.75rem;
+        }
+        
+        /* Optional: Show only icon on very small screens */
+        /* .btn-music-toggle span { display: none; } */   /* Uncomment if needed */
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 360px) {
+    .logo-text {
+        font-size: 1.35rem;
+    }
+    
+    .btn-music-toggle {
+        padding: 7px 9px;
+        font-size: 0.73rem;
+    }
+}
+
+/* Tablet & Mobile - Better stacking */
+@media (max-width: 1024px) {
+    .features-section {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.4rem;
+        padding: 0 1.2rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .features-section {
+        grid-template-columns: 1fr; /* එක යටට එක */
+        gap: 1.6rem;
+        padding: 0 1rem;
+    }
+
+    .feature-card {
+        min-height: auto;
+        padding: 1.8rem 1.4rem;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .feature-icon {
+        font-size: 2.8rem;
+    }
+
+    .feature-title {
+        font-size: 1.35rem;
+    }
+
+    .feature-desc {
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+    .features-section {
+        padding: 0 0.8rem;
+        gap: 1.4rem;
+    }
+
+    .feature-card {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .feature-title {
+        font-size: 1.25rem;
+    }
+
+    .feature-title-si {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .feature-card {
+        padding: 1.4rem 1rem;
+    }
+}
+
+/* Desktop - Large Screen */
+@media (min-width: 1024px) {
+    .thorana-container {
+        grid-template-columns: 1.65fr 1fr;
+        padding: 2rem 1.5rem;
+    }
+    
+    .thorana-buddha {
+        top: 21%;
+        width: clamp(180px, 26vw, 340px);
+    }
+}
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .thorana-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .thorana-buddha {
+        top: 32%;
+        width: clamp(160px, 32vw, 320px);
+    }
+}
+
+/* Mobile - Main Fixes */
+@media (max-width: 768px) {
+    .thorana-container {
+        grid-template-columns: 1fr;
+        padding: 1rem 0.8rem;
+        gap: 1.8rem;
+    }
+
+    .thorana-view {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .thorana-buddha {
+        top: 33% !important;
+        width: clamp(130px, 45vw, 280px) !important;
+    }
+
+    .pandal-structure {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .thorana-dashboard {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .story-card {
+        padding: 1.3rem;
+    }
+
+    .story-image-placeholder {
+        height: 200px;
+    }
+
+    .pattern-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .audio-player-card {
+        padding: 1.3rem;
+    }
+
+    .control-group {
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+    .thorana-buddha {
+        top: 34% !important;
+        width: clamp(115px, 48vw, 250px) !important;
+    }
+
+    .thorana-view {
+        padding: 1rem 0.5rem;
+    }
+
+    .story-text-sinhala {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .dashboard-title {
+        font-size: 1.6rem;
+    }
+
+    .btn-pattern {
+        padding: 12px 8px;
+        font-size: 0.82rem;
+    }
+
+    .mobile-menu {
+        top: 68px;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 360px) {
+    .thorana-buddha {
+        top: 35% !important;
+        width: clamp(105px, 52vw, 220px) !important;
+    }
+    
+    .story-image-placeholder {
+        height: 180px;
+    }
+}
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
     nav ul {
