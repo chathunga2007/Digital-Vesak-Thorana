@@ -128,13 +128,10 @@ function initGlobalMusic() {
         }
     });
 
-    // Attempt autoplay if not explicitly disabled by user
-    const musicEnabled = localStorage.getItem('vesakMusicEnabled');
-    if (musicEnabled !== 'false') {
-        attemptAutoplay();
-    } else {
-        updateGlobalMusicUI();
-    }
+    // NO autoplay - always show stopped state on load
+    // Music only starts when the user explicitly clicks the button
+    isAudioPlaying = false;
+    updateGlobalMusicUI();
 }
 
 function playGlobalMusic() {
@@ -194,35 +191,7 @@ function updateGlobalMusicUI() {
     }
 }
 
-function attemptAutoplay() {
-    // Try to autoplay immediately
-    playGlobalMusic();
-
-    // Fallback: Bind interaction listeners to window with capture phase
-    const startOnInteraction = (event) => {
-        // If user clicked the play/pause header button directly, let its own listener handle it
-        if (event.target && (event.target.id === 'btnGlobalMusic' || event.target.closest('#btnGlobalMusic'))) {
-            return;
-        }
-
-        if (!isAudioPlaying) {
-            playGlobalMusic();
-        }
-
-        // Clean up listeners
-        window.removeEventListener('click', startOnInteraction, true);
-        window.removeEventListener('touchstart', startOnInteraction, true);
-        window.removeEventListener('keydown', startOnInteraction, true);
-        window.removeEventListener('mousedown', startOnInteraction, true);
-        window.removeEventListener('pointerdown', startOnInteraction, true);
-    };
-
-    window.addEventListener('click', startOnInteraction, true);
-    window.addEventListener('touchstart', startOnInteraction, true);
-    window.addEventListener('keydown', startOnInteraction, true);
-    window.addEventListener('mousedown', startOnInteraction, true);
-    window.addEventListener('pointerdown', startOnInteraction, true);
-}
+// attemptAutoplay removed - music is fully manual-control only
 
 function initAudioPlayer() {
     const playPauseBtn = document.getElementById('btnAudioPlayPause');
