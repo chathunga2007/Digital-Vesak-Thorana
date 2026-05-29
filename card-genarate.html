@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="si">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +8,7 @@
         content="Create and download custom Vesak Poya greeting cards with uploaded photos, premium frames, and decorative stickers.">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- Welcome/Entry Screen Overlay -->
     <div id="welcomeOverlay" class="welcome-overlay">
         <div class="welcome-card">
             <!-- Rotating Dharma Wheel -->
@@ -41,7 +37,6 @@
         <div class="stars"></div>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">
             <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +51,6 @@
             <span class="logo-text">Vesak 2026</span>
         </div>
 
-        <!-- Desktop Nav -->
         <nav>
             <ul>
                 <li><a href="index.html" class="nav-link">🏠 Home</a></li>
@@ -65,7 +59,6 @@
             </ul>
         </nav>
 
-        <!-- Hamburger -->
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -75,7 +68,6 @@
         <button id="btnGlobalMusic" class="btn-music-toggle">🔊 Music On</button>
     </header>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="index.html" class="nav-link">🏠 Home</a></li>
@@ -84,10 +76,8 @@
         </ul>
     </div>
 
-    <!-- Main Generator -->
     <main class="card-generator-container">
 
-        <!-- Left: Live Canvas Preview -->
         <section class="card-preview-area">
             <div class="canvas-wrapper pulse-glow-border">
                 <canvas id="cardCanvas"></canvas>
@@ -97,14 +87,12 @@
             </p>
         </section>
 
-        <!-- Right: Controls Dashboard -->
         <section class="card-controls">
             <h2 class="dashboard-title">
                 <span>🎨 Card Studio</span>
                 <span style="font-family:var(--font-sinhala);font-size:1.15rem;">වෙසක් පත් නිර්මාණය</span>
             </h2>
 
-            <!-- 0. Orientation -->
             <div class="control-group">
                 <span class="control-label">📏 Orientation</span>
                 <div class="color-presets" style="justify-content: flex-start; gap: 10px;">
@@ -117,7 +105,6 @@
                 </div>
             </div>
 
-            <!-- 1. Background Selection -->
             <div class="control-group">
                 <span class="control-label">🖼️ Vesak Card Templates (වෙසක් පත් මෝස්තර)</span>
                 <div class="bg-select-grid" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
@@ -170,7 +157,6 @@
                 </div>
             </div>
 
-            <!-- 2. Upload Custom Image -->
             <div class="control-group">
                 <span class="control-label">📤 Upload Your Photo (ඔබේ පින්තූරයක් උඩුගත කරන්න)</span>
                 <div class="file-upload-wrapper">
@@ -182,7 +168,6 @@
                 </div>
             </div>
 
-            <!-- 3. Frame Style -->
             <div class="control-group">
                 <span class="control-label">🖼️ Frame Style (රාමු මෝස්තරය)</span>
                 <div class="frame-select-grid">
@@ -193,20 +178,17 @@
                 </div>
             </div>
 
-            <!-- 4. Greeting Text -->
             <div class="text-input-wrapper">
                 <label for="cardGreetingText" class="control-label">✍️ Greeting Message (සුබපැතුම්)</label>
                 <textarea id="cardGreetingText" class="custom-textarea"
                     placeholder="මෙහි සුබපැතුම් පණිවිඩය ලියන්න..."></textarea>
             </div>
 
-            <!-- 5. Quick Verses -->
             <div class="control-group">
                 <span class="control-label">📜 Quick Verses (පෙර සැකසූ ප්‍රාර්ථනා)</span>
                 <div id="versesList" class="verses-list"></div>
             </div>
 
-            <!-- 6. Recipient & Sender Names (To / From) -->
             <div class="text-input-wrapper">
                 <label for="cardRecipientName" class="control-label">👤 Recipient Name (To / ලබන්නාගේ නම)</label>
                 <input id="cardRecipientName" type="text" class="custom-input"
@@ -219,7 +201,6 @@
                     placeholder="ඔබේ නම (උදා: Chathunga Bimsara)">
             </div>
 
-            <!-- 7. Text Styling Grid -->
             <div class="control-group">
                 <span class="control-label">🎨 Text Styling (අකුරු සැකසුම්)</span>
                 <div class="style-controls-grid">
@@ -239,7 +220,6 @@
                         </select>
                     </div>
                 </div>
-                <!-- Text Alignment -->
                 <div style="margin-top:10px;">
                     <span class="control-label" style="font-size:0.75rem;margin-bottom:6px;display:block;">Alignment
                         (පෙළ ගැස්ම)</span>
@@ -249,7 +229,6 @@
                         <button class="btn-align" data-align="right">▶ Right</button>
                     </div>
                 </div>
-                <!-- Gold Gradient Toggle -->
                 <label class="checkbox-row" style="margin-top:10px;">
                     <input id="useGoldGradient" type="checkbox"
                         style="width:18px;height:18px;accent-color:var(--color-yellow);">
@@ -257,7 +236,6 @@
                 </label>
             </div>
 
-            <!-- 8. Size & Position Sliders -->
             <div class="control-group">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span class="control-label">📏 Font Size</span>
@@ -290,11 +268,9 @@
                 <input id="textLineHeight" type="range" class="speed-slider" min="10" max="60" value="35">
             </div>
 
-            <!-- 9. Decorative Stickers -->
             <div class="control-group sticker-panel">
                 <span class="control-label">🎀 Decorative Stickers (අලංකරණ)</span>
 
-                <!-- Oil Lamp -->
                 <div class="sticker-control-row">
                     <label class="checkbox-row">
                         <input id="stickerLamp" type="checkbox" checked style="accent-color:var(--color-yellow);">
@@ -306,7 +282,6 @@
                     </div>
                 </div>
 
-                <!-- Lotus -->
                 <div class="sticker-control-row">
                     <label class="checkbox-row">
                         <input id="stickerLotus" type="checkbox" checked style="accent-color:var(--color-yellow);">
@@ -318,7 +293,6 @@
                     </div>
                 </div>
 
-                <!-- Lantern -->
                 <div class="sticker-control-row">
                     <label class="checkbox-row">
                         <input id="stickerLantern" type="checkbox" style="accent-color:var(--color-yellow);">
@@ -331,7 +305,6 @@
                 </div>
             </div>
 
-            <!-- 10. Export -->
             <div style="display: flex; gap: 12px; margin-top: 15px; width: 100%;">
                 <button id="btnDownloadCard" class="btn-export"
                     style="flex: 1; margin-top: 0; padding: 14px; font-size: 0.95rem;">
@@ -352,5 +325,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
